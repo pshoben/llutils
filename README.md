@@ -21,7 +21,6 @@ $ sudo yum -i install cmake3
 
 # create the build folder for out-of-source building:
 $ mkdir build
-$ cd build
 
 # build it:
 $ cd build ; cmake -DCMAKE_BUILD_TYPE=Release ..  ; make -j $(nproc)
@@ -34,10 +33,11 @@ $ benchmark/benchmark_llutils
 ```
 ## Usage with cmake projects
 
-llutils is a header-only c++ library
+llutils is a header-only c++ library. 
+
+Add this line to your CMakeLists.txt file:
 
 ```bash
-# add this line to your CmakeLists.txt file:
 include(/path/to/llutils/include)
 ```
 

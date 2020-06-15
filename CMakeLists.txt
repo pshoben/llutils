@@ -5,7 +5,7 @@ project(llutils VERSION 0.1)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-configure_file(config/llutils.h.in llutils.h)
+add_subdirectory(third_party/googletest)
 
 include_directories(include)
 

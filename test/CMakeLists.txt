@@ -1,10 +1,13 @@
-cmake_minimum_required(VERSION 3.1.0)
+cmake_minimum_required(VERSION 3.10.0)
 
 project(test_llutils VERSION 0.1)
 
 include(GoogleTest)
+include_directories(/root/llutils/third_party/googletest/googletest/include)
 
 add_executable (test_llutils test_llutils.cpp)
+target_link_libraries(test_llutils gtest_main)
+
 enable_testing ()
-add_test (NAME test_llutils COMMAND test)
+gtest_add_tests(test_llutils "" test_llutils.cpp)
 

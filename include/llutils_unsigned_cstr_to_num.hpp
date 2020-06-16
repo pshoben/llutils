@@ -5,12 +5,9 @@
 #include <type_traits>
 #include <utility>
 
-//#define unsigned_cstr_to_num unsigned_cstr_to_num_v1
+// baseline
 
-// baselines
-
-#define unsigned_cstr_to_num_v1( buffer, len ) atoi( buffer )
-#define unsigned_cstr_to_num_v2( buffer, len ) strtol( buffer, 0, 10 )
+#define unsigned_cstr_to_num_v1( buffer, len ) strtol( buffer, 0, 10 )
 
 static const char * describe_unsigned_cstr_to_num[] = { "", 
 						"atoi", 	// v1 baseline stdlib atoi 
@@ -25,10 +22,10 @@ public:
 	template <typename... Args>
 	static T unsigned_cstr_to_num(Args&& ... args)
 	{
-  		return unsigned_cstr_to_num_v3(std::forward<Args>(args)...);
+  		return unsigned_cstr_to_num_v2(std::forward<Args>(args)...);
 	}
 
-	static T unsigned_cstr_to_num_v3( const char *buffer, size_t len )
+	static T unsigned_cstr_to_num_v2( const char *buffer, size_t len )
 	{
 		static_assert(std::is_unsigned<T>::value,"");
 		T result = 0;
@@ -37,7 +34,6 @@ public:
 		}
 		return result;
 	}       
-
 };
 
 #endif

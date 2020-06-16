@@ -83,7 +83,7 @@ def plot_row(node,row_count,col_count,row_title,axs,grid_title):
         legend_handles.append(key)
     plt.legend(legend_handles)
     plt.ylabel("cpu time (ns)")
-    plt.xlabel("digits")
+    plt.xlabel("bits in input")
 
 def plot_graph(node,row_count,col_count,row_title,graph_title, axs,grid_title):
     for ik,key in enumerate(node.keys()):

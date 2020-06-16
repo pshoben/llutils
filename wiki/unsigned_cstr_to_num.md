@@ -7,9 +7,9 @@ Convert an ascii c-string containing an unsigned whole number to a numeric value
 
 | Versions         | Description           | Notes           |
 | ---------------- |:---------------------:| -----------------------------------------------------------------------------------:|
-| v1 (atoi)        | baseline              | constant time performance at ~34000 ns, regardless of number of digits in input     |
-| v2 (strtol)      | another baseline      | constant time performance at ~34000 ns, regardless of number of digits in input     |
-| v3 (simple loop) | initial version       | linear performance, starting at ~6000 ns at <8 digits, up to ~37000 ns at 48 digits |
+| v1 (atoi)        | baseline              | constant time performance at ~34000 ns, regardless of number of bits in input     |
+| v2 (strtol)      | another baseline      | constant time performance at ~34000 ns, regardless of number of bits in input     |
+| v3 (simple loop) | initial version       | linear performance, starting at ~6000 ns at <8 bits, up to ~37000 ns at 48 bits |
 
 ## Benchmark Results
 

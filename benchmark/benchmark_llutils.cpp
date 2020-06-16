@@ -7,8 +7,8 @@
 #include <stdlib.h>
 #include <cstdint>
 
-#define NUM_SAMPLES 1000
-#define STEP_SIZE   8
+#define NUM_SAMPLES 100
+#define STEP_SIZE   16
 
 typedef unsigned __int128 uint128_t;
 
@@ -22,6 +22,15 @@ static void fill_samples(int num_digits) {
 		bench_atoi_samples[i][num_digits]=='\0';
 	}
 }
+
+template <typename T>
+static void BM_unsigned_cstr_to_num(benchmark::State& state) {
+ 	fill_samples(state.range(0));
+	for(int i = 0 ; i < NUM_SAMPLES; i++ )
+	   	for (auto _ : state)
+			volatile T y = LLUtils<T>::unsigned_cstr_to_num(bench_atoi_samples[i],state.range(0));
+}
+BENCHMARK_TEMPLATE(BM_unsigned_cstr_to_num,unsigned int)->DenseRange(0,sizeof(unsigned int)*8,STEP_SIZE);
 
 template <typename T>
 static void BM_unsigned_cstr_to_num_v1(benchmark::State& state) {

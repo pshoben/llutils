@@ -1,0 +1,114 @@
+2020-06-16 03:46:06
+Running benchmark/benchmark_llutils
+Run on (4 X 2808 MHz CPU s)
+CPU Caches:
+  L1 Data 32 KiB (x4)
+  L1 Instruction 32 KiB (x4)
+  L2 Unified 256 KiB (x4)
+  L3 Unified 6144 KiB (x4)
+Load Average: 0.73, 0.27, 0.10
+----------------------------------------------------------------------------------------
+Benchmark                                              Time             CPU   Iterations
+----------------------------------------------------------------------------------------
+BM_unsigned_cstr_to_num_v1<unsigned short>/0       34269 ns        31407 ns        22112
+BM_unsigned_cstr_to_num_v1<unsigned short>/8       34038 ns        31221 ns        22106
+BM_unsigned_cstr_to_num_v1<unsigned short>/16      33937 ns        31119 ns        22007
+BM_unsigned_cstr_to_num_v1<unsigned int>/0         33597 ns        30811 ns        22441
+BM_unsigned_cstr_to_num_v1<unsigned int>/8         34940 ns        31932 ns        21982
+BM_unsigned_cstr_to_num_v1<unsigned int>/16        34031 ns        31115 ns        21682
+BM_unsigned_cstr_to_num_v1<unsigned int>/24        33714 ns        30844 ns        20664
+BM_unsigned_cstr_to_num_v1<unsigned int>/32        34168 ns        31264 ns        22696
+BM_unsigned_cstr_to_num_v1<unsigned long>/0        34185 ns        31297 ns        21747
+BM_unsigned_cstr_to_num_v1<unsigned long>/8        34121 ns        31225 ns        22019
+BM_unsigned_cstr_to_num_v1<unsigned long>/16       34832 ns        31880 ns        21319
+BM_unsigned_cstr_to_num_v1<unsigned long>/24       34040 ns        31132 ns        22316
+BM_unsigned_cstr_to_num_v1<unsigned long>/32       34036 ns        31180 ns        22285
+BM_unsigned_cstr_to_num_v1<unsigned long>/40       34917 ns        31960 ns        21739
+BM_unsigned_cstr_to_num_v1<unsigned long>/48       34044 ns        31161 ns        22442
+BM_unsigned_cstr_to_num_v1<unsigned long>/56       33898 ns        31015 ns        21781
+BM_unsigned_cstr_to_num_v1<unsigned long>/64       35221 ns        32239 ns        21638
+BM_unsigned_cstr_to_num_v1<uint128_t>/0            33749 ns        30824 ns        22122
+BM_unsigned_cstr_to_num_v1<uint128_t>/8            34723 ns        31808 ns        21487
+BM_unsigned_cstr_to_num_v1<uint128_t>/16           33596 ns        30754 ns        22285
+BM_unsigned_cstr_to_num_v1<uint128_t>/24           36423 ns        33330 ns        21675
+BM_unsigned_cstr_to_num_v1<uint128_t>/32           34488 ns        31582 ns        20874
+BM_unsigned_cstr_to_num_v1<uint128_t>/40           33876 ns        30998 ns        22385
+BM_unsigned_cstr_to_num_v1<uint128_t>/48           33965 ns        31106 ns        22295
+BM_unsigned_cstr_to_num_v1<uint128_t>/56           34137 ns        31258 ns        22242
+BM_unsigned_cstr_to_num_v1<uint128_t>/64           34114 ns        31221 ns        22226
+BM_unsigned_cstr_to_num_v1<uint128_t>/72           33810 ns        30986 ns        22145
+BM_unsigned_cstr_to_num_v1<uint128_t>/80           34689 ns        31771 ns        21012
+BM_unsigned_cstr_to_num_v1<uint128_t>/88           35045 ns        32089 ns        21919
+BM_unsigned_cstr_to_num_v1<uint128_t>/96           35539 ns        32533 ns        21719
+BM_unsigned_cstr_to_num_v1<uint128_t>/104          34924 ns        31955 ns        22268
+BM_unsigned_cstr_to_num_v1<uint128_t>/112          35849 ns        32809 ns        22431
+BM_unsigned_cstr_to_num_v1<uint128_t>/120          33999 ns        31155 ns        21604
+BM_unsigned_cstr_to_num_v1<uint128_t>/128          35547 ns        32596 ns        22250
+BM_unsigned_cstr_to_num_v2<unsigned short>/0       35377 ns        32439 ns        21365
+BM_unsigned_cstr_to_num_v2<unsigned short>/8       34598 ns        31728 ns        21968
+BM_unsigned_cstr_to_num_v2<unsigned short>/16      36939 ns        33847 ns        21113
+BM_unsigned_cstr_to_num_v2<unsigned int>/0         33833 ns        30993 ns        21989
+BM_unsigned_cstr_to_num_v2<unsigned int>/8         34974 ns        32052 ns        21454
+BM_unsigned_cstr_to_num_v2<unsigned int>/16        33687 ns        30884 ns        21440
+BM_unsigned_cstr_to_num_v2<unsigned int>/24        35433 ns        32444 ns        22281
+BM_unsigned_cstr_to_num_v2<unsigned int>/32        34508 ns        31614 ns        22318
+BM_unsigned_cstr_to_num_v2<unsigned long>/0        35464 ns        32480 ns        21120
+BM_unsigned_cstr_to_num_v2<unsigned long>/8        34448 ns        31559 ns        20204
+BM_unsigned_cstr_to_num_v2<unsigned long>/16       34431 ns        31553 ns        22226
+BM_unsigned_cstr_to_num_v2<unsigned long>/24       34158 ns        31288 ns        21324
+BM_unsigned_cstr_to_num_v2<unsigned long>/32       35258 ns        32323 ns        22100
+BM_unsigned_cstr_to_num_v2<unsigned long>/40       34457 ns        31554 ns        21620
+BM_unsigned_cstr_to_num_v2<unsigned long>/48       35624 ns        32646 ns        20802
+BM_unsigned_cstr_to_num_v2<unsigned long>/56       34957 ns        32045 ns        19661
+BM_unsigned_cstr_to_num_v2<unsigned long>/64       36345 ns        33295 ns        22327
+BM_unsigned_cstr_to_num_v2<uint128_t>/0            34551 ns        31653 ns        21778
+BM_unsigned_cstr_to_num_v2<uint128_t>/8            35064 ns        32118 ns        21961
+BM_unsigned_cstr_to_num_v2<uint128_t>/16           34874 ns        31943 ns        21695
+BM_unsigned_cstr_to_num_v2<uint128_t>/24           36298 ns        33200 ns        22429
+BM_unsigned_cstr_to_num_v2<uint128_t>/32           34260 ns        31394 ns        22591
+BM_unsigned_cstr_to_num_v2<uint128_t>/40           35165 ns        32229 ns        22336
+BM_unsigned_cstr_to_num_v2<uint128_t>/48           34438 ns        31546 ns        21447
+BM_unsigned_cstr_to_num_v2<uint128_t>/56           34092 ns        31238 ns        22170
+BM_unsigned_cstr_to_num_v2<uint128_t>/64           34061 ns        31233 ns        22244
+BM_unsigned_cstr_to_num_v2<uint128_t>/72           34965 ns        32039 ns        21435
+BM_unsigned_cstr_to_num_v2<uint128_t>/80           33975 ns        31140 ns        22169
+BM_unsigned_cstr_to_num_v2<uint128_t>/88           34035 ns        31199 ns        22071
+BM_unsigned_cstr_to_num_v2<uint128_t>/96           33869 ns        31047 ns        20282
+BM_unsigned_cstr_to_num_v2<uint128_t>/104          34064 ns        31213 ns        22039
+BM_unsigned_cstr_to_num_v2<uint128_t>/112          34037 ns        31200 ns        21895
+BM_unsigned_cstr_to_num_v2<uint128_t>/120          34856 ns        31939 ns        22304
+BM_unsigned_cstr_to_num_v2<uint128_t>/128          34028 ns        31212 ns        22132
+BM_unsigned_cstr_to_num_v3<unsigned short>/0         683 ns          626 ns      1058739
+BM_unsigned_cstr_to_num_v3<unsigned short>/8        5100 ns         4674 ns       128387
+BM_unsigned_cstr_to_num_v3<unsigned short>/16      11034 ns        10114 ns        68466
+BM_unsigned_cstr_to_num_v3<unsigned int>/0           706 ns          647 ns      1049311
+BM_unsigned_cstr_to_num_v3<unsigned int>/8          6202 ns         5682 ns       117414
+BM_unsigned_cstr_to_num_v3<unsigned int>/16        11809 ns        10831 ns        63403
+BM_unsigned_cstr_to_num_v3<unsigned int>/24        17486 ns        16026 ns        44573
+BM_unsigned_cstr_to_num_v3<unsigned int>/32        27077 ns        24813 ns        27903
+BM_unsigned_cstr_to_num_v3<unsigned long>/0          688 ns          631 ns      1064614
+BM_unsigned_cstr_to_num_v3<unsigned long>/8         5517 ns         5057 ns       129529
+BM_unsigned_cstr_to_num_v3<unsigned long>/16       11215 ns        10285 ns        64975
+BM_unsigned_cstr_to_num_v3<unsigned long>/24       17078 ns        15652 ns        43318
+BM_unsigned_cstr_to_num_v3<unsigned long>/32       22857 ns        20954 ns        32915
+BM_unsigned_cstr_to_num_v3<unsigned long>/40       35404 ns        32449 ns        21520
+BM_unsigned_cstr_to_num_v3<unsigned long>/48       34819 ns        31913 ns        21324
+BM_unsigned_cstr_to_num_v3<unsigned long>/56       40525 ns        37163 ns        18652
+BM_unsigned_cstr_to_num_v3<unsigned long>/64       47827 ns        43823 ns        16452
+BM_unsigned_cstr_to_num_v3<uint128_t>/0              686 ns          628 ns      1087556
+BM_unsigned_cstr_to_num_v3<uint128_t>/8            12191 ns        11174 ns        61217
+BM_unsigned_cstr_to_num_v3<uint128_t>/16           25321 ns        23202 ns        30488
+BM_unsigned_cstr_to_num_v3<uint128_t>/24           37526 ns        34373 ns        20083
+BM_unsigned_cstr_to_num_v3<uint128_t>/32           50944 ns        46695 ns        10727
+BM_unsigned_cstr_to_num_v3<uint128_t>/40           69540 ns        63720 ns        10446
+BM_unsigned_cstr_to_num_v3<uint128_t>/48           78961 ns        72338 ns         9439
+BM_unsigned_cstr_to_num_v3<uint128_t>/56           93240 ns        85483 ns         8045
+BM_unsigned_cstr_to_num_v3<uint128_t>/64          107125 ns        98207 ns         7010
+BM_unsigned_cstr_to_num_v3<uint128_t>/72          119489 ns       109539 ns         5850
+BM_unsigned_cstr_to_num_v3<uint128_t>/80          138441 ns       126870 ns         5577
+BM_unsigned_cstr_to_num_v3<uint128_t>/88          151073 ns       138445 ns         5049
+BM_unsigned_cstr_to_num_v3<uint128_t>/96          168444 ns       154360 ns         4654
+BM_unsigned_cstr_to_num_v3<uint128_t>/104         177962 ns       163094 ns         4189
+BM_unsigned_cstr_to_num_v3<uint128_t>/112         191256 ns       175239 ns         3853
+BM_unsigned_cstr_to_num_v3<uint128_t>/120         204260 ns       187264 ns         3665
+BM_unsigned_cstr_to_num_v3<uint128_t>/128         218490 ns       200271 ns         3428

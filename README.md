@@ -32,6 +32,7 @@ $ test/test_llutils
 $ export LLUTILS_DATA=/path/to/benchmark-out
 
 # run the benchmarks:
+$ benchmark/benchmark_llutils --benchmark_out_format=console --benchmark_out=$LLUTILS_DATA/benchmark_llutils.txt
 $ benchmark/benchmark_llutils --benchmark-out-format=csv --benchmark-out=$LLUTILS_DATA/benchmark_llutils.csv
 ```
 

@@ -101,8 +101,11 @@ def plot_series(data,row_count,col_count,series_count,series_title, axs):
             if len(arr)>1:
                 x_value = int(arr[1])
             x_values.append(x_value)
-            y_value = int(point[3]) # cpu time
-            y_values.append(y_value)
+            try:
+                y_value = int(point[3]) # cpu time
+                y_values.append(y_value)
+            except ValueError:
+                y_values.append(0) 
         handle, = axs[row_count].plot(np.array(x_values), np.array(y_values), label=series_title)
 
 def main():

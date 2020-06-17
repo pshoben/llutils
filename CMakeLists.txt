@@ -15,4 +15,5 @@ include_directories(include)
 
 add_subdirectory (test)
 add_subdirectory (benchmark)
+add_subdirectory (harness)
 

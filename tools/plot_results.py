@@ -98,15 +98,16 @@ def plot_series(data,row_count,col_count,series_count,series_title, axs):
         for ipoint,point in enumerate(data):
             x_value = ipoint
             arr = point[0].split("/")
-            if len(arr)>1:
-                x_value = int(arr[1])
-            x_values.append(x_value)
             try:
                 y_value = int(point[3]) # cpu time
                 y_values.append(y_value)
+                if len(arr)>1:
+                    x_value = int(arr[1])
+                    x_values.append(x_value)
             except ValueError:
-                y_values.append(0) 
-        handle, = axs[row_count].plot(np.array(x_values), np.array(y_values), label=series_title)
+                pass
+        if len(x_values)>0 and len(y_values)>0 and len(x_values)==len(y_values):
+            handle, = axs[row_count].plot(np.array(x_values), np.array(y_values), label=series_title, marker='o', linestyle='--')
 
 def main():
     plot_benchmark_results()

@@ -10,7 +10,7 @@
 #include <math.h>
 
 #define NUM_SAMPLES 1 
-#define STEP_SIZE   16 
+#define STEP_SIZE   4 
 
 typedef unsigned __int128 uint128_t;
 char bench_atoi_samples[NUM_SAMPLES][64];

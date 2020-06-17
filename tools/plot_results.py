@@ -100,11 +100,10 @@ def plot_series(data,row_count,col_count,series_count,series_title, axs):
             arr = point[0].split("/")
             try:
                 y_value = int(point[3]) # cpu time
-                if not y_value == 0:
-                    y_values.append(y_value)
-                    if len(arr)>1:
-                        x_value = int(arr[1])
-                        x_values.append(x_value)
+                y_values.append(y_value)
+                if len(arr)>1:
+                    x_value = int(arr[1])
+                    x_values.append(x_value)
             except ValueError:
                 pass
         if len(x_values)>0 and len(y_values)>0 and len(x_values)==len(y_values):

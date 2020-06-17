@@ -355,3 +355,80 @@ BM_unsigned_cstr_to_num_v5<uint128_t>/116          55.8 ns         51.1 ns     1
 BM_unsigned_cstr_to_num_v5<uint128_t>/120          54.5 ns         50.0 ns     12797724
 BM_unsigned_cstr_to_num_v5<uint128_t>/124          58.4 ns         53.5 ns     12403327
 BM_unsigned_cstr_to_num_v5<uint128_t>/128          3.73 ns         3.42 ns    195799109
+## reference architecture
+gcc (GCC) 8.3.1 20190507 (Red Hat 8.3.1-4)
+Linux localhost.localdomain 5.7.1 #1 SMP Thu Jun 11 09:45:41 EDT 2020 x86_64 x86_64 x86_64 GNU/Linux
+Architecture:        x86_64
+CPU op-mode(s):      32-bit, 64-bit
+Byte Order:          Little Endian
+CPU(s):              4
+On-line CPU(s) list: 0-3
+Thread(s) per core:  1
+Core(s) per socket:  4
+Socket(s):           1
+NUMA node(s):        1
+Vendor ID:           GenuineIntel
+CPU family:          6
+Model:               158
+Model name:          Intel(R) Core(TM) i7-7700HQ CPU @ 2.80GHz
+Stepping:            9
+CPU MHz:             2807.996
+BogoMIPS:            5615.99
+Hypervisor vendor:   KVM
+Virtualization type: full
+L1d cache:           32K
+L1i cache:           32K
+L2 cache:            256K
+L3 cache:            6144K
+NUMA node0 CPU(s):   0-3
+Flags:               fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid tsc_known_freq pni pclmulqdq ssse3 cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx rdrand hypervisor lahf_lm abm 3dnowprefetch invpcid_single pti fsgsbase avx2 invpcid rdseed clflushopt md_clear flush_l1d
+MemTotal:        8150368 kB
+MemFree:         2256940 kB
+MemAvailable:    6831200 kB
+Buffers:            2300 kB
+Cached:          4749860 kB
+SwapCached:         3064 kB
+Active:          2748008 kB
+Inactive:        2539648 kB
+Active(anon):     100564 kB
+Inactive(anon):   535728 kB
+Active(file):    2647444 kB
+Inactive(file):  2003920 kB
+Unevictable:           0 kB
+Mlocked:               0 kB
+SwapTotal:       3358716 kB
+SwapFree:        3339596 kB
+Dirty:                 4 kB
+Writeback:             0 kB
+AnonPages:        510516 kB
+Mapped:           295140 kB
+Shmem:            101112 kB
+KReclaimable:     226236 kB
+Slab:             365128 kB
+SReclaimable:     226236 kB
+SUnreclaim:       138892 kB
+KernelStack:        6860 kB
+PageTables:        26844 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     7433900 kB
+Committed_AS:    2949248 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:       34156 kB
+VmallocChunk:          0 kB
+Percpu:             3248 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:    219136 kB
+ShmemHugePages:        0 kB
+ShmemPmdMapped:        0 kB
+FileHugePages:         0 kB
+FilePmdMapped:         0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+Hugetlb:               0 kB
+DirectMap4k:      237504 kB
+DirectMap2M:     8151040 kB

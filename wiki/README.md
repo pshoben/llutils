@@ -4,7 +4,7 @@ A header-only C++ library collection of utility functions commonly required for 
 
 # Functions
 
-## unsigned_ctr_to_num 
+## unsigned_cstr_to_num 
 
 Convert an ascii c-string containing an unsigned whole number to a numeric value (short/int/long/uint128_t)
 

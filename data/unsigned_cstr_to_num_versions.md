@@ -1,34 +1,4 @@
 
-# Function unsigned_cstr_to_num
-
-Convert an ascii c-string containing an unsigned whole number to a numeric value (short/int/long/uint128_t)
-
-## Versions
-
-| Versions         | Description          
-| ----------------- |:--------------------------------------------------------------------------------------------------------:|
-| v1 (baseline)     | strtoul |
-| v2  | simple loop with multiply ; using pointer access into buffer            |
-| v3  | simple loop with multiply ; using index access into buffer             |
-| v4  | simple loop with power of 10 lookup ; using index access into buffer    |
-| v5  | simple loop with power of 10 lookup ; using pointer access into buffer    |
-
-## Benchmark Results
-
-![Benchmark Results](https://github.com/pshoben/llutils/blob/master/data/BM_unsigned_cstr_to_num.png "Benchmark Results")
-
-## Analysis
-
-Preferred implementation of LLUtils::unsigned_cstr_to_num<T> on the reference architecture is v2 (naive/simple loop).
-
-However, use of perfect forwarding here reduces performace by a factor of 2x or 3x - increasing the cputime v2 from 1-13ns to 3-23ns.
-
-v1 (blue) is the baseline: strtoul
-v2 (orange) is at least 3x faster than baseline when input is a 20-decimal digit number. This improves to 20x times faster for input numbers that have fewer digits. 
-
-v3,v4,v5 attempts to reduce data dependency and improve instruction-level parallelism, but no affect currently visible, so more investigation needed here.
-
-
 ## Conclusions
 
 1. Performance depends strongly on number of digits in the input, and on the width of the variable used to store the number.
@@ -75,8 +45,3 @@ e.g. short integers run faster using the *unsigned short* instantiation than usi
 | BM_unsigned_cstr_to_num_v4<unsigned_long>_RMS | 59 | 8.17 (1) |
 | BM_unsigned_cstr_to_num_v4<uint128_t>_RMS | 62 | 27.09 (1) |
 | | | |
-
-[Raw Benchmark Results](https://github.com/pshoben/llutils/blob/master/data/benchmark_llutils.txt "Raw Benchmark Results : unsigned_cstr_to_num")
-
-
-

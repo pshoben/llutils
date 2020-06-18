@@ -52,7 +52,6 @@ BENCHMARK_TEMPLATE(BM_unsigned_cstr_to_num,unsigned int)->DenseRange(0,sizeof(un
 BENCHMARK_TEMPLATE(BM_unsigned_cstr_to_num,unsigned long)->DenseRange(0,sizeof(unsigned long)*8,STEP_SIZE);
 BENCHMARK_TEMPLATE(BM_unsigned_cstr_to_num,uint128_t)->DenseRange(0,sizeof(uint128_t)*8,STEP_SIZE);
 
-/*
 template <typename T>
 static void BM_unsigned_cstr_to_num_v1(benchmark::State& state) {
 	// can't use strtoul baseline for 128bit nums
@@ -72,7 +71,6 @@ BENCHMARK_TEMPLATE(BM_unsigned_cstr_to_num_v1,unsigned int)->DenseRange(0,sizeof
 BENCHMARK_TEMPLATE(BM_unsigned_cstr_to_num_v1,unsigned long)->DenseRange(0,sizeof(unsigned long)*8,STEP_SIZE);
 BENCHMARK_TEMPLATE(BM_unsigned_cstr_to_num_v1,uint128_t)->DenseRange(0,sizeof(uint128_t)*8,STEP_SIZE);
 
-*/
 
 template <typename T>
 static void BM_unsigned_cstr_to_num_v2(benchmark::State& state) {

@@ -80,69 +80,18 @@ public:
 		return result;
 	} 
 
-/*	static T unsigned_cstr_to_num_v5( const char *buffer, size_t len )
-	{
-		static_assert(std::is_unsigned<T>::value,"");
-		T result_a = 0;
-		T result_b = 0;
-		int i=0;
-		unsigned short count_a = 0;
-		unsigned short count_b = 0;
-		while (len--) {
-			result_a = 100 * result_a + (buffer[i] - '0');
-			if( len>1 ) {
-				len--;
-				result_b = 100 * result_b + (buffer[i+1] - '0');
-				count_b++;
-			}
-			i++;
-		}
-		if( count_b == count_a )
-			result_a = 10 * result_a;
-		else
-			result_b = 10 * result_b;
-		return result_a + result_b;
-	} 
-
-	static T unsigned_cstr_to_num_v6( const char *buffer, size_t len )
-	{
-		static_assert(std::is_unsigned<T>::value,"");
-		T result_a = 0;
-		T result_b = 0;
-		int i=0;
-		while (len--) {
-			result_a += powten[len] * (buffer[i++] - '0');
-			if( len ) {
-				len--;
-				result_b = powten[len] * (buffer[i++] - '0');
-			}
-		}
-		return result_a + result_b;
-	} 
-*/
-
 private:
 	static const T powten[std::numeric_limits<T>::digits10+1];
-	static const uint128_t powten_uint128t[39];
 };
 template<>
 uint128_t LLUtils<uint128_t>::unsigned_cstr_to_num_v4( const char *buffer, size_t len )
 {
-	uint128_t result = 0;
-	int i=0;
-	while (len--) {
-		result += powten_uint128t[len] * (buffer[i++] - '0');
-	}
-	return result;
+	return LLUtils<uint128_t>::unsigned_cstr_to_num_v2(buffer,len);
 }
 template<>
 uint128_t LLUtils<uint128_t>::unsigned_cstr_to_num_v5( const char *buffer, size_t len )
 {
-	uint128_t result = 0;
-	while (len--) {
-		result += powten_uint128t[len] * (*buffer++ - '0');
-	}
-	return result;
+	return LLUtils<uint128_t>::unsigned_cstr_to_num_v2(buffer,len);
 } 
 
 /*template<>
@@ -161,53 +110,6 @@ uint128_t LLUtils<uint128_t>::unsigned_cstr_to_num_v6( const char *buffer, size_
 	return result_a + result_b;
 }*/ 
 
-
-template <>
-//constexpr uint128_t LLUtils<T>::powten[];
-const uint128_t LLUtils<uint128_t>::powten_uint128t[39] = {
-		1LLU,
-		10LLU,
-		100LLU,
-		1000LLU,
-		10000LLU,
-		100000LLU,
-		1000000LLU,
-		10000000LLU,
-		100000000LLU,
-		1000000000LLU,
-
-		10000000000LLU,
-		100000000000LLU,
-		1000000000000LLU,
-		10000000000000LLU,
-		100000000000000LLU,
-		1000000000000000LLU,
-		10000000000000000LLU,
-		100000000000000000LLU,
-		1000000000000000000LLU,
-		10000000000000000000LLU,
-
-		(uint128_t) 10000000000000000000LLU * (uint128_t) 10LLU,
-		(uint128_t) 10000000000000000000LLU * (uint128_t) 100LLU,
-		(uint128_t) 10000000000000000000LLU * (uint128_t) 1000LLU,
-		(uint128_t) 10000000000000000000LLU * (uint128_t) 10000LLU,
-		(uint128_t) 10000000000000000000LLU * (uint128_t) 100000LLU,
-		(uint128_t) 10000000000000000000LLU * (uint128_t) 1000000LLU,
-		(uint128_t) 10000000000000000000LLU * (uint128_t) 10000000LLU,
-		(uint128_t) 10000000000000000000LLU * (uint128_t) 100000000LLU,
-		(uint128_t) 10000000000000000000LLU * (uint128_t) 1000000000LLU,
-		(uint128_t) 10000000000000000000LLU * (uint128_t) 10000000000LLU,
-
-		(uint128_t) 10000000000000000000LLU * (uint128_t) 100000000000LLU,
-		(uint128_t) 10000000000000000000LLU * (uint128_t) 1000000000000LLU,
-		(uint128_t) 10000000000000000000LLU * (uint128_t) 10000000000000LLU,
-		(uint128_t) 10000000000000000000LLU * (uint128_t) 100000000000000LLU,
-		(uint128_t) 10000000000000000000LLU * (uint128_t) 1000000000000000LLU,
-		(uint128_t) 10000000000000000000LLU * (uint128_t) 10000000000000000LLU,
-		(uint128_t) 10000000000000000000LLU * (uint128_t) 100000000000000000LLU,
-		(uint128_t) 10000000000000000000LLU * (uint128_t) 1000000000000000000LLU,
-		(uint128_t) 10000000000000000000LLU * (uint128_t) 10000000000000000000LLU // 2^128 = 3.4028237 x 10^38
-	};
 template <>
 const unsigned long LLUtils<unsigned long>::powten[20] = {
 		1LU,

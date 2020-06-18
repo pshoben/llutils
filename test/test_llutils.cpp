@@ -7,6 +7,8 @@
 #include <cstdio>
 #include "llutils_harness_utils.hpp"
 
+using namespace llutils;
+
 TEST(LLUtils, StrToNumUnsignedShort) 
 {
 	unsigned short max = USHRT_MAX;

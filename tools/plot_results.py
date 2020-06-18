@@ -25,6 +25,7 @@ def plot_benchmark_results():
     full_path = args.input_file
 
     with open(full_path, 'rt') as f:
+        title = "benchmark"
         csv_reader = csv.reader(f)
         depth = None
         got_header = False

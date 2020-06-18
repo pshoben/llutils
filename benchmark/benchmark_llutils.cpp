@@ -12,6 +12,8 @@
 #define NUM_SAMPLES 1 
 #define STEP_SIZE   4 
 
+using namespace llutils;
+
 typedef unsigned __int128 uint128_t;
 char bench_atoi_samples[NUM_SAMPLES][64];
 size_t bench_atoi_sample_lens[NUM_SAMPLES];
@@ -45,10 +47,12 @@ static void BM_unsigned_cstr_to_num(benchmark::State& state) {
 			LLUTILS_EXPECT_VALUE(y,bench_atoi_samples[i]);
 		}
 }
+BENCHMARK_TEMPLATE(BM_unsigned_cstr_to_num,unsigned short)->DenseRange(0,sizeof(unsigned short)*8,STEP_SIZE);
 BENCHMARK_TEMPLATE(BM_unsigned_cstr_to_num,unsigned int)->DenseRange(0,sizeof(unsigned int)*8,STEP_SIZE);
 BENCHMARK_TEMPLATE(BM_unsigned_cstr_to_num,unsigned long)->DenseRange(0,sizeof(unsigned long)*8,STEP_SIZE);
 BENCHMARK_TEMPLATE(BM_unsigned_cstr_to_num,uint128_t)->DenseRange(0,sizeof(uint128_t)*8,STEP_SIZE);
 
+/*
 template <typename T>
 static void BM_unsigned_cstr_to_num_v1(benchmark::State& state) {
 	// can't use strtoul baseline for 128bit nums
@@ -63,9 +67,12 @@ static void BM_unsigned_cstr_to_num_v1(benchmark::State& state) {
 			LLUTILS_EXPECT_VALUE(y,bench_atoi_samples[i]);
 		}
 }
+BENCHMARK_TEMPLATE(BM_unsigned_cstr_to_num,unsigned short)->DenseRange(0,sizeof(unsigned short)*8,STEP_SIZE);
 BENCHMARK_TEMPLATE(BM_unsigned_cstr_to_num_v1,unsigned int)->DenseRange(0,sizeof(unsigned int)*8,STEP_SIZE);
 BENCHMARK_TEMPLATE(BM_unsigned_cstr_to_num_v1,unsigned long)->DenseRange(0,sizeof(unsigned long)*8,STEP_SIZE);
 BENCHMARK_TEMPLATE(BM_unsigned_cstr_to_num_v1,uint128_t)->DenseRange(0,sizeof(uint128_t)*8,STEP_SIZE);
+
+*/
 
 template <typename T>
 static void BM_unsigned_cstr_to_num_v2(benchmark::State& state) {
@@ -76,9 +83,11 @@ static void BM_unsigned_cstr_to_num_v2(benchmark::State& state) {
 			LLUTILS_EXPECT_VALUE(y,bench_atoi_samples[i]);
 		}
 }
-BENCHMARK_TEMPLATE(BM_unsigned_cstr_to_num_v2,unsigned int)->DenseRange(0,sizeof(unsigned int)*8,STEP_SIZE);
-BENCHMARK_TEMPLATE(BM_unsigned_cstr_to_num_v2,unsigned long)->DenseRange(0,sizeof(unsigned long)*8,STEP_SIZE);
-BENCHMARK_TEMPLATE(BM_unsigned_cstr_to_num_v2,uint128_t)->DenseRange(0,sizeof(uint128_t)*8,STEP_SIZE);
+BENCHMARK_TEMPLATE(BM_unsigned_cstr_to_num_v2,unsigned short)->DenseRange(0,sizeof(unsigned short)*8,STEP_SIZE)->Complexity();
+BENCHMARK_TEMPLATE(BM_unsigned_cstr_to_num_v2,unsigned int)->DenseRange(0,sizeof(unsigned int)*8,STEP_SIZE)->Complexity();
+BENCHMARK_TEMPLATE(BM_unsigned_cstr_to_num_v2,unsigned long)->DenseRange(0,sizeof(unsigned long)*8,STEP_SIZE)->Complexity();
+BENCHMARK_TEMPLATE(BM_unsigned_cstr_to_num_v2,uint128_t)->DenseRange(0,sizeof(uint128_t)*8,STEP_SIZE)->Complexity();
+
 
 template <typename T>
 static void BM_unsigned_cstr_to_num_v3(benchmark::State& state) {
@@ -89,9 +98,10 @@ static void BM_unsigned_cstr_to_num_v3(benchmark::State& state) {
 			LLUTILS_EXPECT_VALUE(y,bench_atoi_samples[i]);
 		}
 }
-BENCHMARK_TEMPLATE(BM_unsigned_cstr_to_num_v3,unsigned int)->DenseRange(0,sizeof(unsigned int)*8,STEP_SIZE);
-BENCHMARK_TEMPLATE(BM_unsigned_cstr_to_num_v3,unsigned long)->DenseRange(0,sizeof(unsigned long)*8,STEP_SIZE);
-BENCHMARK_TEMPLATE(BM_unsigned_cstr_to_num_v3,uint128_t)->DenseRange(0,sizeof(uint128_t)*8,STEP_SIZE);
+BENCHMARK_TEMPLATE(BM_unsigned_cstr_to_num_v3,unsigned short)->DenseRange(0,sizeof(unsigned short)*8,STEP_SIZE)->Complexity();
+BENCHMARK_TEMPLATE(BM_unsigned_cstr_to_num_v3,unsigned int)->DenseRange(0,sizeof(unsigned int)*8,STEP_SIZE)->Complexity();
+BENCHMARK_TEMPLATE(BM_unsigned_cstr_to_num_v3,unsigned long)->DenseRange(0,sizeof(unsigned long)*8,STEP_SIZE)->Complexity();
+BENCHMARK_TEMPLATE(BM_unsigned_cstr_to_num_v3,uint128_t)->DenseRange(0,sizeof(uint128_t)*8,STEP_SIZE)->Complexity();
 
 
 template <typename T>
@@ -103,9 +113,12 @@ static void BM_unsigned_cstr_to_num_v4(benchmark::State& state) {
 			LLUTILS_EXPECT_VALUE(y,bench_atoi_samples[i]);
 		}
 }
-BENCHMARK_TEMPLATE(BM_unsigned_cstr_to_num_v4,unsigned int)->DenseRange(0,sizeof(unsigned int)*8,STEP_SIZE);
-BENCHMARK_TEMPLATE(BM_unsigned_cstr_to_num_v4,unsigned long)->DenseRange(0,sizeof(unsigned long)*8,STEP_SIZE);
-BENCHMARK_TEMPLATE(BM_unsigned_cstr_to_num_v4,uint128_t)->DenseRange(0,sizeof(uint128_t)*8,STEP_SIZE);
+BENCHMARK_TEMPLATE(BM_unsigned_cstr_to_num_v4,unsigned short)->DenseRange(0,sizeof(unsigned short)*8,STEP_SIZE)->Complexity();
+BENCHMARK_TEMPLATE(BM_unsigned_cstr_to_num_v4,unsigned int)->DenseRange(0,sizeof(unsigned int)*8,STEP_SIZE)->Complexity();
+BENCHMARK_TEMPLATE(BM_unsigned_cstr_to_num_v4,unsigned long)->DenseRange(0,sizeof(unsigned long)*8,STEP_SIZE)->Complexity();
+BENCHMARK_TEMPLATE(BM_unsigned_cstr_to_num_v4,uint128_t)->DenseRange(0,sizeof(uint128_t)*8,STEP_SIZE)->Complexity();
+
+
 
 template <typename T>
 static void BM_unsigned_cstr_to_num_v5(benchmark::State& state) {
@@ -116,10 +129,10 @@ static void BM_unsigned_cstr_to_num_v5(benchmark::State& state) {
 			LLUTILS_EXPECT_VALUE(y,bench_atoi_samples[i]);
 		}
 }
-BENCHMARK_TEMPLATE(BM_unsigned_cstr_to_num_v5,unsigned int)->DenseRange(0,sizeof(unsigned int)*8,STEP_SIZE);
-BENCHMARK_TEMPLATE(BM_unsigned_cstr_to_num_v5,unsigned long)->DenseRange(0,sizeof(unsigned long)*8,STEP_SIZE);
-BENCHMARK_TEMPLATE(BM_unsigned_cstr_to_num_v5,uint128_t)->DenseRange(0,sizeof(uint128_t)*8,STEP_SIZE);
-
+BENCHMARK_TEMPLATE(BM_unsigned_cstr_to_num_v5,unsigned short)->DenseRange(0,sizeof(unsigned short)*8,STEP_SIZE)->Complexity();
+BENCHMARK_TEMPLATE(BM_unsigned_cstr_to_num_v5,unsigned int)->DenseRange(0,sizeof(unsigned int)*8,STEP_SIZE)->Complexity();
+BENCHMARK_TEMPLATE(BM_unsigned_cstr_to_num_v5,unsigned long)->DenseRange(0,sizeof(unsigned long)*8,STEP_SIZE)->Complexity();
+BENCHMARK_TEMPLATE(BM_unsigned_cstr_to_num_v5,uint128_t)->DenseRange(0,sizeof(uint128_t)*8,STEP_SIZE)->Complexity();
 
 BENCHMARK_MAIN();
 

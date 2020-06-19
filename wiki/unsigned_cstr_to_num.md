@@ -19,15 +19,10 @@ Convert an ascii c-string containing an unsigned whole number to a numeric value
 
 ## Analysis
 
-Preferred implementation of LLUtils::unsigned_cstr_to_num<T> on the reference architecture is v2 (naive/simple loop).
-
-However, use of perfect forwarding here reduces performace by a factor of 2x or 3x - increasing the cputime v2 from 1-13ns to 3-23ns.
-
-v1 (blue) is the baseline: strtoul
-v2 (orange) is at least 3x faster than baseline when input is a 20-decimal digit number. This improves to 20x times faster for input numbers that have fewer digits. 
-
-v3,v4,v5 attempts to reduce data dependency and improve instruction-level parallelism, but no affect currently visible, so more investigation needed here.
-
+Preferred implementation of LLUtils::unsigned_cstr_to_num<T> on the reference architecture is: 
+* **v5** - for input data up to 10 digits long (i.e. up to unsigned integer width)
+* **v2** - for input data up to 10-20 digits long (i.e. up to unsigned long width)
+* **v3** - for input data greater than 20 digits long (i.e. up to unsigned _int128 width)
 
 ## Conclusions
 

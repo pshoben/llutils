@@ -47,10 +47,18 @@ e.g. short integers run faster using the *unsigned short* instantiation than usi
 | unsigned __int128 (greater than 20 decimal digits) | version 3 - simple loop with multiply ; using index access into buffer |
 
 
+## baseline 
+|function version                             | RMS                  | Big O                      |
+|:--------------------------------------------|---------------------:|:--------------------------:|
+| version 1 - strtoul  | | |
+| BM_unsigned_cstr_to_num_v1<unsigned_short>_RMS | 8 | 21.62 (1) |
+| BM_unsigned_cstr_to_num_v1<unsigned_int>_RMS | 15 | 24.85 (1) |
+| BM_unsigned_cstr_to_num_v1<unsigned_long>_RMS | 24 | 30.16 (1) |
+
 ## results
 
-|function version       | RMS                  | Big O                      |
-|:----------------------|---------------------:|:--------------------------:|
+|function version                             | RMS                  | Big O                      |
+|:--------------------------------------------|---------------------:|:--------------------------:|
 | version 5 - simple loop with power of 10 lookup ; using pointer access into buffer  | | |
 | **BM_unsigned_cstr_to_num_v5<unsigned_short>_RMS** | 35 | **1.38** (1) |
 | **BM_unsigned_cstr_to_num_v5<unsigned_int>_RMS** | 51 | **2.13** (1) |

@@ -31,7 +31,7 @@ Preferred implementation of LLUtils::unsigned_cstr_to_num<T> on the reference ar
 3. Instantiating the function using the smallest width that can handle all expected input produces the best performance:
 e.g. short integers run faster using the *unsigned short* instantiation than using the *unsigned int* one.
 4. Function versions that use a power of ten lookup table are faster for short and int data, but actually slower for long and 128-bit data. It seems that the overhead of using a larger lookup table (with wider data) crosses a threshold at 32 bits and 10 LUT entries. The level of this threshold is likely dependent on architecture.
-5. On this build (gcc (GCC) 8.3.1 -O3) - pointer access into the buffer is faster than indexing, for all data widths. This is liable to change with different compiler and compile options.
+5. On this build (gcc (GCC) 8.3.1 -O3) - pointer access into the buffer is faster than indexing, for all data widths.
 
 
 | data size                                          | best function version       |

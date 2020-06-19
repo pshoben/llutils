@@ -1,8 +1,8 @@
 
 ## Conclusions
 
-1. Performance is very much dependent on number of digits in the input, and on the width of the variable used to store the number.
-2. The optimal version changes depending on the workload. There is no version of the function that is optimal for all input data
+1. Performance depends strongly on number of digits in the input, and on the width of the variable used to store the number.
+2. The optimal version changes depending on the workload. There is no version of the function that is optimal for all input data.
 3. Instantiating the function using the smallest width that can handle all expected input produces the best performance:
 e.g. short integers run faster using the *unsigned short* instantiation than using the *unsigned int* one.
 

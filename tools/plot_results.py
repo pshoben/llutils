@@ -25,6 +25,7 @@ def plot_benchmark_results():
     full_path = args.input_file
 
     with open(full_path, 'rt') as f:
+        global xcount
         title = "benchmark"
         csv_reader = csv.reader(f)
         depth = None
@@ -53,6 +54,11 @@ def plot_benchmark_results():
                 body_lines.append(converted)
         for line in body_lines:
             name = line[0]
+            if "_BigO" in name or "_RMS" in name:
+                continue
+            if args.ignore_name is not None:
+                if args.ignore_name in name:
+                    continue
             arr= name.replace("_v","|v").replace("<","|").replace(">","").replace("/","|").split("|")
             depth=len(arr)
             if len(arr)>3:
@@ -72,7 +78,11 @@ def plot_benchmark_results():
         fig2 = plt.gcf()
         #plt.show()
         file_format="png"
-        fig2.savefig(args.output_folder + os.sep + title + "." + file_format,
+        output_file_name = args.input_file.replace(".csv","")
+        if args.ignore_name is not None:
+            output_file_name = output_file_name + "_ignore_" + args.ignore_name
+        output_file_name = output_file_name + ".png"
+        fig2.savefig(output_file_name,
                     dpi=100,
                     format=file_format,
                     quality=100)
@@ -87,12 +97,17 @@ def plot_row(node,row_count,col_count,row_title,axs,grid_title):
     plt.xlabel("bits in input")
 
 def plot_graph(node,row_count,col_count,row_title,graph_title, axs,grid_title):
+    global xcount
     for ik,key in enumerate(node.keys()):
         plot_series(node[key],row_count,col_count,ik, graph_title, axs)
 
-    axs[row_count].set_title(grid_title + " - " + row_title)
+    if xcount == 1:
+        axs.set_title(grid_title + " - " + row_title)
+    else:
+        axs[row_count].set_title(grid_title + " - " + row_title)
 
 def plot_series(data,row_count,col_count,series_count,series_title, axs):
+    global xcount
     if data is not None:
         x_values = []
         y_values = []
@@ -107,13 +122,35 @@ def plot_series(data,row_count,col_count,series_count,series_title, axs):
                     x_values.append(x_value)
             except ValueError:
                 # no data point but still need to add something to ensure there is a series
-                y_value = 0
+                y_value = -1
                 y_values.append(y_value)
                 if len(arr)>1:
                     x_value = int(arr[1])
                     x_values.append(x_value)
-        if len(x_values)>0 and len(y_values)>0 and len(x_values)==len(y_values):
-            handle, = axs[row_count].plot(np.array(x_values), np.array(y_values), label=series_title, marker='.', linestyle='--')
+        # if the entire series is made of -1s, truncate it to origin.
+        all_nulls = True
+        for y in y_values:
+            if not y == -1:
+                all_nulls = False
+        if all_nulls:
+            x_tidied = [0]
+            y_tidied = [0]
+        else:
+            # remove any null values from valid series (insert a gap)
+            x_tidied = []
+            y_tidied = []
+            for i,y in enumerate(y_values):
+                if not y == -1:
+                    y_tidied.append(y)
+                    x_tidied.append(x_values[i])
+
+
+        if len(x_tidied)>0 and len(y_tidied)>0 and len(x_tidied)==len(y_tidied):
+            if xcount == 1:
+                handle, = axs.plot(np.array(x_tidied), np.array(y_tidied), label=series_title, marker='.', linestyle='--')
+            else:
+                handle, = axs[row_count].plot(np.array(x_tidied), np.array(y_tidied), label=series_title, marker='.',
+                                              linestyle='--')
 
 def main():
     plot_benchmark_results()
@@ -123,9 +160,10 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     requiredNamed = parser.add_argument_group('required named arguments')
     requiredNamed.add_argument('--input-file', help='full path to input filename')
-    requiredNamed.add_argument('--output-folder', help='full path to output folder')
+    #requiredNamed.add_argument('--output-folder', help='full path to output folder')
+    parser.add_argument('--ignore-name', help='do not plot this series (used to remove the baseline)')
     args = parser.parse_args()
-    if args.input_file is None or args.output_folder is None:
+    if args.input_file is None: #  or args.output_folder is None:
         parser.print_help()
     else:
         main()

@@ -1,6 +1,6 @@
-$LLUTILS_HOME/build/benchmark/${1} --benchmark_out_format=csv --benchmark_out=$LLUTILS_DATA/${1}.csv | tee $LLUTILS_DATA/${1}.txt
-python3 $LLUTILS_HOME/tools/plot_results.py --input-file=${LLUTILS_DATA}/${1}.csv --output-folder=${LLUTILS_DATA}
-mv ${LLUTILS_DATA}/benchmark.png ${LLUTILS_DATA}/${1}_plot.png
+$LLUTILS_HOME/build/benchmark/${1} --benchmark_out_format=csv --benchmark_out=$LLUTILS_DATA/${1}.csv 2>/dev/null | tee $LLUTILS_DATA/${1}.txt
+python3 $LLUTILS_HOME/tools/plot_results.py --input-file=${LLUTILS_DATA}/${1}.csv
+python3 $LLUTILS_HOME/tools/plot_results.py --input-file=${LLUTILS_DATA}/${1}.csv --ignore-name=v1 # don't plot the baseline
 
 echo "" > $LLUTILS_DATA/summary_${1}.md
 echo "## summary" >> $LLUTILS_DATA/summary_${1}.md

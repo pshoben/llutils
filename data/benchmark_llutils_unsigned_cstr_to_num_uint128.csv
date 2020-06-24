@@ -1,0 +1,183 @@
+2020-06-23 07:58:50
+Running /root/llutils//build/benchmark/benchmark_llutils_unsigned_cstr_to_num_uint128
+Run on (4 X 2808 MHz CPU s)
+CPU Caches:
+  L1 Data 32 KiB (x4)
+  L1 Instruction 32 KiB (x4)
+  L2 Unified 256 KiB (x4)
+  L3 Unified 6144 KiB (x4)
+Load Average: 1.00, 0.88, 0.73
+name,iterations,real_time,cpu_time,time_unit,bytes_per_second,items_per_second,label,error_occurred,error_message
+"BM_unsigned_cstr_to_num_v1<uint128_t>/0",,,,,,,,true,"Skipping values > ULONG_MAX"
+"BM_unsigned_cstr_to_num_v1<uint128_t>/4",,,,,,,,true,"Skipping values > ULONG_MAX"
+"BM_unsigned_cstr_to_num_v1<uint128_t>/8",,,,,,,,true,"Skipping values > ULONG_MAX"
+"BM_unsigned_cstr_to_num_v1<uint128_t>/12",,,,,,,,true,"Skipping values > ULONG_MAX"
+"BM_unsigned_cstr_to_num_v1<uint128_t>/16",,,,,,,,true,"Skipping values > ULONG_MAX"
+"BM_unsigned_cstr_to_num_v1<uint128_t>/20",,,,,,,,true,"Skipping values > ULONG_MAX"
+"BM_unsigned_cstr_to_num_v1<uint128_t>/24",,,,,,,,true,"Skipping values > ULONG_MAX"
+"BM_unsigned_cstr_to_num_v1<uint128_t>/28",,,,,,,,true,"Skipping values > ULONG_MAX"
+"BM_unsigned_cstr_to_num_v1<uint128_t>/32",,,,,,,,true,"Skipping values > ULONG_MAX"
+"BM_unsigned_cstr_to_num_v1<uint128_t>/36",,,,,,,,true,"Skipping values > ULONG_MAX"
+"BM_unsigned_cstr_to_num_v1<uint128_t>/40",,,,,,,,true,"Skipping values > ULONG_MAX"
+"BM_unsigned_cstr_to_num_v1<uint128_t>/44",,,,,,,,true,"Skipping values > ULONG_MAX"
+"BM_unsigned_cstr_to_num_v1<uint128_t>/48",,,,,,,,true,"Skipping values > ULONG_MAX"
+"BM_unsigned_cstr_to_num_v1<uint128_t>/52",,,,,,,,true,"Skipping values > ULONG_MAX"
+"BM_unsigned_cstr_to_num_v1<uint128_t>/56",,,,,,,,true,"Skipping values > ULONG_MAX"
+"BM_unsigned_cstr_to_num_v1<uint128_t>/60",,,,,,,,true,"Skipping values > ULONG_MAX"
+"BM_unsigned_cstr_to_num_v1<uint128_t>/64",,,,,,,,true,"Skipping values > ULONG_MAX"
+"BM_unsigned_cstr_to_num_v1<uint128_t>/68",,,,,,,,true,"Skipping values > ULONG_MAX"
+"BM_unsigned_cstr_to_num_v1<uint128_t>/72",,,,,,,,true,"Skipping values > ULONG_MAX"
+"BM_unsigned_cstr_to_num_v1<uint128_t>/76",,,,,,,,true,"Skipping values > ULONG_MAX"
+"BM_unsigned_cstr_to_num_v1<uint128_t>/80",,,,,,,,true,"Skipping values > ULONG_MAX"
+"BM_unsigned_cstr_to_num_v1<uint128_t>/84",,,,,,,,true,"Skipping values > ULONG_MAX"
+"BM_unsigned_cstr_to_num_v1<uint128_t>/88",,,,,,,,true,"Skipping values > ULONG_MAX"
+"BM_unsigned_cstr_to_num_v1<uint128_t>/92",,,,,,,,true,"Skipping values > ULONG_MAX"
+"BM_unsigned_cstr_to_num_v1<uint128_t>/96",,,,,,,,true,"Skipping values > ULONG_MAX"
+"BM_unsigned_cstr_to_num_v1<uint128_t>/100",,,,,,,,true,"Skipping values > ULONG_MAX"
+"BM_unsigned_cstr_to_num_v1<uint128_t>/104",,,,,,,,true,"Skipping values > ULONG_MAX"
+"BM_unsigned_cstr_to_num_v1<uint128_t>/108",,,,,,,,true,"Skipping values > ULONG_MAX"
+"BM_unsigned_cstr_to_num_v1<uint128_t>/112",,,,,,,,true,"Skipping values > ULONG_MAX"
+"BM_unsigned_cstr_to_num_v1<uint128_t>/116",,,,,,,,true,"Skipping values > ULONG_MAX"
+"BM_unsigned_cstr_to_num_v1<uint128_t>/120",,,,,,,,true,"Skipping values > ULONG_MAX"
+"BM_unsigned_cstr_to_num_v1<uint128_t>/124",,,,,,,,true,"Skipping values > ULONG_MAX"
+"BM_unsigned_cstr_to_num_v1<uint128_t>/128",,,,,,,,true,"Skipping values > ULONG_MAX"
+"BM_unsigned_cstr_to_num_v2<uint128_t>/0",420208802,1.63864,1.62751,ns,,,,,
+"BM_unsigned_cstr_to_num_v2<uint128_t>/4",407847625,2.81775,2.79172,ns,,,,,
+"BM_unsigned_cstr_to_num_v2<uint128_t>/8",259071617,3.97438,3.94163,ns,,,,,
+"BM_unsigned_cstr_to_num_v2<uint128_t>/12",100000000,5.16475,5.12005,ns,,,,,
+"BM_unsigned_cstr_to_num_v2<uint128_t>/16",104487900,6.44317,6.38955,ns,,,,,
+"BM_unsigned_cstr_to_num_v2<uint128_t>/20",79564142,7.77788,7.71317,ns,,,,,
+"BM_unsigned_cstr_to_num_v2<uint128_t>/24",66871348,8.86053,8.78392,ns,,,,,
+"BM_unsigned_cstr_to_num_v2<uint128_t>/28",69207577,11.8908,11.7865,ns,,,,,
+"BM_unsigned_cstr_to_num_v2<uint128_t>/32",50032911,12.8466,12.7398,ns,,,,,
+"BM_unsigned_cstr_to_num_v2<uint128_t>/36",52809143,14.8399,14.6875,ns,,,,,
+"BM_unsigned_cstr_to_num_v2<uint128_t>/40",42376661,16.2437,16.0757,ns,,,,,
+"BM_unsigned_cstr_to_num_v2<uint128_t>/44",40137667,18.2457,18.098,ns,,,,,
+"BM_unsigned_cstr_to_num_v2<uint128_t>/48",35446421,19.8781,19.7097,ns,,,,,
+"BM_unsigned_cstr_to_num_v2<uint128_t>/52",33792319,19.536,19.3703,ns,,,,,
+"BM_unsigned_cstr_to_num_v2<uint128_t>/56",31454241,22.2075,21.9857,ns,,,,,
+"BM_unsigned_cstr_to_num_v2<uint128_t>/60",28373667,23.5879,23.3889,ns,,,,,
+"BM_unsigned_cstr_to_num_v2<uint128_t>/64",28163217,24.151,23.9131,ns,,,,,
+"BM_unsigned_cstr_to_num_v2<uint128_t>/68",23957510,27.9785,27.7141,ns,,,,,
+"BM_unsigned_cstr_to_num_v2<uint128_t>/72",23366311,24.4909,24.2734,ns,,,,,
+"BM_unsigned_cstr_to_num_v2<uint128_t>/76",21674769,33.1767,32.8619,ns,,,,,
+"BM_unsigned_cstr_to_num_v2<uint128_t>/80",21743711,35.3537,34.9818,ns,,,,,
+"BM_unsigned_cstr_to_num_v2<uint128_t>/84",19217218,33.7669,33.4729,ns,,,,,
+"BM_unsigned_cstr_to_num_v2<uint128_t>/88",18548309,39.7476,39.3055,ns,,,,,
+"BM_unsigned_cstr_to_num_v2<uint128_t>/92",17154587,39.2588,38.9182,ns,,,,,
+"BM_unsigned_cstr_to_num_v2<uint128_t>/96",16821710,41.3505,40.9736,ns,,,,,
+"BM_unsigned_cstr_to_num_v2<uint128_t>/100",16331671,42.1695,41.7854,ns,,,,,
+"BM_unsigned_cstr_to_num_v2<uint128_t>/104",15556803,43.5438,43.1792,ns,,,,,
+"BM_unsigned_cstr_to_num_v2<uint128_t>/108",12267406,46.7354,46.3003,ns,,,,,
+"BM_unsigned_cstr_to_num_v2<uint128_t>/112",14930998,49.6179,49.1229,ns,,,,,
+"BM_unsigned_cstr_to_num_v2<uint128_t>/116",13107574,52.3486,51.8975,ns,,,,,
+"BM_unsigned_cstr_to_num_v2<uint128_t>/120",13514050,52.3294,51.8315,ns,,,,,
+"BM_unsigned_cstr_to_num_v2<uint128_t>/124",12674208,52.7765,52.3204,ns,,,,,
+"BM_unsigned_cstr_to_num_v2<uint128_t>/128",418377822,1.78939,1.77011,ns,,,,,
+"BM_unsigned_cstr_to_num_v2<uint128_t>_BigO",,25.3496,25.1161,(1),,,,,
+"BM_unsigned_cstr_to_num_v2<uint128_t>_RMS",,0.646119,0.646059,,,,,,
+"BM_unsigned_cstr_to_num_v3<uint128_t>/0",396732151,1.73225,1.71682,ns,,,,,
+"BM_unsigned_cstr_to_num_v3<uint128_t>/4",251344841,2.83729,2.80797,ns,,,,,
+"BM_unsigned_cstr_to_num_v3<uint128_t>/8",406812309,4.09765,4.05528,ns,,,,,
+"BM_unsigned_cstr_to_num_v3<uint128_t>/12",122638280,6.14486,6.07185,ns,,,,,
+"BM_unsigned_cstr_to_num_v3<uint128_t>/16",99631669,6.88545,6.81838,ns,,,,,
+"BM_unsigned_cstr_to_num_v3<uint128_t>/20",91534872,8.88677,8.80847,ns,,,,,
+"BM_unsigned_cstr_to_num_v3<uint128_t>/24",51559607,10.701,10.5875,ns,,,,,
+"BM_unsigned_cstr_to_num_v3<uint128_t>/28",58906778,11.5454,11.4435,ns,,,,,
+"BM_unsigned_cstr_to_num_v3<uint128_t>/32",55014246,13.5996,13.4599,ns,,,,,
+"BM_unsigned_cstr_to_num_v3<uint128_t>/36",48770790,14.5055,14.3717,ns,,,,,
+"BM_unsigned_cstr_to_num_v3<uint128_t>/40",41232498,17.5998,17.4305,ns,,,,,
+"BM_unsigned_cstr_to_num_v3<uint128_t>/44",37459754,16.2739,16.1417,ns,,,,,
+"BM_unsigned_cstr_to_num_v3<uint128_t>/48",35005001,18.4204,18.2452,ns,,,,,
+"BM_unsigned_cstr_to_num_v3<uint128_t>/52",33962143,20.557,20.3915,ns,,,,,
+"BM_unsigned_cstr_to_num_v3<uint128_t>/56",34950352,22.8496,22.6572,ns,,,,,
+"BM_unsigned_cstr_to_num_v3<uint128_t>/60",27886222,24.4757,24.2609,ns,,,,,
+"BM_unsigned_cstr_to_num_v3<uint128_t>/64",27734125,24.9463,24.7422,ns,,,,,
+"BM_unsigned_cstr_to_num_v3<uint128_t>/68",25339536,28.1607,27.9416,ns,,,,,
+"BM_unsigned_cstr_to_num_v3<uint128_t>/72",23532544,33.7488,33.2951,ns,,,,,
+"BM_unsigned_cstr_to_num_v3<uint128_t>/76",19778317,31.7102,31.3932,ns,,,,,
+"BM_unsigned_cstr_to_num_v3<uint128_t>/80",17897590,35.61,35.2504,ns,,,,,
+"BM_unsigned_cstr_to_num_v3<uint128_t>/84",19464037,36.6299,36.3099,ns,,,,,
+"BM_unsigned_cstr_to_num_v3<uint128_t>/88",19607804,40.0968,39.6111,ns,,,,,
+"BM_unsigned_cstr_to_num_v3<uint128_t>/92",17779039,40.4222,40.0468,ns,,,,,
+"BM_unsigned_cstr_to_num_v3<uint128_t>/96",17318895,40.1413,39.7863,ns,,,,,
+"BM_unsigned_cstr_to_num_v3<uint128_t>/100",15856386,44.5981,44.1222,ns,,,,,
+"BM_unsigned_cstr_to_num_v3<uint128_t>/104",16311155,45.5862,45.14,ns,,,,,
+"BM_unsigned_cstr_to_num_v3<uint128_t>/108",15380744,46.0186,45.6274,ns,,,,,
+"BM_unsigned_cstr_to_num_v3<uint128_t>/112",14210936,49.5551,49.083,ns,,,,,
+"BM_unsigned_cstr_to_num_v3<uint128_t>/116",12917200,54.0886,53.5606,ns,,,,,
+"BM_unsigned_cstr_to_num_v3<uint128_t>/120",13708510,52.7481,52.2015,ns,,,,,
+"BM_unsigned_cstr_to_num_v3<uint128_t>/124",12662689,55.2287,54.717,ns,,,,,
+"BM_unsigned_cstr_to_num_v3<uint128_t>/128",410120646,1.78191,1.766,ns,,,,,
+"BM_unsigned_cstr_to_num_v3<uint128_t>_BigO",,26.1268,25.8746,(1),,,,,
+"BM_unsigned_cstr_to_num_v3<uint128_t>_RMS",,0.638771,0.638624,,,,,,
+"BM_unsigned_cstr_to_num_v4<uint128_t>/0",399131158,1.75978,1.74321,ns,,,,,
+"BM_unsigned_cstr_to_num_v4<uint128_t>/4",414468460,1.74363,1.72941,ns,,,,,
+"BM_unsigned_cstr_to_num_v4<uint128_t>/8",178185845,3.95607,3.92461,ns,,,,,
+"BM_unsigned_cstr_to_num_v4<uint128_t>/12",128136298,5.22356,5.17594,ns,,,,,
+"BM_unsigned_cstr_to_num_v4<uint128_t>/16",96716943,7.45765,7.34852,ns,,,,,
+"BM_unsigned_cstr_to_num_v4<uint128_t>/20",80827499,8.73109,8.60101,ns,,,,,
+"BM_unsigned_cstr_to_num_v4<uint128_t>/24",67430682,9.49289,9.40379,ns,,,,,
+"BM_unsigned_cstr_to_num_v4<uint128_t>/28",58754959,11.2076,11.1045,ns,,,,,
+"BM_unsigned_cstr_to_num_v4<uint128_t>/32",52963064,13.6235,13.4999,ns,,,,,
+"BM_unsigned_cstr_to_num_v4<uint128_t>/36",45953100,14.5092,14.3762,ns,,,,,
+"BM_unsigned_cstr_to_num_v4<uint128_t>/40",43461225,15.832,15.7096,ns,,,,,
+"BM_unsigned_cstr_to_num_v4<uint128_t>/44",41573108,18.1087,17.9289,ns,,,,,
+"BM_unsigned_cstr_to_num_v4<uint128_t>/48",36298880,20.0327,19.8598,ns,,,,,
+"BM_unsigned_cstr_to_num_v4<uint128_t>/52",33836212,21.6987,21.5167,ns,,,,,
+"BM_unsigned_cstr_to_num_v4<uint128_t>/56",31540996,23.059,22.8627,ns,,,,,
+"BM_unsigned_cstr_to_num_v4<uint128_t>/60",28239582,25.931,25.7247,ns,,,,,
+"BM_unsigned_cstr_to_num_v4<uint128_t>/64",27644195,26.6365,26.3985,ns,,,,,
+"BM_unsigned_cstr_to_num_v4<uint128_t>/68",25143891,29.5416,29.2947,ns,,,,,
+"BM_unsigned_cstr_to_num_v4<uint128_t>/72",22121475,30.7575,30.5087,ns,,,,,
+"BM_unsigned_cstr_to_num_v4<uint128_t>/76",21514595,31.8474,31.5199,ns,,,,,
+"BM_unsigned_cstr_to_num_v4<uint128_t>/80",21513046,33.2684,32.989,ns,,,,,
+"BM_unsigned_cstr_to_num_v4<uint128_t>/84",19083918,35.496,35.1863,ns,,,,,
+"BM_unsigned_cstr_to_num_v4<uint128_t>/88",19579303,40.0999,39.76,ns,,,,,
+"BM_unsigned_cstr_to_num_v4<uint128_t>/92",16921206,39.023,38.721,ns,,,,,
+"BM_unsigned_cstr_to_num_v4<uint128_t>/96",17339261,39.9447,39.6512,ns,,,,,
+"BM_unsigned_cstr_to_num_v4<uint128_t>/100",16358622,44.8103,44.4059,ns,,,,,
+"BM_unsigned_cstr_to_num_v4<uint128_t>/104",15066017,47.5725,47.0937,ns,,,,,
+"BM_unsigned_cstr_to_num_v4<uint128_t>/108",13205500,50.6171,50.0424,ns,,,,,
+"BM_unsigned_cstr_to_num_v4<uint128_t>/112",10000000,50.5705,50.0769,ns,,,,,
+"BM_unsigned_cstr_to_num_v4<uint128_t>/116",12144326,54.0632,53.5637,ns,,,,,
+"BM_unsigned_cstr_to_num_v4<uint128_t>/120",13030160,54.2165,53.6793,ns,,,,,
+"BM_unsigned_cstr_to_num_v4<uint128_t>/124",11654283,55.0612,54.5621,ns,,,,,
+"BM_unsigned_cstr_to_num_v4<uint128_t>/128",406938196,1.79085,1.77462,ns,,,,,
+"BM_unsigned_cstr_to_num_v4<uint128_t>_BigO",,26.2935,26.0527,(1),,,,,
+"BM_unsigned_cstr_to_num_v4<uint128_t>_RMS",,0.647212,0.647095,,,,,,
+"BM_unsigned_cstr_to_num_v5<uint128_t>/0",414858995,1.81706,1.80153,ns,,,,,
+"BM_unsigned_cstr_to_num_v5<uint128_t>/4",422440582,1.70757,1.69206,ns,,,,,
+"BM_unsigned_cstr_to_num_v5<uint128_t>/8",253901910,3.95406,3.92204,ns,,,,,
+"BM_unsigned_cstr_to_num_v5<uint128_t>/12",100000000,5.14517,5.1043,ns,,,,,
+"BM_unsigned_cstr_to_num_v5<uint128_t>/16",106970543,6.50025,6.44239,ns,,,,,
+"BM_unsigned_cstr_to_num_v5<uint128_t>/20",85311352,6.52829,6.4799,ns,,,,,
+"BM_unsigned_cstr_to_num_v5<uint128_t>/24",74722150,9.14621,9.06813,ns,,,,,
+"BM_unsigned_cstr_to_num_v5<uint128_t>/28",60450448,12.1898,12.0805,ns,,,,,
+"BM_unsigned_cstr_to_num_v5<uint128_t>/32",50040775,12.0309,11.9276,ns,,,,,
+"BM_unsigned_cstr_to_num_v5<uint128_t>/36",49547212,12.8635,12.7615,ns,,,,,
+"BM_unsigned_cstr_to_num_v5<uint128_t>/40",44956097,16.1592,16.0119,ns,,,,,
+"BM_unsigned_cstr_to_num_v5<uint128_t>/44",39539365,17.7256,17.5751,ns,,,,,
+"BM_unsigned_cstr_to_num_v5<uint128_t>/48",35727134,17.1768,17.0303,ns,,,,,
+"BM_unsigned_cstr_to_num_v5<uint128_t>/52",33164336,19.9088,19.7107,ns,,,,,
+"BM_unsigned_cstr_to_num_v5<uint128_t>/56",30589068,22.8324,22.6326,ns,,,,,
+"BM_unsigned_cstr_to_num_v5<uint128_t>/60",26948741,24.3309,24.1194,ns,,,,,
+"BM_unsigned_cstr_to_num_v5<uint128_t>/64",25976546,27.6984,27.424,ns,,,,,
+"BM_unsigned_cstr_to_num_v5<uint128_t>/68",22147870,27.3808,27.1272,ns,,,,,
+"BM_unsigned_cstr_to_num_v5<uint128_t>/72",22156821,31.3735,31.0256,ns,,,,,
+"BM_unsigned_cstr_to_num_v5<uint128_t>/76",21795479,31.9354,31.6314,ns,,,,,
+"BM_unsigned_cstr_to_num_v5<uint128_t>/80",22128006,32.3391,32.1119,ns,,,,,
+"BM_unsigned_cstr_to_num_v5<uint128_t>/84",19727194,35.2899,35.0064,ns,,,,,
+"BM_unsigned_cstr_to_num_v5<uint128_t>/88",18759372,36.8816,36.5995,ns,,,,,
+"BM_unsigned_cstr_to_num_v5<uint128_t>/92",18844219,38.311,38.0334,ns,,,,,
+"BM_unsigned_cstr_to_num_v5<uint128_t>/96",17687073,40.0474,39.7479,ns,,,,,
+"BM_unsigned_cstr_to_num_v5<uint128_t>/100",16334442,41.7868,41.4226,ns,,,,,
+"BM_unsigned_cstr_to_num_v5<uint128_t>/104",16004489,44.4088,44.0392,ns,,,,,
+"BM_unsigned_cstr_to_num_v5<uint128_t>/108",15250964,44.4438,44.0918,ns,,,,,
+"BM_unsigned_cstr_to_num_v5<uint128_t>/112",14767553,47.3013,46.9382,ns,,,,,
+"BM_unsigned_cstr_to_num_v5<uint128_t>/116",12772001,47.7391,47.3648,ns,,,,,
+"BM_unsigned_cstr_to_num_v5<uint128_t>/120",10000000,52.6647,52.2421,ns,,,,,
+"BM_unsigned_cstr_to_num_v5<uint128_t>/124",10126601,55.1296,54.6838,ns,,,,,
+"BM_unsigned_cstr_to_num_v5<uint128_t>/128",417779003,1.65841,1.64635,ns,,,,,
+"BM_unsigned_cstr_to_num_v5<uint128_t>_BigO",,25.0426,24.8332,(1),,,,,
+"BM_unsigned_cstr_to_num_v5<uint128_t>_RMS",,0.645754,0.646025,,,,,,

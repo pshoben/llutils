@@ -10,11 +10,14 @@
 //#include "llutils_harness_utils.hpp" 
 #include <iostream>
 
-#if defined(__GNUC__) || defined(__GNUG__)
-#define LLUTILS_UNLIKELY(v) __builtin_expect(!!(v), 0)
+#if __GNUC__
+#define LLUTILS_BUILTIN_EXPECT(b, t) (__builtin_expect(b, t))
 #else
-#define LLUTILS_UNLIKELY(v) v
+#define LLUTILS_BUILTIN_EXPECT(b, t) b
 #endif
+
+#define LLUTILS_LIKELY(x) LLUTILS_BUILTIN_EXPECT((x), 1)
+#define LLUTILS_UNLIKELY(x) LLUTILS_BUILTIN_EXPECT((x), 0)
 
 namespace llutils {
 
@@ -23,15 +26,18 @@ typedef unsigned __int128 uint128_t;
 // baseline function v1
 //#define unsigned_cstr_to_num_v1( buffer, len ) strtoul( buffer, 0, 10 )
 
+// preferred implementation
+#define unsigned_cstr_to_num( buffer, len ) unsigned_cstr_to_num_v5( buffer, len )
+
 template <typename T>
 class LLUtils
 {
 public:
 	// forward to the preferred implementation
 	template <typename... Args>
-	static T unsigned_cstr_to_num(Args&& ... args)
+	static T unsigned_cstr_to_num_fwd(Args&& ... args)
 	{
-  		return unsigned_cstr_to_num_v4(std::forward<Args>(args)...);
+  		return unsigned_cstr_to_num_v5(std::forward<Args>(args)...);
 	}
 
 	static T unsigned_cstr_to_num_v1( const char *buffer, size_t len )
@@ -79,6 +85,15 @@ public:
 		}
 		return result;
 	} 
+	static T unsigned_cstr_to_num_v6( const char *buffer, size_t len )
+	{
+		static_assert(std::is_unsigned<T>::value,"");
+		T result = 0;
+		while LLUTILS_LIKELY((len--)) {
+			result += powten[len] * (*buffer++ - '0');
+		}
+		return result;
+	} 
 
 private:
 	static const T powten[std::numeric_limits<T>::digits10+1];
@@ -93,7 +108,11 @@ uint128_t LLUtils<uint128_t>::unsigned_cstr_to_num_v5( const char *buffer, size_
 {
 	return LLUtils<uint128_t>::unsigned_cstr_to_num_v2(buffer,len);
 } 
-
+template<>
+uint128_t LLUtils<uint128_t>::unsigned_cstr_to_num_v6( const char *buffer, size_t len )
+{
+	return LLUtils<uint128_t>::unsigned_cstr_to_num_v2(buffer,len);
+} 
 /*template<>
 uint128_t LLUtils<uint128_t>::unsigned_cstr_to_num_v6( const char *buffer, size_t len )
 {

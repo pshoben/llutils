@@ -98,4 +98,15 @@ static void BM_unsigned_cstr_to_num_v5(benchmark::State& state) {
 		}
 }
 
+template <typename T>
+static void BM_unsigned_cstr_to_num_v6(benchmark::State& state) {
+ 	fill_samples(state.range(0),std::numeric_limits<T>::digits);
+	for(int i = 0 ; i < NUM_SAMPLES; i++ )
+	   	for (auto _ : state) {
+			volatile T y = LLUtils<T>::unsigned_cstr_to_num_v6(bench_atoi_samples[i],bench_atoi_sample_lens[i]); 
+			LLUTILS_EXPECT_VALUE(y,bench_atoi_samples[i]);
+		}
+}
+
+
 #endif

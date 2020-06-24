@@ -1,234 +1,234 @@
 ---------------------------------------------------------------------------------------
 Benchmark                                             Time             CPU   Iterations
 ---------------------------------------------------------------------------------------
-BM_unsigned_cstr_to_num_v1<unsigned int>/0         64.0 ns         57.0 ns     13507488
-BM_unsigned_cstr_to_num_v1<unsigned int>/2         63.5 ns         57.1 ns     11576650
-BM_unsigned_cstr_to_num_v1<unsigned int>/4         61.4 ns         55.1 ns     11845241
-BM_unsigned_cstr_to_num_v1<unsigned int>/6         64.8 ns         58.1 ns     11777804
-BM_unsigned_cstr_to_num_v1<unsigned int>/8         69.9 ns         62.9 ns     10574190
-BM_unsigned_cstr_to_num_v1<unsigned int>/10        71.2 ns         63.5 ns     11875607
-BM_unsigned_cstr_to_num_v1<unsigned int>/12        76.7 ns         68.6 ns     10129678
-BM_unsigned_cstr_to_num_v1<unsigned int>/14        73.1 ns         65.6 ns      9954970
-BM_unsigned_cstr_to_num_v1<unsigned int>/16        84.5 ns         75.6 ns      9704032
-BM_unsigned_cstr_to_num_v1<unsigned int>/18        82.7 ns         73.9 ns      7634751
-BM_unsigned_cstr_to_num_v1<unsigned int>/20         105 ns         93.5 ns      8791477
-BM_unsigned_cstr_to_num_v1<unsigned int>/22         135 ns          119 ns      6265151
-BM_unsigned_cstr_to_num_v1<unsigned int>/24         105 ns         92.7 ns      5436629
-BM_unsigned_cstr_to_num_v1<unsigned int>/26        96.2 ns         86.2 ns      7147713
-BM_unsigned_cstr_to_num_v1<unsigned int>/28         104 ns         91.9 ns      7802744
-BM_unsigned_cstr_to_num_v1<unsigned int>/30        95.3 ns         85.3 ns      7212521
-BM_unsigned_cstr_to_num_v1<unsigned int>/32         102 ns         92.0 ns      6696612
-BM_unsigned_cstr_to_num_v1<unsigned int>_BigO      85.54 (1)       76.38 (1)  
-BM_unsigned_cstr_to_num_v1<unsigned int>_RMS         23 %            23 %    
-BM_unsigned_cstr_to_num_v2<unsigned int>/0         3.15 ns         2.80 ns    301872391
-BM_unsigned_cstr_to_num_v2<unsigned int>/2         3.36 ns         2.99 ns    176531852
-BM_unsigned_cstr_to_num_v2<unsigned int>/4         2.87 ns         2.58 ns    242712482
-BM_unsigned_cstr_to_num_v2<unsigned int>/6         4.63 ns         4.14 ns    180061656
-BM_unsigned_cstr_to_num_v2<unsigned int>/8         6.67 ns         5.98 ns    100000000
-BM_unsigned_cstr_to_num_v2<unsigned int>/10        6.37 ns         5.73 ns    128053615
-BM_unsigned_cstr_to_num_v2<unsigned int>/12        7.07 ns         6.28 ns    100000000
-BM_unsigned_cstr_to_num_v2<unsigned int>/14        11.1 ns         9.92 ns     77886838
-BM_unsigned_cstr_to_num_v2<unsigned int>/16        10.3 ns         9.24 ns    118494227
-BM_unsigned_cstr_to_num_v2<unsigned int>/18        11.0 ns         9.80 ns     73927869
-BM_unsigned_cstr_to_num_v2<unsigned int>/20        10.4 ns         9.33 ns     67376657
-BM_unsigned_cstr_to_num_v2<unsigned int>/22        12.2 ns         10.9 ns     59197213
-BM_unsigned_cstr_to_num_v2<unsigned int>/24        15.3 ns         13.8 ns     56251124
-BM_unsigned_cstr_to_num_v2<unsigned int>/26        14.1 ns         12.7 ns     52920343
-BM_unsigned_cstr_to_num_v2<unsigned int>/28        14.7 ns         13.2 ns     60231835
-BM_unsigned_cstr_to_num_v2<unsigned int>/30        15.2 ns         13.7 ns     63766710
-BM_unsigned_cstr_to_num_v2<unsigned int>/32        22.9 ns         20.3 ns     46147449
-BM_unsigned_cstr_to_num_v2<unsigned int>_BigO      10.07 (1)        9.02 (1)  
-BM_unsigned_cstr_to_num_v2<unsigned int>_RMS         52 %            52 %    
-BM_unsigned_cstr_to_num_v3<unsigned int>/0         2.83 ns         2.55 ns    239847156
-BM_unsigned_cstr_to_num_v3<unsigned int>/2         2.89 ns         2.60 ns    267209096
-BM_unsigned_cstr_to_num_v3<unsigned int>/4         4.22 ns         3.80 ns    251390397
-BM_unsigned_cstr_to_num_v3<unsigned int>/6         4.50 ns         4.04 ns    175645947
-BM_unsigned_cstr_to_num_v3<unsigned int>/8         6.01 ns         5.41 ns    100000000
-BM_unsigned_cstr_to_num_v3<unsigned int>/10        5.68 ns         5.11 ns    134443597
-BM_unsigned_cstr_to_num_v3<unsigned int>/12        11.7 ns         10.4 ns     73161677
-BM_unsigned_cstr_to_num_v3<unsigned int>/14        10.5 ns         9.38 ns     66036089
-BM_unsigned_cstr_to_num_v3<unsigned int>/16        11.4 ns         10.2 ns     63772499
-BM_unsigned_cstr_to_num_v3<unsigned int>/18        11.0 ns         9.90 ns     69231887
-BM_unsigned_cstr_to_num_v3<unsigned int>/20        11.2 ns         10.1 ns     67426067
-BM_unsigned_cstr_to_num_v3<unsigned int>/22        10.9 ns         9.75 ns     59498771
-BM_unsigned_cstr_to_num_v3<unsigned int>/24        15.5 ns         13.8 ns     45723442
-BM_unsigned_cstr_to_num_v3<unsigned int>/26        15.3 ns         13.7 ns     45734823
-BM_unsigned_cstr_to_num_v3<unsigned int>/28        16.8 ns         15.1 ns     54348414
-BM_unsigned_cstr_to_num_v3<unsigned int>/30        16.6 ns         14.9 ns     47365750
-BM_unsigned_cstr_to_num_v3<unsigned int>/32        18.2 ns         16.3 ns     45815756
-BM_unsigned_cstr_to_num_v3<unsigned int>_BigO      10.31 (1)        9.25 (1)  
+BM_unsigned_cstr_to_num_v1<unsigned int>/0         22.4 ns         20.4 ns     34044107
+BM_unsigned_cstr_to_num_v1<unsigned int>/2         23.1 ns         21.1 ns     33486674
+BM_unsigned_cstr_to_num_v1<unsigned int>/4         24.7 ns         22.5 ns     29259443
+BM_unsigned_cstr_to_num_v1<unsigned int>/6         25.5 ns         23.3 ns     31059121
+BM_unsigned_cstr_to_num_v1<unsigned int>/8         25.2 ns         22.9 ns     29213237
+BM_unsigned_cstr_to_num_v1<unsigned int>/10        25.8 ns         23.5 ns     30449048
+BM_unsigned_cstr_to_num_v1<unsigned int>/12        27.4 ns         25.0 ns     28339928
+BM_unsigned_cstr_to_num_v1<unsigned int>/14        27.5 ns         25.1 ns     26828175
+BM_unsigned_cstr_to_num_v1<unsigned int>/16        30.5 ns         27.8 ns     25287062
+BM_unsigned_cstr_to_num_v1<unsigned int>/18        30.9 ns         28.2 ns     27438866
+BM_unsigned_cstr_to_num_v1<unsigned int>/20        30.6 ns         27.9 ns     25488261
+BM_unsigned_cstr_to_num_v1<unsigned int>/22        33.9 ns         30.9 ns     23149945
+BM_unsigned_cstr_to_num_v1<unsigned int>/24        33.3 ns         30.4 ns     22989452
+BM_unsigned_cstr_to_num_v1<unsigned int>/26        34.6 ns         31.6 ns     22709106
+BM_unsigned_cstr_to_num_v1<unsigned int>/28        32.6 ns         29.8 ns     23172110
+BM_unsigned_cstr_to_num_v1<unsigned int>/30        34.4 ns         31.3 ns     22021697
+BM_unsigned_cstr_to_num_v1<unsigned int>/32        36.9 ns         33.7 ns     20627404
+BM_unsigned_cstr_to_num_v1<unsigned int>_BigO      29.37 (1)       26.78 (1)  
+BM_unsigned_cstr_to_num_v1<unsigned int>_RMS         15 %            15 %    
+BM_unsigned_cstr_to_num_v2<unsigned int>/0         1.01 ns        0.919 ns    772126600
+BM_unsigned_cstr_to_num_v2<unsigned int>/2         1.02 ns        0.929 ns    739414974
+BM_unsigned_cstr_to_num_v2<unsigned int>/4         1.02 ns        0.928 ns    751186389
+BM_unsigned_cstr_to_num_v2<unsigned int>/6         2.85 ns         2.60 ns    268805967
+BM_unsigned_cstr_to_num_v2<unsigned int>/8         3.05 ns         2.78 ns    260337137
+BM_unsigned_cstr_to_num_v2<unsigned int>/10        3.01 ns         2.75 ns    208740197
+BM_unsigned_cstr_to_num_v2<unsigned int>/12        3.13 ns         2.85 ns    255086644
+BM_unsigned_cstr_to_num_v2<unsigned int>/14        3.65 ns         3.33 ns    211983712
+BM_unsigned_cstr_to_num_v2<unsigned int>/16        4.55 ns         4.14 ns    172467164
+BM_unsigned_cstr_to_num_v2<unsigned int>/18        4.46 ns         4.07 ns    139701441
+BM_unsigned_cstr_to_num_v2<unsigned int>/20        5.25 ns         4.79 ns    164380161
+BM_unsigned_cstr_to_num_v2<unsigned int>/22        4.46 ns         4.07 ns    126425719
+BM_unsigned_cstr_to_num_v2<unsigned int>/24        5.77 ns         5.27 ns    100000000
+BM_unsigned_cstr_to_num_v2<unsigned int>/26        6.60 ns         6.02 ns    131800166
+BM_unsigned_cstr_to_num_v2<unsigned int>/28        6.66 ns         6.07 ns    101376025
+BM_unsigned_cstr_to_num_v2<unsigned int>/30        7.29 ns         6.65 ns    105806984
+BM_unsigned_cstr_to_num_v2<unsigned int>/32        8.56 ns         7.80 ns     94971030
+BM_unsigned_cstr_to_num_v2<unsigned int>_BigO       4.25 (1)        3.88 (1)  
+BM_unsigned_cstr_to_num_v2<unsigned int>_RMS         51 %            51 %    
+BM_unsigned_cstr_to_num_v3<unsigned int>/0         1.03 ns        0.941 ns    702590613
+BM_unsigned_cstr_to_num_v3<unsigned int>/2         1.02 ns        0.930 ns    749807516
+BM_unsigned_cstr_to_num_v3<unsigned int>/4         1.52 ns         1.39 ns    765446330
+BM_unsigned_cstr_to_num_v3<unsigned int>/6         1.56 ns         1.42 ns    771367848
+BM_unsigned_cstr_to_num_v3<unsigned int>/8         2.22 ns         2.03 ns    323515088
+BM_unsigned_cstr_to_num_v3<unsigned int>/10        2.27 ns         2.07 ns    352437347
+BM_unsigned_cstr_to_num_v3<unsigned int>/12        3.70 ns         3.37 ns    211156277
+BM_unsigned_cstr_to_num_v3<unsigned int>/14        3.91 ns         3.56 ns    270926363
+BM_unsigned_cstr_to_num_v3<unsigned int>/16        2.92 ns         2.66 ns    249540268
+BM_unsigned_cstr_to_num_v3<unsigned int>/18        3.47 ns         3.17 ns    212540073
+BM_unsigned_cstr_to_num_v3<unsigned int>/20        3.58 ns         3.27 ns    215429114
+BM_unsigned_cstr_to_num_v3<unsigned int>/22        4.28 ns         3.90 ns    170713847
+BM_unsigned_cstr_to_num_v3<unsigned int>/24        4.48 ns         4.08 ns    155948161
+BM_unsigned_cstr_to_num_v3<unsigned int>/26        4.92 ns         4.49 ns    157622685
+BM_unsigned_cstr_to_num_v3<unsigned int>/28        5.82 ns         5.31 ns    131083101
+BM_unsigned_cstr_to_num_v3<unsigned int>/30        5.67 ns         5.17 ns    125490702
+BM_unsigned_cstr_to_num_v3<unsigned int>/32        6.65 ns         6.07 ns    113939702
+BM_unsigned_cstr_to_num_v3<unsigned int>_BigO       3.47 (1)        3.17 (1)  
 BM_unsigned_cstr_to_num_v3<unsigned int>_RMS         48 %            48 %    
-BM_unsigned_cstr_to_num_v4<unsigned int>/0         2.59 ns         2.31 ns    274296738
-BM_unsigned_cstr_to_num_v4<unsigned int>/2         2.32 ns         2.09 ns    327772609
-BM_unsigned_cstr_to_num_v4<unsigned int>/4         2.74 ns         2.44 ns    318867334
-BM_unsigned_cstr_to_num_v4<unsigned int>/6         3.81 ns         3.43 ns    297491542
-BM_unsigned_cstr_to_num_v4<unsigned int>/8         5.59 ns         5.02 ns    150154524
-BM_unsigned_cstr_to_num_v4<unsigned int>/10        5.67 ns         5.09 ns    100000000
-BM_unsigned_cstr_to_num_v4<unsigned int>/12        5.55 ns         4.99 ns    114594616
-BM_unsigned_cstr_to_num_v4<unsigned int>/14        7.67 ns         6.87 ns    108473711
-BM_unsigned_cstr_to_num_v4<unsigned int>/16        7.67 ns         6.88 ns     96286497
-BM_unsigned_cstr_to_num_v4<unsigned int>/18        8.01 ns         7.19 ns    106455940
-BM_unsigned_cstr_to_num_v4<unsigned int>/20        10.4 ns         9.34 ns     67191997
-BM_unsigned_cstr_to_num_v4<unsigned int>/22        11.5 ns         10.3 ns     72219175
-BM_unsigned_cstr_to_num_v4<unsigned int>/24        10.7 ns         9.60 ns     70231241
-BM_unsigned_cstr_to_num_v4<unsigned int>/26        12.3 ns         11.0 ns     61997906
-BM_unsigned_cstr_to_num_v4<unsigned int>/28        15.6 ns         14.0 ns     53602884
-BM_unsigned_cstr_to_num_v4<unsigned int>/30        14.8 ns         13.3 ns     48849526
-BM_unsigned_cstr_to_num_v4<unsigned int>/32        17.3 ns         15.3 ns     52892656
-BM_unsigned_cstr_to_num_v4<unsigned int>_BigO       8.47 (1)        7.60 (1)  
-BM_unsigned_cstr_to_num_v4<unsigned int>_RMS         54 %            54 %    
-BM_unsigned_cstr_to_num_v5<unsigned int>/0         3.28 ns         2.96 ns    171982188
-BM_unsigned_cstr_to_num_v5<unsigned int>/2         3.22 ns         2.90 ns    250877731
-BM_unsigned_cstr_to_num_v5<unsigned int>/4         3.29 ns         2.97 ns    234329700
-BM_unsigned_cstr_to_num_v5<unsigned int>/6         3.78 ns         3.38 ns    204097474
-BM_unsigned_cstr_to_num_v5<unsigned int>/8         5.60 ns         5.03 ns    100000000
-BM_unsigned_cstr_to_num_v5<unsigned int>/10        5.57 ns         5.00 ns    100000000
-BM_unsigned_cstr_to_num_v5<unsigned int>/12        6.86 ns         6.15 ns    113933872
-BM_unsigned_cstr_to_num_v5<unsigned int>/14        7.88 ns         7.04 ns     75295311
-BM_unsigned_cstr_to_num_v5<unsigned int>/16        7.89 ns         7.09 ns    113099408
-BM_unsigned_cstr_to_num_v5<unsigned int>/18        9.57 ns         8.47 ns     83742961
-BM_unsigned_cstr_to_num_v5<unsigned int>/20        10.4 ns         9.23 ns     76193858
-BM_unsigned_cstr_to_num_v5<unsigned int>/22        10.8 ns         9.72 ns     67094325
-BM_unsigned_cstr_to_num_v5<unsigned int>/24        10.6 ns         9.52 ns     61935586
-BM_unsigned_cstr_to_num_v5<unsigned int>/26        11.8 ns         10.6 ns     53659964
-BM_unsigned_cstr_to_num_v5<unsigned int>/28        13.1 ns         11.8 ns     56030365
-BM_unsigned_cstr_to_num_v5<unsigned int>/30        14.0 ns         12.6 ns     55600940
-BM_unsigned_cstr_to_num_v5<unsigned int>/32        15.5 ns         13.9 ns     48390670
-BM_unsigned_cstr_to_num_v5<unsigned int>_BigO       8.42 (1)        7.54 (1)  
-BM_unsigned_cstr_to_num_v5<unsigned int>_RMS         46 %            46 %    
-BM_unsigned_cstr_to_num_v6<unsigned int>/0         2.45 ns         2.21 ns    293594834
-BM_unsigned_cstr_to_num_v6<unsigned int>/2         2.23 ns         2.00 ns    325291645
-BM_unsigned_cstr_to_num_v6<unsigned int>/4         3.65 ns         3.29 ns    196215290
-BM_unsigned_cstr_to_num_v6<unsigned int>/6         4.33 ns         3.87 ns    330075860
-BM_unsigned_cstr_to_num_v6<unsigned int>/8         4.15 ns         3.71 ns    201488323
-BM_unsigned_cstr_to_num_v6<unsigned int>/10        6.55 ns         5.82 ns    106447617
-BM_unsigned_cstr_to_num_v6<unsigned int>/12        9.42 ns         8.22 ns     95959710
-BM_unsigned_cstr_to_num_v6<unsigned int>/14        11.2 ns         9.58 ns    110891747
-BM_unsigned_cstr_to_num_v6<unsigned int>/16        12.3 ns         10.6 ns     73163014
-BM_unsigned_cstr_to_num_v6<unsigned int>/18        11.5 ns         10.2 ns     65584934
-BM_unsigned_cstr_to_num_v6<unsigned int>/20        9.54 ns         8.55 ns     68709829
-BM_unsigned_cstr_to_num_v6<unsigned int>/22        10.8 ns         9.64 ns     70726688
-BM_unsigned_cstr_to_num_v6<unsigned int>/24        10.6 ns         9.58 ns     59905182
-BM_unsigned_cstr_to_num_v6<unsigned int>/26        10.8 ns         9.73 ns     53758476
-BM_unsigned_cstr_to_num_v6<unsigned int>/28        14.2 ns         12.6 ns     69245576
-BM_unsigned_cstr_to_num_v6<unsigned int>/30        16.7 ns         14.7 ns     64777763
-BM_unsigned_cstr_to_num_v6<unsigned int>/32        14.7 ns         13.1 ns     38403448
-BM_unsigned_cstr_to_num_v6<unsigned int>_BigO       9.13 (1)        8.08 (1)  
-BM_unsigned_cstr_to_num_v6<unsigned int>_RMS         47 %            47 %    
-BM_unsigned_cstr_to_num_v1<unsigned long>/0        61.6 ns         55.3 ns     11361942
-BM_unsigned_cstr_to_num_v1<unsigned long>/2        60.0 ns         54.1 ns     12554462
-BM_unsigned_cstr_to_num_v1<unsigned long>/4        51.7 ns         46.7 ns     12384886
-BM_unsigned_cstr_to_num_v1<unsigned long>/6        51.8 ns         46.6 ns     16371012
-BM_unsigned_cstr_to_num_v1<unsigned long>/8        56.1 ns         50.6 ns     13768264
-BM_unsigned_cstr_to_num_v1<unsigned long>/10       64.7 ns         58.0 ns     15835214
-BM_unsigned_cstr_to_num_v1<unsigned long>/12       67.0 ns         60.4 ns     10525733
-BM_unsigned_cstr_to_num_v1<unsigned long>/14       78.4 ns         70.1 ns     12092973
-BM_unsigned_cstr_to_num_v1<unsigned long>/16       76.3 ns         67.8 ns      9669336
-BM_unsigned_cstr_to_num_v1<unsigned long>/18       73.8 ns         66.6 ns      8780682
-BM_unsigned_cstr_to_num_v1<unsigned long>/20       90.3 ns         81.0 ns      8597899
-BM_unsigned_cstr_to_num_v1<unsigned long>/22       84.9 ns         76.4 ns      8150207
-BM_unsigned_cstr_to_num_v1<unsigned long>/24       85.1 ns         76.6 ns      8355659
-BM_unsigned_cstr_to_num_v1<unsigned long>/26       99.6 ns         88.5 ns      9365213
-BM_unsigned_cstr_to_num_v1<unsigned long>/28        109 ns         97.2 ns      5867709
-BM_unsigned_cstr_to_num_v1<unsigned long>/30        136 ns          119 ns      7227653
-BM_unsigned_cstr_to_num_v1<unsigned long>/32       97.4 ns         87.6 ns      5876300
-BM_unsigned_cstr_to_num_v1<unsigned long>_BigO      79.01 (1)       70.75 (1)  
-BM_unsigned_cstr_to_num_v1<unsigned long>_RMS         28 %            27 %    
-BM_unsigned_cstr_to_num_v2<unsigned long>/0        3.05 ns         2.73 ns    247165227
-BM_unsigned_cstr_to_num_v2<unsigned long>/2        4.32 ns         3.75 ns    170915945
-BM_unsigned_cstr_to_num_v2<unsigned long>/4        2.78 ns         2.51 ns    295969379
-BM_unsigned_cstr_to_num_v2<unsigned long>/6        4.31 ns         3.89 ns    176115133
-BM_unsigned_cstr_to_num_v2<unsigned long>/8        6.55 ns         5.89 ns    134816006
-BM_unsigned_cstr_to_num_v2<unsigned long>/10       9.34 ns         8.27 ns     94053359
-BM_unsigned_cstr_to_num_v2<unsigned long>/12       10.7 ns         9.54 ns     56328176
-BM_unsigned_cstr_to_num_v2<unsigned long>/14       10.9 ns         9.79 ns     79650022
-BM_unsigned_cstr_to_num_v2<unsigned long>/16       10.4 ns         9.33 ns     71624404
-BM_unsigned_cstr_to_num_v2<unsigned long>/18       11.4 ns         10.3 ns     68761635
-BM_unsigned_cstr_to_num_v2<unsigned long>/20       11.9 ns         10.8 ns     65274660
-BM_unsigned_cstr_to_num_v2<unsigned long>/22       13.9 ns         12.5 ns     53144674
-BM_unsigned_cstr_to_num_v2<unsigned long>/24       13.4 ns         12.1 ns     48331252
-BM_unsigned_cstr_to_num_v2<unsigned long>/26       16.4 ns         14.8 ns     47083529
-BM_unsigned_cstr_to_num_v2<unsigned long>/28       18.2 ns         16.4 ns     36752167
-BM_unsigned_cstr_to_num_v2<unsigned long>/30       17.1 ns         15.4 ns     40972197
-BM_unsigned_cstr_to_num_v2<unsigned long>/32       14.3 ns         12.9 ns     42718663
-BM_unsigned_cstr_to_num_v2<unsigned long>_BigO      10.52 (1)        9.46 (1)  
-BM_unsigned_cstr_to_num_v2<unsigned long>_RMS         45 %            45 %    
-BM_unsigned_cstr_to_num_v3<unsigned long>/0        2.16 ns         1.96 ns    380966712
-BM_unsigned_cstr_to_num_v3<unsigned long>/2        1.98 ns         1.80 ns    373749144
-BM_unsigned_cstr_to_num_v3<unsigned long>/4        6.07 ns         5.49 ns    362048309
-BM_unsigned_cstr_to_num_v3<unsigned long>/6        6.19 ns         5.59 ns    280692342
-BM_unsigned_cstr_to_num_v3<unsigned long>/8        5.47 ns         4.96 ns    387910082
-BM_unsigned_cstr_to_num_v3<unsigned long>/10       4.54 ns         4.13 ns    161991730
-BM_unsigned_cstr_to_num_v3<unsigned long>/12       6.05 ns         5.49 ns    119926022
-BM_unsigned_cstr_to_num_v3<unsigned long>/14       5.70 ns         5.19 ns    115580377
-BM_unsigned_cstr_to_num_v3<unsigned long>/16       5.54 ns         5.04 ns    117988579
-BM_unsigned_cstr_to_num_v3<unsigned long>/18       7.17 ns         6.53 ns    108142969
-BM_unsigned_cstr_to_num_v3<unsigned long>/20       7.27 ns         6.62 ns    133650099
-BM_unsigned_cstr_to_num_v3<unsigned long>/22       8.07 ns         7.35 ns    107939309
-BM_unsigned_cstr_to_num_v3<unsigned long>/24       7.75 ns         7.06 ns     92723244
-BM_unsigned_cstr_to_num_v3<unsigned long>/26       8.69 ns         7.93 ns     82214138
-BM_unsigned_cstr_to_num_v3<unsigned long>/28       9.28 ns         8.46 ns     85115401
-BM_unsigned_cstr_to_num_v3<unsigned long>/30       7.38 ns         6.73 ns     76308144
-BM_unsigned_cstr_to_num_v3<unsigned long>/32       9.66 ns         8.82 ns     68722118
-BM_unsigned_cstr_to_num_v3<unsigned long>_BigO       6.41 (1)        5.83 (1)  
-BM_unsigned_cstr_to_num_v3<unsigned long>_RMS         33 %            33 %    
-BM_unsigned_cstr_to_num_v4<unsigned long>/0        1.47 ns         1.34 ns    515580014
-BM_unsigned_cstr_to_num_v4<unsigned long>/2        1.55 ns         1.42 ns    491663726
-BM_unsigned_cstr_to_num_v4<unsigned long>/4        1.39 ns         1.27 ns    478617034
-BM_unsigned_cstr_to_num_v4<unsigned long>/6        2.34 ns         2.14 ns    328406017
-BM_unsigned_cstr_to_num_v4<unsigned long>/8        2.46 ns         2.25 ns    231833931
-BM_unsigned_cstr_to_num_v4<unsigned long>/10       3.64 ns         3.32 ns    203810748
-BM_unsigned_cstr_to_num_v4<unsigned long>/12       3.92 ns         3.58 ns    196249054
-BM_unsigned_cstr_to_num_v4<unsigned long>/14       3.91 ns         3.57 ns    154284976
-BM_unsigned_cstr_to_num_v4<unsigned long>/16       4.72 ns         4.31 ns    161239026
-BM_unsigned_cstr_to_num_v4<unsigned long>/18       5.52 ns         5.04 ns    189908243
-BM_unsigned_cstr_to_num_v4<unsigned long>/20       5.58 ns         5.10 ns    100000000
-BM_unsigned_cstr_to_num_v4<unsigned long>/22       6.76 ns         6.18 ns    119543470
-BM_unsigned_cstr_to_num_v4<unsigned long>/24       6.61 ns         6.03 ns    119375327
-BM_unsigned_cstr_to_num_v4<unsigned long>/26       7.67 ns         7.00 ns    100380688
-BM_unsigned_cstr_to_num_v4<unsigned long>/28       7.53 ns         6.87 ns     97486336
-BM_unsigned_cstr_to_num_v4<unsigned long>/30       8.44 ns         7.70 ns     88947065
-BM_unsigned_cstr_to_num_v4<unsigned long>/32       9.35 ns         8.53 ns     78434658
-BM_unsigned_cstr_to_num_v4<unsigned long>_BigO       4.87 (1)        4.45 (1)  
-BM_unsigned_cstr_to_num_v4<unsigned long>_RMS         51 %            51 %    
-BM_unsigned_cstr_to_num_v5<unsigned long>/0        1.41 ns         1.28 ns    588262977
-BM_unsigned_cstr_to_num_v5<unsigned long>/2        1.34 ns         1.22 ns    554529364
-BM_unsigned_cstr_to_num_v5<unsigned long>/4        1.37 ns         1.25 ns    590059326
-BM_unsigned_cstr_to_num_v5<unsigned long>/6        2.17 ns         1.98 ns    352048013
-BM_unsigned_cstr_to_num_v5<unsigned long>/8        2.92 ns         2.67 ns    257530285
-BM_unsigned_cstr_to_num_v5<unsigned long>/10       3.10 ns         2.82 ns    258546313
-BM_unsigned_cstr_to_num_v5<unsigned long>/12       2.94 ns         2.69 ns    199253213
-BM_unsigned_cstr_to_num_v5<unsigned long>/14       3.86 ns         3.52 ns    198385703
-BM_unsigned_cstr_to_num_v5<unsigned long>/16       4.60 ns         4.20 ns    135053965
-BM_unsigned_cstr_to_num_v5<unsigned long>/18       5.51 ns         5.03 ns    100000000
-BM_unsigned_cstr_to_num_v5<unsigned long>/20       5.57 ns         5.08 ns    100000000
-BM_unsigned_cstr_to_num_v5<unsigned long>/22       6.36 ns         5.80 ns    120793348
-BM_unsigned_cstr_to_num_v5<unsigned long>/24       6.62 ns         6.04 ns    110088007
-BM_unsigned_cstr_to_num_v5<unsigned long>/26       7.54 ns         6.88 ns     92462400
-BM_unsigned_cstr_to_num_v5<unsigned long>/28       7.58 ns         6.92 ns     98226544
-BM_unsigned_cstr_to_num_v5<unsigned long>/30       8.64 ns         7.87 ns     79644232
-BM_unsigned_cstr_to_num_v5<unsigned long>/32       9.23 ns         8.42 ns     88304978
-BM_unsigned_cstr_to_num_v5<unsigned long>_BigO       4.75 (1)        4.33 (1)  
-BM_unsigned_cstr_to_num_v5<unsigned long>_RMS         53 %            53 %    
-BM_unsigned_cstr_to_num_v6<unsigned long>/0        1.41 ns         1.29 ns    535958152
-BM_unsigned_cstr_to_num_v6<unsigned long>/2        1.38 ns         1.26 ns    488349907
-BM_unsigned_cstr_to_num_v6<unsigned long>/4        1.38 ns         1.26 ns    564518473
-BM_unsigned_cstr_to_num_v6<unsigned long>/6        2.23 ns         2.03 ns    598908129
-BM_unsigned_cstr_to_num_v6<unsigned long>/8        3.12 ns         2.85 ns    260113195
-BM_unsigned_cstr_to_num_v6<unsigned long>/10       2.95 ns         2.69 ns    254771607
-BM_unsigned_cstr_to_num_v6<unsigned long>/12       3.89 ns         3.54 ns    197946402
-BM_unsigned_cstr_to_num_v6<unsigned long>/14       4.81 ns         4.38 ns    174079231
-BM_unsigned_cstr_to_num_v6<unsigned long>/16       4.79 ns         4.36 ns    163161011
-BM_unsigned_cstr_to_num_v6<unsigned long>/18       5.40 ns         4.92 ns    132613645
-BM_unsigned_cstr_to_num_v6<unsigned long>/20       5.59 ns         5.09 ns    111949352
-BM_unsigned_cstr_to_num_v6<unsigned long>/22       5.69 ns         5.19 ns    121599775
-BM_unsigned_cstr_to_num_v6<unsigned long>/24       6.92 ns         6.31 ns    127184140
-BM_unsigned_cstr_to_num_v6<unsigned long>/26       7.11 ns         6.47 ns    109833929
-BM_unsigned_cstr_to_num_v6<unsigned long>/28       8.61 ns         7.84 ns     97687307
-BM_unsigned_cstr_to_num_v6<unsigned long>/30       8.42 ns         7.66 ns     87816320
-BM_unsigned_cstr_to_num_v6<unsigned long>/32       8.20 ns         7.47 ns     89699990
-BM_unsigned_cstr_to_num_v6<unsigned long>_BigO       4.82 (1)        4.39 (1)  
-BM_unsigned_cstr_to_num_v6<unsigned long>_RMS         50 %            50 %    
+BM_unsigned_cstr_to_num_v4<unsigned int>/0        0.770 ns        0.703 ns   1000000000
+BM_unsigned_cstr_to_num_v4<unsigned int>/2        0.794 ns        0.723 ns    975817799
+BM_unsigned_cstr_to_num_v4<unsigned int>/4         1.30 ns         1.19 ns    957847053
+BM_unsigned_cstr_to_num_v4<unsigned int>/6         1.30 ns         1.18 ns    603325822
+BM_unsigned_cstr_to_num_v4<unsigned int>/8         1.88 ns         1.71 ns    414935794
+BM_unsigned_cstr_to_num_v4<unsigned int>/10        1.83 ns         1.67 ns    417546995
+BM_unsigned_cstr_to_num_v4<unsigned int>/12        2.22 ns         2.02 ns    340012781
+BM_unsigned_cstr_to_num_v4<unsigned int>/14        2.25 ns         2.05 ns    348381047
+BM_unsigned_cstr_to_num_v4<unsigned int>/16        2.60 ns         2.37 ns    343396861
+BM_unsigned_cstr_to_num_v4<unsigned int>/18        2.57 ns         2.35 ns    295277592
+BM_unsigned_cstr_to_num_v4<unsigned int>/20        3.20 ns         2.92 ns    295517919
+BM_unsigned_cstr_to_num_v4<unsigned int>/22        3.28 ns         2.99 ns    185249397
+BM_unsigned_cstr_to_num_v4<unsigned int>/24        4.07 ns         3.72 ns    211300625
+BM_unsigned_cstr_to_num_v4<unsigned int>/26        4.07 ns         3.71 ns    186043681
+BM_unsigned_cstr_to_num_v4<unsigned int>/28        4.12 ns         3.76 ns    174434427
+BM_unsigned_cstr_to_num_v4<unsigned int>/30        4.45 ns         4.06 ns    163715563
+BM_unsigned_cstr_to_num_v4<unsigned int>/32        4.88 ns         4.46 ns    149319141
+BM_unsigned_cstr_to_num_v4<unsigned int>_BigO       2.68 (1)        2.45 (1)  
+BM_unsigned_cstr_to_num_v4<unsigned int>_RMS         47 %            47 %    
+BM_unsigned_cstr_to_num_v5<unsigned int>/0         1.15 ns         1.05 ns    618111446
+BM_unsigned_cstr_to_num_v5<unsigned int>/2         1.10 ns         1.00 ns    683339159
+BM_unsigned_cstr_to_num_v5<unsigned int>/4         1.15 ns         1.05 ns    576605985
+BM_unsigned_cstr_to_num_v5<unsigned int>/6         1.36 ns         1.24 ns    597074770
+BM_unsigned_cstr_to_num_v5<unsigned int>/8         1.29 ns         1.17 ns    539558656
+BM_unsigned_cstr_to_num_v5<unsigned int>/10        1.32 ns         1.21 ns    419537970
+BM_unsigned_cstr_to_num_v5<unsigned int>/12        2.30 ns         2.09 ns    424491204
+BM_unsigned_cstr_to_num_v5<unsigned int>/14        2.58 ns         2.36 ns    347743505
+BM_unsigned_cstr_to_num_v5<unsigned int>/16        2.65 ns         2.41 ns    265353433
+BM_unsigned_cstr_to_num_v5<unsigned int>/18        3.04 ns         2.78 ns    304105879
+BM_unsigned_cstr_to_num_v5<unsigned int>/20        3.24 ns         2.96 ns    240823978
+BM_unsigned_cstr_to_num_v5<unsigned int>/22        3.63 ns         3.32 ns    212048050
+BM_unsigned_cstr_to_num_v5<unsigned int>/24        4.02 ns         3.67 ns    189467216
+BM_unsigned_cstr_to_num_v5<unsigned int>/26        3.62 ns         3.31 ns    191346462
+BM_unsigned_cstr_to_num_v5<unsigned int>/28        4.48 ns         4.09 ns    138216187
+BM_unsigned_cstr_to_num_v5<unsigned int>/30        4.55 ns         4.16 ns    176004572
+BM_unsigned_cstr_to_num_v5<unsigned int>/32        5.35 ns         4.88 ns    159229960
+BM_unsigned_cstr_to_num_v5<unsigned int>_BigO       2.75 (1)        2.51 (1)  
+BM_unsigned_cstr_to_num_v5<unsigned int>_RMS         49 %            49 %    
+BM_unsigned_cstr_to_num_v6<unsigned int>/0         1.11 ns         1.01 ns    699627959
+BM_unsigned_cstr_to_num_v6<unsigned int>/2         1.14 ns         1.04 ns    682810125
+BM_unsigned_cstr_to_num_v6<unsigned int>/4         1.39 ns         1.27 ns    524657198
+BM_unsigned_cstr_to_num_v6<unsigned int>/6         1.31 ns         1.20 ns    597555870
+BM_unsigned_cstr_to_num_v6<unsigned int>/8         1.88 ns         1.72 ns    420996331
+BM_unsigned_cstr_to_num_v6<unsigned int>/10        1.87 ns         1.71 ns    413825198
+BM_unsigned_cstr_to_num_v6<unsigned int>/12        2.23 ns         2.04 ns    586697437
+BM_unsigned_cstr_to_num_v6<unsigned int>/14        2.54 ns         2.32 ns    300144366
+BM_unsigned_cstr_to_num_v6<unsigned int>/16        2.69 ns         2.46 ns    284368988
+BM_unsigned_cstr_to_num_v6<unsigned int>/18        3.09 ns         2.83 ns    242459178
+BM_unsigned_cstr_to_num_v6<unsigned int>/20        2.20 ns         2.01 ns    250032452
+BM_unsigned_cstr_to_num_v6<unsigned int>/22        3.91 ns         3.57 ns    195432629
+BM_unsigned_cstr_to_num_v6<unsigned int>/24        4.28 ns         3.89 ns    176491991
+BM_unsigned_cstr_to_num_v6<unsigned int>/26        4.29 ns         3.89 ns    183305351
+BM_unsigned_cstr_to_num_v6<unsigned int>/28        4.34 ns         3.96 ns    172529845
+BM_unsigned_cstr_to_num_v6<unsigned int>/30        4.46 ns         4.07 ns    153326565
+BM_unsigned_cstr_to_num_v6<unsigned int>/32        4.65 ns         4.22 ns    150226067
+BM_unsigned_cstr_to_num_v6<unsigned int>_BigO       2.79 (1)        2.54 (1)  
+BM_unsigned_cstr_to_num_v6<unsigned int>_RMS         45 %            45 %    
+BM_unsigned_cstr_to_num_v1<unsigned long>/0        24.2 ns         22.1 ns     32386974
+BM_unsigned_cstr_to_num_v1<unsigned long>/2        24.8 ns         22.6 ns     32850581
+BM_unsigned_cstr_to_num_v1<unsigned long>/4        23.9 ns         21.7 ns     32930080
+BM_unsigned_cstr_to_num_v1<unsigned long>/6        25.8 ns         23.5 ns     30626931
+BM_unsigned_cstr_to_num_v1<unsigned long>/8        28.5 ns         25.8 ns     29970200
+BM_unsigned_cstr_to_num_v1<unsigned long>/10       23.3 ns         21.2 ns     28056156
+BM_unsigned_cstr_to_num_v1<unsigned long>/12       28.1 ns         25.7 ns     28059661
+BM_unsigned_cstr_to_num_v1<unsigned long>/14       29.5 ns         26.9 ns     24493629
+BM_unsigned_cstr_to_num_v1<unsigned long>/16       30.5 ns         27.7 ns     27635433
+BM_unsigned_cstr_to_num_v1<unsigned long>/18       30.0 ns         27.3 ns     24210966
+BM_unsigned_cstr_to_num_v1<unsigned long>/20       31.3 ns         28.6 ns     23031867
+BM_unsigned_cstr_to_num_v1<unsigned long>/22       33.0 ns         30.0 ns     23819561
+BM_unsigned_cstr_to_num_v1<unsigned long>/24       32.7 ns         29.8 ns     24190434
+BM_unsigned_cstr_to_num_v1<unsigned long>/26       35.4 ns         32.3 ns     22063140
+BM_unsigned_cstr_to_num_v1<unsigned long>/28       36.9 ns         33.6 ns     21423519
+BM_unsigned_cstr_to_num_v1<unsigned long>/30       34.9 ns         31.9 ns     20757023
+BM_unsigned_cstr_to_num_v1<unsigned long>/32       37.8 ns         34.5 ns     21799078
+BM_unsigned_cstr_to_num_v1<unsigned long>_BigO      30.03 (1)       27.37 (1)  
+BM_unsigned_cstr_to_num_v1<unsigned long>_RMS         15 %            15 %    
+BM_unsigned_cstr_to_num_v2<unsigned long>/0        1.10 ns         1.00 ns    688800998
+BM_unsigned_cstr_to_num_v2<unsigned long>/2        1.20 ns         1.08 ns    686511141
+BM_unsigned_cstr_to_num_v2<unsigned long>/4        1.16 ns         1.06 ns    635004311
+BM_unsigned_cstr_to_num_v2<unsigned long>/6        2.90 ns         2.65 ns    261397870
+BM_unsigned_cstr_to_num_v2<unsigned long>/8        2.98 ns         2.72 ns    264336054
+BM_unsigned_cstr_to_num_v2<unsigned long>/10       2.99 ns         2.72 ns    260859320
+BM_unsigned_cstr_to_num_v2<unsigned long>/12       3.76 ns         3.44 ns    206769535
+BM_unsigned_cstr_to_num_v2<unsigned long>/14       3.67 ns         3.36 ns    168563967
+BM_unsigned_cstr_to_num_v2<unsigned long>/16       4.67 ns         4.27 ns    176507045
+BM_unsigned_cstr_to_num_v2<unsigned long>/18       5.07 ns         4.63 ns    145983656
+BM_unsigned_cstr_to_num_v2<unsigned long>/20       5.34 ns         4.87 ns    141473638
+BM_unsigned_cstr_to_num_v2<unsigned long>/22       5.11 ns         4.67 ns    129789578
+BM_unsigned_cstr_to_num_v2<unsigned long>/24       6.32 ns         5.75 ns    124888709
+BM_unsigned_cstr_to_num_v2<unsigned long>/26       7.16 ns         6.49 ns    104619227
+BM_unsigned_cstr_to_num_v2<unsigned long>/28       7.60 ns         6.93 ns    106470597
+BM_unsigned_cstr_to_num_v2<unsigned long>/30       7.60 ns         6.94 ns    101967878
+BM_unsigned_cstr_to_num_v2<unsigned long>/32       8.31 ns         7.59 ns     94463019
+BM_unsigned_cstr_to_num_v2<unsigned long>_BigO       4.53 (1)        4.13 (1)  
+BM_unsigned_cstr_to_num_v2<unsigned long>_RMS         50 %            50 %    
+BM_unsigned_cstr_to_num_v3<unsigned long>/0        1.10 ns         1.00 ns    681973025
+BM_unsigned_cstr_to_num_v3<unsigned long>/2        1.10 ns         1.01 ns    696393316
+BM_unsigned_cstr_to_num_v3<unsigned long>/4        1.13 ns         1.03 ns    685586564
+BM_unsigned_cstr_to_num_v3<unsigned long>/6        1.84 ns         1.68 ns    407807602
+BM_unsigned_cstr_to_num_v3<unsigned long>/8        2.42 ns         2.21 ns    324171831
+BM_unsigned_cstr_to_num_v3<unsigned long>/10       2.40 ns         2.19 ns    309426814
+BM_unsigned_cstr_to_num_v3<unsigned long>/12       3.25 ns         2.97 ns    241773226
+BM_unsigned_cstr_to_num_v3<unsigned long>/14       3.30 ns         2.98 ns    238756986
+BM_unsigned_cstr_to_num_v3<unsigned long>/16       3.72 ns         3.38 ns    208012110
+BM_unsigned_cstr_to_num_v3<unsigned long>/18       4.46 ns         4.07 ns    209705568
+BM_unsigned_cstr_to_num_v3<unsigned long>/20       4.39 ns         4.01 ns    166375515
+BM_unsigned_cstr_to_num_v3<unsigned long>/22       5.45 ns         4.96 ns    143829105
+BM_unsigned_cstr_to_num_v3<unsigned long>/24       5.87 ns         5.36 ns    100000000
+BM_unsigned_cstr_to_num_v3<unsigned long>/26       6.15 ns         5.61 ns    130225285
+BM_unsigned_cstr_to_num_v3<unsigned long>/28       6.92 ns         6.32 ns    114235473
+BM_unsigned_cstr_to_num_v3<unsigned long>/30       5.20 ns         4.75 ns    109148922
+BM_unsigned_cstr_to_num_v3<unsigned long>/32       7.31 ns         6.68 ns    100316566
+BM_unsigned_cstr_to_num_v3<unsigned long>_BigO       3.88 (1)        3.54 (1)  
+BM_unsigned_cstr_to_num_v3<unsigned long>_RMS         51 %            51 %    
+BM_unsigned_cstr_to_num_v4<unsigned long>/0        1.32 ns         1.20 ns    596055665
+BM_unsigned_cstr_to_num_v4<unsigned long>/2        1.28 ns         1.17 ns    597225470
+BM_unsigned_cstr_to_num_v4<unsigned long>/4        1.32 ns         1.20 ns    602691591
+BM_unsigned_cstr_to_num_v4<unsigned long>/6        2.16 ns         1.97 ns    556166314
+BM_unsigned_cstr_to_num_v4<unsigned long>/8        2.21 ns         2.01 ns    263412833
+BM_unsigned_cstr_to_num_v4<unsigned long>/10       3.07 ns         2.80 ns    255701602
+BM_unsigned_cstr_to_num_v4<unsigned long>/12       3.81 ns         3.48 ns    199956307
+BM_unsigned_cstr_to_num_v4<unsigned long>/14       3.96 ns         3.62 ns    168389350
+BM_unsigned_cstr_to_num_v4<unsigned long>/16       4.60 ns         4.19 ns    162631631
+BM_unsigned_cstr_to_num_v4<unsigned long>/18       5.45 ns         4.97 ns    139957741
+BM_unsigned_cstr_to_num_v4<unsigned long>/20       5.70 ns         5.19 ns    136532583
+BM_unsigned_cstr_to_num_v4<unsigned long>/22       6.45 ns         5.88 ns    133248356
+BM_unsigned_cstr_to_num_v4<unsigned long>/24       7.29 ns         6.65 ns    120124773
+BM_unsigned_cstr_to_num_v4<unsigned long>/26       7.27 ns         6.57 ns     98113317
+BM_unsigned_cstr_to_num_v4<unsigned long>/28       8.23 ns         7.51 ns     96779225
+BM_unsigned_cstr_to_num_v4<unsigned long>/30       8.18 ns         7.46 ns     83206756
+BM_unsigned_cstr_to_num_v4<unsigned long>/32       9.20 ns         8.40 ns     93693698
+BM_unsigned_cstr_to_num_v4<unsigned long>_BigO       4.79 (1)        4.37 (1)  
+BM_unsigned_cstr_to_num_v4<unsigned long>_RMS         54 %            54 %    
+BM_unsigned_cstr_to_num_v5<unsigned long>/0        1.29 ns         1.17 ns    603779256
+BM_unsigned_cstr_to_num_v5<unsigned long>/2        1.40 ns         1.28 ns    600431099
+BM_unsigned_cstr_to_num_v5<unsigned long>/4        1.50 ns         1.35 ns    592528331
+BM_unsigned_cstr_to_num_v5<unsigned long>/6        2.08 ns         1.90 ns    359767687
+BM_unsigned_cstr_to_num_v5<unsigned long>/8        3.29 ns         2.96 ns    234717590
+BM_unsigned_cstr_to_num_v5<unsigned long>/10       2.76 ns         2.52 ns    257594485
+BM_unsigned_cstr_to_num_v5<unsigned long>/12       3.90 ns         3.55 ns    200308741
+BM_unsigned_cstr_to_num_v5<unsigned long>/14       4.82 ns         4.37 ns    171975246
+BM_unsigned_cstr_to_num_v5<unsigned long>/16       4.29 ns         3.89 ns    168264431
+BM_unsigned_cstr_to_num_v5<unsigned long>/18       5.60 ns         5.08 ns    100000000
+BM_unsigned_cstr_to_num_v5<unsigned long>/20       6.18 ns         5.63 ns    134573581
+BM_unsigned_cstr_to_num_v5<unsigned long>/22       6.29 ns         5.73 ns    124198866
+BM_unsigned_cstr_to_num_v5<unsigned long>/24       6.03 ns         5.50 ns    113151350
+BM_unsigned_cstr_to_num_v5<unsigned long>/26       6.96 ns         6.35 ns    105149081
+BM_unsigned_cstr_to_num_v5<unsigned long>/28       8.01 ns         7.31 ns     88975019
+BM_unsigned_cstr_to_num_v5<unsigned long>/30       8.09 ns         7.39 ns     97298397
+BM_unsigned_cstr_to_num_v5<unsigned long>/32       9.45 ns         8.60 ns     94538164
+BM_unsigned_cstr_to_num_v5<unsigned long>_BigO       4.82 (1)        4.39 (1)  
+BM_unsigned_cstr_to_num_v5<unsigned long>_RMS         51 %            51 %    
+BM_unsigned_cstr_to_num_v6<unsigned long>/0        1.30 ns         1.19 ns    529570682
+BM_unsigned_cstr_to_num_v6<unsigned long>/2        1.30 ns         1.18 ns    587596231
+BM_unsigned_cstr_to_num_v6<unsigned long>/4        2.12 ns         1.93 ns    570100071
+BM_unsigned_cstr_to_num_v6<unsigned long>/6        2.09 ns         1.91 ns    593695483
+BM_unsigned_cstr_to_num_v6<unsigned long>/8        2.82 ns         2.58 ns    595362129
+BM_unsigned_cstr_to_num_v6<unsigned long>/10       3.23 ns         2.93 ns    252167003
+BM_unsigned_cstr_to_num_v6<unsigned long>/12       2.91 ns         2.66 ns    251825188
+BM_unsigned_cstr_to_num_v6<unsigned long>/14       3.97 ns         3.61 ns    203450717
+BM_unsigned_cstr_to_num_v6<unsigned long>/16       3.81 ns         3.48 ns    166283252
+BM_unsigned_cstr_to_num_v6<unsigned long>/18       5.52 ns         5.01 ns    100000000
+BM_unsigned_cstr_to_num_v6<unsigned long>/20       5.65 ns         5.14 ns    139444267
+BM_unsigned_cstr_to_num_v6<unsigned long>/22       6.30 ns         5.73 ns    100000000
+BM_unsigned_cstr_to_num_v6<unsigned long>/24       6.50 ns         5.91 ns    108753072
+BM_unsigned_cstr_to_num_v6<unsigned long>/26       6.96 ns         6.35 ns     99833847
+BM_unsigned_cstr_to_num_v6<unsigned long>/28       8.30 ns         7.56 ns     97257297
+BM_unsigned_cstr_to_num_v6<unsigned long>/30       7.72 ns         7.05 ns     98014676
+BM_unsigned_cstr_to_num_v6<unsigned long>/32       8.70 ns         7.95 ns     84156462
+BM_unsigned_cstr_to_num_v6<unsigned long>_BigO       4.66 (1)        4.25 (1)  
+BM_unsigned_cstr_to_num_v6<unsigned long>_RMS         51 %            51 %    
 BM_unsigned_cstr_to_num_v1<uint128_t>/0      ERROR OCCURRED: 'Skipping values > ULONG_MAX'
 BM_unsigned_cstr_to_num_v1<uint128_t>/2      ERROR OCCURRED: 'Skipping values > ULONG_MAX'
 BM_unsigned_cstr_to_num_v1<uint128_t>/4      ERROR OCCURRED: 'Skipping values > ULONG_MAX'
@@ -246,101 +246,101 @@ BM_unsigned_cstr_to_num_v1<uint128_t>/26     ERROR OCCURRED: 'Skipping values > 
 BM_unsigned_cstr_to_num_v1<uint128_t>/28     ERROR OCCURRED: 'Skipping values > ULONG_MAX'
 BM_unsigned_cstr_to_num_v1<uint128_t>/30     ERROR OCCURRED: 'Skipping values > ULONG_MAX'
 BM_unsigned_cstr_to_num_v1<uint128_t>/32     ERROR OCCURRED: 'Skipping values > ULONG_MAX'
-BM_unsigned_cstr_to_num_v2<uint128_t>/0            2.06 ns         1.87 ns    362400219
-BM_unsigned_cstr_to_num_v2<uint128_t>/2            2.08 ns         1.89 ns    365136056
-BM_unsigned_cstr_to_num_v2<uint128_t>/4            3.41 ns         3.10 ns    372300910
-BM_unsigned_cstr_to_num_v2<uint128_t>/6            3.72 ns         3.38 ns    305701582
-BM_unsigned_cstr_to_num_v2<uint128_t>/8            5.49 ns         4.98 ns    148502386
-BM_unsigned_cstr_to_num_v2<uint128_t>/10           5.21 ns         4.74 ns    140335875
-BM_unsigned_cstr_to_num_v2<uint128_t>/12           6.70 ns         6.09 ns    108474533
-BM_unsigned_cstr_to_num_v2<uint128_t>/14           8.50 ns         7.73 ns     82167073
-BM_unsigned_cstr_to_num_v2<uint128_t>/16           8.36 ns         7.61 ns     94880836
-BM_unsigned_cstr_to_num_v2<uint128_t>/18           8.26 ns         7.51 ns     89057648
-BM_unsigned_cstr_to_num_v2<uint128_t>/20           10.0 ns         9.12 ns     79352713
-BM_unsigned_cstr_to_num_v2<uint128_t>/22           11.2 ns         10.2 ns     70349168
-BM_unsigned_cstr_to_num_v2<uint128_t>/24           11.1 ns         10.1 ns     60734663
-BM_unsigned_cstr_to_num_v2<uint128_t>/26           11.1 ns         10.1 ns     58543143
-BM_unsigned_cstr_to_num_v2<uint128_t>/28           14.5 ns         13.2 ns     52406368
-BM_unsigned_cstr_to_num_v2<uint128_t>/30           14.7 ns         13.4 ns     55115638
-BM_unsigned_cstr_to_num_v2<uint128_t>/32           16.4 ns         14.9 ns     90416766
-BM_unsigned_cstr_to_num_v2<uint128_t>_BigO         8.40 (1)        7.65 (1)  
-BM_unsigned_cstr_to_num_v2<uint128_t>_RMS            51 %            51 %    
-BM_unsigned_cstr_to_num_v3<uint128_t>/0            2.11 ns         1.92 ns    360038761
-BM_unsigned_cstr_to_num_v3<uint128_t>/2            2.17 ns         1.98 ns    376913590
-BM_unsigned_cstr_to_num_v3<uint128_t>/4            3.35 ns         3.05 ns    380361803
-BM_unsigned_cstr_to_num_v3<uint128_t>/6            3.56 ns         3.25 ns    236212832
-BM_unsigned_cstr_to_num_v3<uint128_t>/8            4.77 ns         4.34 ns    154305592
-BM_unsigned_cstr_to_num_v3<uint128_t>/10           5.06 ns         4.61 ns    159097988
-BM_unsigned_cstr_to_num_v3<uint128_t>/12           6.23 ns         5.68 ns    118113002
-BM_unsigned_cstr_to_num_v3<uint128_t>/14           6.41 ns         5.84 ns     94523180
-BM_unsigned_cstr_to_num_v3<uint128_t>/16           8.28 ns         7.54 ns     74787796
-BM_unsigned_cstr_to_num_v3<uint128_t>/18           9.83 ns         8.96 ns     81344958
-BM_unsigned_cstr_to_num_v3<uint128_t>/20           9.58 ns         8.72 ns     82858967
-BM_unsigned_cstr_to_num_v3<uint128_t>/22           11.0 ns         10.0 ns     70558344
-BM_unsigned_cstr_to_num_v3<uint128_t>/24           12.9 ns         11.7 ns     79173250
-BM_unsigned_cstr_to_num_v3<uint128_t>/26           12.5 ns         11.4 ns     61674426
-BM_unsigned_cstr_to_num_v3<uint128_t>/28           14.0 ns         12.8 ns     55727963
-BM_unsigned_cstr_to_num_v3<uint128_t>/30           14.0 ns         12.7 ns     55391293
-BM_unsigned_cstr_to_num_v3<uint128_t>/32           15.9 ns         14.5 ns     48521510
-BM_unsigned_cstr_to_num_v3<uint128_t>_BigO         8.33 (1)        7.59 (1)  
-BM_unsigned_cstr_to_num_v3<uint128_t>_RMS            53 %            53 %    
-BM_unsigned_cstr_to_num_v4<uint128_t>/0            2.11 ns         1.92 ns    370467509
-BM_unsigned_cstr_to_num_v4<uint128_t>/2            2.14 ns         1.95 ns    383896050
-BM_unsigned_cstr_to_num_v4<uint128_t>/4            2.06 ns         1.88 ns    383498916
-BM_unsigned_cstr_to_num_v4<uint128_t>/6            3.63 ns         3.29 ns    215862328
-BM_unsigned_cstr_to_num_v4<uint128_t>/8            4.82 ns         4.39 ns    153217522
-BM_unsigned_cstr_to_num_v4<uint128_t>/10           5.23 ns         4.76 ns    154259006
-BM_unsigned_cstr_to_num_v4<uint128_t>/12           5.10 ns         4.64 ns    110721766
-BM_unsigned_cstr_to_num_v4<uint128_t>/14           8.38 ns         7.63 ns     83167566
-BM_unsigned_cstr_to_num_v4<uint128_t>/16           8.32 ns         7.57 ns     95268357
-BM_unsigned_cstr_to_num_v4<uint128_t>/18           8.17 ns         7.44 ns     77557056
-BM_unsigned_cstr_to_num_v4<uint128_t>/20           9.83 ns         8.95 ns     71335310
-BM_unsigned_cstr_to_num_v4<uint128_t>/22           9.36 ns         8.52 ns     67891190
-BM_unsigned_cstr_to_num_v4<uint128_t>/24           13.2 ns         12.0 ns     66698907
-BM_unsigned_cstr_to_num_v4<uint128_t>/26           12.7 ns         11.6 ns     59771562
-BM_unsigned_cstr_to_num_v4<uint128_t>/28           14.6 ns         13.3 ns     55865364
-BM_unsigned_cstr_to_num_v4<uint128_t>/30           14.7 ns         13.4 ns     51858293
-BM_unsigned_cstr_to_num_v4<uint128_t>/32           16.2 ns         14.8 ns     48457552
-BM_unsigned_cstr_to_num_v4<uint128_t>_BigO         8.27 (1)        7.53 (1)  
-BM_unsigned_cstr_to_num_v4<uint128_t>_RMS            56 %            56 %    
-BM_unsigned_cstr_to_num_v5<uint128_t>/0            2.07 ns         1.89 ns    377398251
-BM_unsigned_cstr_to_num_v5<uint128_t>/2            2.12 ns         1.93 ns    372602718
-BM_unsigned_cstr_to_num_v5<uint128_t>/4            2.17 ns         1.97 ns    373191216
-BM_unsigned_cstr_to_num_v5<uint128_t>/6            3.57 ns         3.25 ns    226519368
-BM_unsigned_cstr_to_num_v5<uint128_t>/8            3.40 ns         3.09 ns    226251080
-BM_unsigned_cstr_to_num_v5<uint128_t>/10           5.07 ns         4.62 ns    129269912
-BM_unsigned_cstr_to_num_v5<uint128_t>/12           6.62 ns         6.03 ns    117391849
-BM_unsigned_cstr_to_num_v5<uint128_t>/14           6.58 ns         6.00 ns    104253670
-BM_unsigned_cstr_to_num_v5<uint128_t>/16           8.01 ns         7.30 ns     94340228
-BM_unsigned_cstr_to_num_v5<uint128_t>/18           9.97 ns         9.07 ns     73289143
-BM_unsigned_cstr_to_num_v5<uint128_t>/20           9.58 ns         8.72 ns     75235495
-BM_unsigned_cstr_to_num_v5<uint128_t>/22           11.1 ns         10.1 ns     70404102
-BM_unsigned_cstr_to_num_v5<uint128_t>/24           12.8 ns         11.7 ns     69127741
-BM_unsigned_cstr_to_num_v5<uint128_t>/26           12.7 ns         11.5 ns     60271836
-BM_unsigned_cstr_to_num_v5<uint128_t>/28           14.7 ns         13.4 ns     54050806
-BM_unsigned_cstr_to_num_v5<uint128_t>/30           14.6 ns         13.3 ns     55212400
-BM_unsigned_cstr_to_num_v5<uint128_t>/32           16.1 ns         14.7 ns     47047029
-BM_unsigned_cstr_to_num_v5<uint128_t>_BigO         8.31 (1)        7.57 (1)  
-BM_unsigned_cstr_to_num_v5<uint128_t>_RMS            56 %            56 %    
-BM_unsigned_cstr_to_num_v5<uint128_t>/0            2.12 ns         1.93 ns    382107742
-BM_unsigned_cstr_to_num_v5<uint128_t>/2            2.08 ns         1.90 ns    367279396
-BM_unsigned_cstr_to_num_v5<uint128_t>/4            2.06 ns         1.88 ns    370982151
-BM_unsigned_cstr_to_num_v5<uint128_t>/6            3.48 ns         3.16 ns    342288017
-BM_unsigned_cstr_to_num_v5<uint128_t>/8            5.01 ns         4.56 ns    145427484
-BM_unsigned_cstr_to_num_v5<uint128_t>/10           4.93 ns         4.49 ns    230652499
-BM_unsigned_cstr_to_num_v5<uint128_t>/12           6.58 ns         5.98 ns    116613778
-BM_unsigned_cstr_to_num_v5<uint128_t>/14           6.55 ns         5.96 ns    122464435
-BM_unsigned_cstr_to_num_v5<uint128_t>/16           8.53 ns         7.77 ns     93994422
-BM_unsigned_cstr_to_num_v5<uint128_t>/18           9.43 ns         8.58 ns     92577410
-BM_unsigned_cstr_to_num_v5<uint128_t>/20           9.76 ns         8.87 ns     81103793
-BM_unsigned_cstr_to_num_v5<uint128_t>/22           11.4 ns         10.4 ns     63700705
-BM_unsigned_cstr_to_num_v5<uint128_t>/24           11.4 ns         10.3 ns     55167180
-BM_unsigned_cstr_to_num_v5<uint128_t>/26           12.9 ns         11.8 ns     58178728
-BM_unsigned_cstr_to_num_v5<uint128_t>/28           13.0 ns         11.8 ns     49851504
-BM_unsigned_cstr_to_num_v5<uint128_t>/30           14.6 ns         13.3 ns     51165772
-BM_unsigned_cstr_to_num_v5<uint128_t>/32           16.0 ns         14.6 ns     46241304
-BM_unsigned_cstr_to_num_v5<uint128_t>_BigO         8.22 (1)        7.48 (1)  
-BM_unsigned_cstr_to_num_v5<uint128_t>_RMS            54 %            54 %    
+BM_unsigned_cstr_to_num_v2<uint128_t>/0            2.04 ns         1.86 ns    392424892
+BM_unsigned_cstr_to_num_v2<uint128_t>/2            2.05 ns         1.87 ns    393523642
+BM_unsigned_cstr_to_num_v2<uint128_t>/4            2.15 ns         1.96 ns    395119700
+BM_unsigned_cstr_to_num_v2<uint128_t>/6            3.23 ns         2.94 ns    238180148
+BM_unsigned_cstr_to_num_v2<uint128_t>/8            4.85 ns         4.42 ns    240405088
+BM_unsigned_cstr_to_num_v2<uint128_t>/10           5.01 ns         4.56 ns    161257620
+BM_unsigned_cstr_to_num_v2<uint128_t>/12           6.55 ns         5.94 ns    129412758
+BM_unsigned_cstr_to_num_v2<uint128_t>/14           6.30 ns         5.74 ns    226283211
+BM_unsigned_cstr_to_num_v2<uint128_t>/16           7.98 ns         7.26 ns    100669843
+BM_unsigned_cstr_to_num_v2<uint128_t>/18           9.48 ns         8.62 ns     77625998
+BM_unsigned_cstr_to_num_v2<uint128_t>/20           7.66 ns         6.96 ns     84477440
+BM_unsigned_cstr_to_num_v2<uint128_t>/22           10.0 ns         9.11 ns     73839303
+BM_unsigned_cstr_to_num_v2<uint128_t>/24           12.3 ns         11.2 ns     61007494
+BM_unsigned_cstr_to_num_v2<uint128_t>/26           12.0 ns         10.9 ns     63152044
+BM_unsigned_cstr_to_num_v2<uint128_t>/28           13.2 ns         12.0 ns     43897674
+BM_unsigned_cstr_to_num_v2<uint128_t>/30           14.7 ns         13.3 ns     47281880
+BM_unsigned_cstr_to_num_v2<uint128_t>/32           16.1 ns         14.7 ns     48531300
+BM_unsigned_cstr_to_num_v2<uint128_t>_BigO         7.98 (1)        7.26 (1)  
+BM_unsigned_cstr_to_num_v2<uint128_t>_RMS            55 %            55 %    
+BM_unsigned_cstr_to_num_v3<uint128_t>/0            2.38 ns         2.15 ns    395928681
+BM_unsigned_cstr_to_num_v3<uint128_t>/2            2.01 ns         1.83 ns    389757850
+BM_unsigned_cstr_to_num_v3<uint128_t>/4            1.98 ns         1.80 ns    392698809
+BM_unsigned_cstr_to_num_v3<uint128_t>/6            3.23 ns         2.95 ns    244940776
+BM_unsigned_cstr_to_num_v3<uint128_t>/8            3.38 ns         3.06 ns    164046911
+BM_unsigned_cstr_to_num_v3<uint128_t>/10           5.08 ns         4.61 ns    167554329
+BM_unsigned_cstr_to_num_v3<uint128_t>/12           6.65 ns         6.02 ns     95383137
+BM_unsigned_cstr_to_num_v3<uint128_t>/14           7.55 ns         6.87 ns    121825593
+BM_unsigned_cstr_to_num_v3<uint128_t>/16           7.77 ns         7.06 ns     99230051
+BM_unsigned_cstr_to_num_v3<uint128_t>/18           7.93 ns         7.20 ns     77492999
+BM_unsigned_cstr_to_num_v3<uint128_t>/20           9.20 ns         8.37 ns     82703259
+BM_unsigned_cstr_to_num_v3<uint128_t>/22           10.7 ns         9.70 ns     71506942
+BM_unsigned_cstr_to_num_v3<uint128_t>/24           12.2 ns         11.1 ns     60503146
+BM_unsigned_cstr_to_num_v3<uint128_t>/26           12.8 ns         11.5 ns     57370327
+BM_unsigned_cstr_to_num_v3<uint128_t>/28           13.6 ns         12.4 ns     57176459
+BM_unsigned_cstr_to_num_v3<uint128_t>/30           14.0 ns         12.7 ns     55629429
+BM_unsigned_cstr_to_num_v3<uint128_t>/32           14.2 ns         12.9 ns     48772386
+BM_unsigned_cstr_to_num_v3<uint128_t>_BigO         7.92 (1)        7.19 (1)  
+BM_unsigned_cstr_to_num_v3<uint128_t>_RMS            54 %            54 %    
+BM_unsigned_cstr_to_num_v4<uint128_t>/0            2.04 ns         1.86 ns    376736021
+BM_unsigned_cstr_to_num_v4<uint128_t>/2            2.11 ns         1.91 ns    350205877
+BM_unsigned_cstr_to_num_v4<uint128_t>/4            3.41 ns         3.10 ns    231371097
+BM_unsigned_cstr_to_num_v4<uint128_t>/6            3.37 ns         3.06 ns    378789859
+BM_unsigned_cstr_to_num_v4<uint128_t>/8            4.87 ns         4.43 ns    381859486
+BM_unsigned_cstr_to_num_v4<uint128_t>/10           4.78 ns         4.35 ns    160135635
+BM_unsigned_cstr_to_num_v4<uint128_t>/12           6.31 ns         5.74 ns    129270912
+BM_unsigned_cstr_to_num_v4<uint128_t>/14           6.37 ns         5.80 ns    136053684
+BM_unsigned_cstr_to_num_v4<uint128_t>/16           7.72 ns         7.03 ns     98846138
+BM_unsigned_cstr_to_num_v4<uint128_t>/18           9.51 ns         8.64 ns     80992026
+BM_unsigned_cstr_to_num_v4<uint128_t>/20           9.17 ns         8.35 ns     98928202
+BM_unsigned_cstr_to_num_v4<uint128_t>/22           10.9 ns         9.88 ns     83406133
+BM_unsigned_cstr_to_num_v4<uint128_t>/24           12.8 ns         11.7 ns     67909164
+BM_unsigned_cstr_to_num_v4<uint128_t>/26           12.4 ns         11.2 ns     60609220
+BM_unsigned_cstr_to_num_v4<uint128_t>/28           12.5 ns         11.4 ns     58112721
+BM_unsigned_cstr_to_num_v4<uint128_t>/30           13.1 ns         11.9 ns     46640642
+BM_unsigned_cstr_to_num_v4<uint128_t>/32           13.8 ns         12.6 ns     48213692
+BM_unsigned_cstr_to_num_v4<uint128_t>_BigO         7.95 (1)        7.23 (1)  
+BM_unsigned_cstr_to_num_v4<uint128_t>_RMS            50 %            50 %    
+BM_unsigned_cstr_to_num_v5<uint128_t>/0            2.04 ns         1.86 ns    382910857
+BM_unsigned_cstr_to_num_v5<uint128_t>/2            2.04 ns         1.85 ns    387106200
+BM_unsigned_cstr_to_num_v5<uint128_t>/4            1.98 ns         1.80 ns    356630881
+BM_unsigned_cstr_to_num_v5<uint128_t>/6            3.32 ns         3.03 ns    383838512
+BM_unsigned_cstr_to_num_v5<uint128_t>/8            3.29 ns         3.00 ns    233248613
+BM_unsigned_cstr_to_num_v5<uint128_t>/10           4.91 ns         4.48 ns    162434747
+BM_unsigned_cstr_to_num_v5<uint128_t>/12           6.15 ns         5.60 ns    121478950
+BM_unsigned_cstr_to_num_v5<uint128_t>/14           6.34 ns         5.79 ns    164661647
+BM_unsigned_cstr_to_num_v5<uint128_t>/16           6.05 ns         5.52 ns    100312818
+BM_unsigned_cstr_to_num_v5<uint128_t>/18           9.15 ns         8.35 ns     84583646
+BM_unsigned_cstr_to_num_v5<uint128_t>/20           9.49 ns         8.64 ns     80525386
+BM_unsigned_cstr_to_num_v5<uint128_t>/22           9.88 ns         8.98 ns     70591081
+BM_unsigned_cstr_to_num_v5<uint128_t>/24           10.6 ns         9.72 ns     63379694
+BM_unsigned_cstr_to_num_v5<uint128_t>/26           12.8 ns         11.6 ns     60532953
+BM_unsigned_cstr_to_num_v5<uint128_t>/28           13.9 ns         12.7 ns     53112012
+BM_unsigned_cstr_to_num_v5<uint128_t>/30           13.7 ns         12.5 ns     61773068
+BM_unsigned_cstr_to_num_v5<uint128_t>/32           16.2 ns         14.7 ns     49878966
+BM_unsigned_cstr_to_num_v5<uint128_t>_BigO         7.76 (1)        7.07 (1)  
+BM_unsigned_cstr_to_num_v5<uint128_t>_RMS            58 %            58 %    
+BM_unsigned_cstr_to_num_v6<uint128_t>/0            1.98 ns         1.81 ns    371549752
+BM_unsigned_cstr_to_num_v6<uint128_t>/2            1.99 ns         1.82 ns    383445673
+BM_unsigned_cstr_to_num_v6<uint128_t>/4            1.98 ns         1.81 ns    379564149
+BM_unsigned_cstr_to_num_v6<uint128_t>/6            3.36 ns         3.05 ns    228968376
+BM_unsigned_cstr_to_num_v6<uint128_t>/8            4.77 ns         4.35 ns    229187104
+BM_unsigned_cstr_to_num_v6<uint128_t>/10           4.94 ns         4.49 ns    158604116
+BM_unsigned_cstr_to_num_v6<uint128_t>/12           4.73 ns         4.31 ns    121033472
+BM_unsigned_cstr_to_num_v6<uint128_t>/14           7.84 ns         7.14 ns    121362771
+BM_unsigned_cstr_to_num_v6<uint128_t>/16           8.02 ns         7.29 ns     99905603
+BM_unsigned_cstr_to_num_v6<uint128_t>/18           7.80 ns         7.10 ns     82313662
+BM_unsigned_cstr_to_num_v6<uint128_t>/20           9.24 ns         8.40 ns     83914308
+BM_unsigned_cstr_to_num_v6<uint128_t>/22           9.66 ns         8.77 ns     67217859
+BM_unsigned_cstr_to_num_v6<uint128_t>/24           10.8 ns         9.82 ns     67975449
+BM_unsigned_cstr_to_num_v6<uint128_t>/26           12.4 ns         11.3 ns     61867717
+BM_unsigned_cstr_to_num_v6<uint128_t>/28           12.7 ns         11.5 ns     61471064
+BM_unsigned_cstr_to_num_v6<uint128_t>/30           14.3 ns         13.0 ns     54178894
+BM_unsigned_cstr_to_num_v6<uint128_t>/32           15.3 ns         14.0 ns     54431861
+BM_unsigned_cstr_to_num_v6<uint128_t>_BigO         7.75 (1)        7.05 (1)  
+BM_unsigned_cstr_to_num_v6<uint128_t>_RMS            55 %            55 %    
 
 ## reference architecture
 gcc (GCC) 8.3.1 20190507 (Red Hat 8.3.1-4)

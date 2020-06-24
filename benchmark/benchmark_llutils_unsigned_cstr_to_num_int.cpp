@@ -28,7 +28,7 @@ BENCHMARK_TEMPLATE(BM_unsigned_cstr_to_num_v2,uint128_t)->DenseRange(0,sizeof(un
 BENCHMARK_TEMPLATE(BM_unsigned_cstr_to_num_v3,uint128_t)->DenseRange(0,sizeof(unsigned int)*8,STEP_SIZE)->Complexity();
 BENCHMARK_TEMPLATE(BM_unsigned_cstr_to_num_v4,uint128_t)->DenseRange(0,sizeof(unsigned int)*8,STEP_SIZE)->Complexity();
 BENCHMARK_TEMPLATE(BM_unsigned_cstr_to_num_v5,uint128_t)->DenseRange(0,sizeof(unsigned int)*8,STEP_SIZE)->Complexity();
-BENCHMARK_TEMPLATE(BM_unsigned_cstr_to_num_v5,uint128_t)->DenseRange(0,sizeof(unsigned int)*8,STEP_SIZE)->Complexity();
+BENCHMARK_TEMPLATE(BM_unsigned_cstr_to_num_v6,uint128_t)->DenseRange(0,sizeof(unsigned int)*8,STEP_SIZE)->Complexity();
 
 BENCHMARK_MAIN();
 

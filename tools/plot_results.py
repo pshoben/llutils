@@ -48,7 +48,7 @@ def plot_benchmark_results():
                         if '.' in x:
                             converted.append(float(x))
                         else:
-                            converted.append(int(x))
+                            converted.append(float(x))
                     else:
                         converted.append(x)
                 body_lines.append(converted)
@@ -115,7 +115,7 @@ def plot_series(data,row_count,col_count,series_count,series_title, axs):
             x_value = ipoint
             arr = point[0].split("/")
             try:
-                y_value = int(point[3]) # cpu time
+                y_value = float(point[3]) # cpu time
                 y_values.append(y_value)
                 if len(arr)>1:
                     x_value = int(arr[1])

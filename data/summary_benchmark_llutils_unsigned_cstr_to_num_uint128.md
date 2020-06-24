@@ -3,7 +3,7 @@
 
 |function version       | RMS                  | Big O                      |
 |:----------------------|---------------------:|:--------------------------:|
-| BM_unsigned_cstr_to_num_v2<uint128_t>_RMS | 65 | 24.59 (1) |
-| BM_unsigned_cstr_to_num_v3<uint128_t>_RMS | 62 | 25.05 (1) |
-| BM_unsigned_cstr_to_num_v4<uint128_t>_RMS | 65 | 24.96 (1) |
-| BM_unsigned_cstr_to_num_v5<uint128_t>_RMS | 65 | 24.57 (1) |
+| BM_unsigned_cstr_to_num_v2<uint128_t>_RMS | 65 | 24.61 (1) |
+| BM_unsigned_cstr_to_num_v3<uint128_t>_RMS | 64 | 24.55 (1) |
+| BM_unsigned_cstr_to_num_v4<uint128_t>_RMS | 64 | 24.98 (1) |
+| BM_unsigned_cstr_to_num_v5<uint128_t>_RMS | 66 | 24.88 (1) |

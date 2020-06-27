@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <arpa/inet.h>
+#include <stdbool.h>
 
 #define DEFAULT_PORT    8080
 #define MAX_CONN        16
@@ -40,15 +41,36 @@ static void set_sockaddr(struct sockaddr_in *addr)
 	addr->sin_family = AF_INET;
 	addr->sin_addr.s_addr = INADDR_ANY;
 	addr->sin_port = htons(g_port);
+	printf("set_sockaddr port %hu\n",g_port); fflush(stdout);
+
 }
 
-static int setnonblocking(int sockfd)
+//static int setnonblocking(int sockfd)
+//{
+//	int ret = 0;
+//	if (fcntl(sockfd, F_SETFD, fcntl(sockfd, F_GETFD, 0) | O_NONBLOCK) ==
+//	    -1) {
+//		ret = -1;
+//	}
+//
+//	printf("setnonblocking returned %d\n", ret);
+//	return ret;
+//}
+
+/** Returns true on success, or false if there was an error */
+bool set_blocking(int fd, bool blocking)
 {
-	if (fcntl(sockfd, F_SETFD, fcntl(sockfd, F_GETFD, 0) | O_NONBLOCK) ==
-	    -1) {
-		return -1;
-	}
-	return 0;
+   if (fd < 0) return false;
+
+#ifdef _WIN32
+   unsigned long mode = blocking ? 0 : 1;
+   return (ioctlsocket(fd, FIONBIO, &mode) == 0) ? true : false;
+#else
+   int flags = fcntl(fd, F_GETFL, 0);
+   if (flags == -1) return false;
+   flags = blocking ? (flags & ~O_NONBLOCK) : (flags | O_NONBLOCK);
+   return (fcntl(fd, F_SETFL, flags) == 0) ? true : false;
+#endif
 }
 
 /*
@@ -73,10 +95,12 @@ void server_run()
 	set_sockaddr(&srv_addr);
 	bind(listen_sock, (struct sockaddr *)&srv_addr, sizeof(srv_addr));
 
-	setnonblocking(listen_sock);
+	int success = set_blocking(listen_sock, false);
+
 	listen(listen_sock, MAX_CONN);
 
 	epfd = epoll_create(1);
+
 	epoll_ctl_add(epfd, listen_sock, EPOLLIN | EPOLLOUT | EPOLLET);
 
 	socklen = sizeof(cli_addr);
@@ -94,10 +118,9 @@ void server_run()
 					  buf, sizeof(cli_addr));
 				printf("[+] connected with %s:%d\n", buf,
 				       ntohs(cli_addr.sin_port));
-
-				setnonblocking(conn_sock);
+				success = set_blocking(conn_sock, false);
 				epoll_ctl_add(epfd, conn_sock,
-					      EPOLLIN | EPOLLET | EPOLLRDHUP |
+					      EPOLLPRI | EPOLLIN | EPOLLET | EPOLLRDHUP |
 					      EPOLLHUP);
 			} else if (events[i].events & EPOLLIN) {
 				/* handle EPOLLIN event */
@@ -105,7 +128,7 @@ void server_run()
 					bzero(buf, sizeof(buf));
 					n = read(events[i].data.fd, buf,
 						 sizeof(buf));
-					if (n <= 0 /* || errno == EAGAIN */ ) {
+				if (n <= 0 /* || errno == EAGAIN */ ) {
 						break;
 					} else {
 						printf("[+] data: %s\n", buf);

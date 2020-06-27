@@ -4,17 +4,18 @@
 #include <sstream>
 #include <iostream>
 #include <cstring>
+#include "llutils.hpp"
 
 using std::cout;
 using std::endl;
 
 using namespace llutils;
 
-std::ostream& operator<<(std::ostream& os, unsigned __int128 x){
+std::ostream& operator<<(std::ostream& os, uint128_t x){
     if(x<10) return  os << (char)(x+'0');
     return os << x/10 << (char)(x%10+'0');
 }
-std::ostream& operator<<(std::ostream& os, __int128 x){
+std::ostream& operator<<(std::ostream& os, int128_t x){
     if(x<0) return os << "-" << -x;
     if(x<10) return  os << (char)(x+'0');
     return os << x/10 << (char)(x%10+'0');

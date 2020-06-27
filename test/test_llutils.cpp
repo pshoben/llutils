@@ -22,7 +22,7 @@ TEST(LLUtils, StrToNumUnsignedShort)
 	// mini fuzz
 	unsigned short x = 1;
 	for( unsigned short i = 0 ; i <= 1009 ; i++ ) {
-		unsigned short x = (x + (i * 1003)); // overflows
+		x = (x + (i * 1003)); // overflows
 		sprintf(tmp,"%hu",x);
    		unsigned short y = LLUtils<unsigned short>::unsigned_cstr_to_num(tmp,strlen(tmp)); 
 		EXPECT_EQ(y,x);
@@ -43,7 +43,7 @@ TEST(LLUtils, StrToNumUnsignedInt)
 	// mini fuzz
 	unsigned int x = 1;
 	for( unsigned int i = 0 ; i <= 1000 ; i++ ) {
-		unsigned int x = (x + (i * 104729)); // overflows
+		x = (x + (i * 104729)); // overflows
 		sprintf(tmp,"%u",x);
    		unsigned int y = LLUtils<unsigned int>::unsigned_cstr_to_num(tmp,strlen(tmp)); 
 		EXPECT_EQ(y,x);
@@ -63,7 +63,7 @@ TEST(LLUtils, StrToNumUnsignedLong)
 	// mini fuzz
 	unsigned long x = 1;
 	for( unsigned long i = 0 ; i <= 1000 ; i++ ) {
-		unsigned long x = (x + (i * 104729)); // overflows
+		x = (x + (i * 104729)); // overflows
 		sprintf(tmp,"%lu",x);
    		unsigned long y = LLUtils<unsigned long>::unsigned_cstr_to_num(tmp,strlen(tmp)); 
 		EXPECT_EQ(y,x);
@@ -82,19 +82,19 @@ TEST(LLUtils, StrToNumU128T)
 
 	// MAX value
 	uint128_t max = ULLONG_MAX;
-	sprintf(in,"%llu",max);
+	sprintf(in,"%llu",(unsigned long long)max);
 	uint128_to_cstr( LLUtils<uint128_t>::unsigned_cstr_to_num(in,strlen(in)),out, true );
 	EXPECT_STREQ(in,out);
 
-	unsigned long high = rand() % ULONG_MAX;
-	unsigned long low = rand() % ULONG_MAX;
+	unsigned long long high = rand() % ULONG_MAX;
+	unsigned long long low = rand() % ULONG_MAX;
 
 	// >19 digits mini fuzz (leading zeroes)
 	for( int i = 0 ; i <= 10 ; i++ ) {
 		high = rand() % ULONG_MAX;
 		low = rand() % ULONG_MAX;
- 		sprintf( in, "%0.19llu%0.19llu",high,low );
-		sprintf( in_nozeroes, "%llu%0.19llu",high,low );
+ 		sprintf( in, "%019llu%019llu",high,low );
+		sprintf( in_nozeroes, "%llu%019llu",high,low );
 		uint128_to_cstr( LLUtils<uint128_t>::unsigned_cstr_to_num(in,strlen(in)),out, true );
 		EXPECT_STREQ(in_nozeroes,out);
 	}
@@ -102,14 +102,14 @@ TEST(LLUtils, StrToNumU128T)
 	for( int i = 0 ; i <= 10 ; i++ ) {
  		high = high * rand() % ULONG_MAX; // overflows
 		low = low * rand() % ULONG_MAX; // overflows
-		uint128_to_cstr((uint128_t)high << 64 + (uint128_t)low, in, true );
+		uint128_to_cstr(((uint128_t)high << 64) + ((uint128_t)low), in, true );
 		uint128_to_cstr(LLUtils<uint128_t>::unsigned_cstr_to_num(in,strlen(in)),out, true );
 		EXPECT_STREQ(in,out);
 	}
 	// <19 digits mini fuzz (leading zeroes)
 	for( int i = 0 ; i <= 10 ; i++ ) {
 		low = rand() % ULONG_MAX;
- 		sprintf(in,"%0.19llu",low);
+ 		sprintf(in,"%019llu",low);
 		sprintf( in_nozeroes, "%llu",low );
 		uint128_to_cstr(LLUtils<uint128_t>::unsigned_cstr_to_num(in,strlen(in)),out, true );
 		EXPECT_STREQ(in_nozeroes,out);

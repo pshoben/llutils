@@ -21,7 +21,7 @@
 
 namespace llutils {
 
-typedef unsigned __int128 uint128_t;
+//typedef unsigned __int128 uint128_t;
 
 // baseline function v1
 //#define unsigned_cstr_to_num_v1( buffer, len ) strtoul( buffer, 0, 10 )
@@ -40,7 +40,7 @@ public:
   		return unsigned_cstr_to_num_v5(std::forward<Args>(args)...);
 	}
 
-	static T unsigned_cstr_to_num_v1( const char *buffer, size_t len )
+	static T unsigned_cstr_to_num_v1( const char *buffer, size_t len __attribute__((unused)))
 	{
 		return strtoul( buffer, 0, 10 );
 	}

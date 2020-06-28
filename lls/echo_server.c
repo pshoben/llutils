@@ -13,14 +13,23 @@
 #include <stdlib.h>
 #include <arpa/inet.h>
 #include <stdbool.h>
+#include <limits.h>
 
-#define DEFAULT_PORT    8080
+#define DEFAULT_HOST    "127.0.0.1"
+#define DEFAULT_LISTEN_PORT   6565
+#define DEFAULT_RELAY_PORT    7575
+
 #define MAX_CONN        16
 #define MAX_EVENTS      32
 #define BUF_SIZE        16
 //#define MAX_LINE        256
 
-static uint16_t g_port;
+static bool g_relay = false;  // if true, relay mode else echo mode
+static uint16_t g_listen_port = DEFAULT_LISTEN_PORT;
+static uint16_t g_relay_to_port = DEFAULT_RELAY_PORT;
+
+char g_relay_to_host[HOST_NAME_MAX+1]=DEFAULT_HOST;
+
 /*
  * register events of fd to epfd
  */
@@ -40,8 +49,8 @@ static void set_sockaddr(struct sockaddr_in *addr)
 	bzero((char *)addr, sizeof(struct sockaddr_in));
 	addr->sin_family = AF_INET;
 	addr->sin_addr.s_addr = INADDR_ANY;
-	addr->sin_port = htons(g_port);
-	printf("set_sockaddr port %hu\n",g_port); fflush(stdout);
+	addr->sin_port = htons(g_listen_port);
+	printf("set_sockaddr port %hu\n",g_listen_port); fflush(stdout);
 
 }
 
@@ -95,7 +104,7 @@ void server_run()
 	set_sockaddr(&srv_addr);
 	bind(listen_sock, (struct sockaddr *)&srv_addr, sizeof(srv_addr));
 
-	int success = set_blocking(listen_sock, false);
+	set_blocking(listen_sock, false);
 
 	listen(listen_sock, MAX_CONN);
 
@@ -118,7 +127,7 @@ void server_run()
 					  buf, sizeof(cli_addr));
 				printf("[+] connected with %s:%d\n", buf,
 				       ntohs(cli_addr.sin_port));
-				success = set_blocking(conn_sock, false);
+				set_blocking(conn_sock, false);
 				epoll_ctl_add(epfd, conn_sock,
 					      EPOLLPRI | EPOLLIN | EPOLLET | EPOLLRDHUP |
 					      EPOLLHUP);
@@ -151,11 +160,35 @@ void server_run()
 	}
 }
 
-int main()
+
+int main(int argc, char *argv[])
 {
-	g_port = DEFAULT_PORT;
+	int opt;
+	while ((opt = getopt(argc, argv, "rh:p:l:")) != -1) {
+		switch (opt) {
+		case 'r':
+			g_relay = true;
+			break;
+		case 'h':
+			memset(g_relay_to_host,0,sizeof(g_relay_to_host));
+			strncpy(g_relay_to_host,optarg, HOST_NAME_MAX);
+			break;
+		case 'p':
+			g_relay_to_port = atoi(optarg);
+			break;
+		case 'l':
+			g_listen_port = atoi(optarg);
+			break;
+		default:
+			printf("usage: %s [-r [-h relay-to-host] [-p relay-to-port] [-l listen-port]\n", argv[0]);
+			exit(1);
+		}
+	}
+	printf("server listening on port %hu : relay mode = %d\n", g_listen_port, g_relay);
+	if( g_relay ) {
+		printf("relay to %s:%hu\n",g_relay_to_host, g_relay_to_port);
+	}
 	server_run();
 	return 0;
 }
-
 

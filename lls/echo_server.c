@@ -22,13 +22,16 @@
 #define MAX_CONN        16
 #define MAX_EVENTS      32
 #define BUF_SIZE        16
-//#define MAX_LINE        256
+#define MAX_LINE        256
 
 static bool g_relay = false;  // if true, relay mode else echo mode
 static uint16_t g_listen_port = DEFAULT_LISTEN_PORT;
 static uint16_t g_relay_to_port = DEFAULT_RELAY_PORT;
 
-char g_relay_to_host[HOST_NAME_MAX+1]=DEFAULT_HOST;
+char g_relay_to_host[HOST_NAME_MAX+1]=DEFAULT_HOST; // TODO nyi
+
+static int g_conn_sock_fd = 0;
+static int g_relay_sock_fd = 0 ;
 
 /*
  * register events of fd to epfd
@@ -54,19 +57,6 @@ static void set_sockaddr(struct sockaddr_in *addr)
 
 }
 
-//static int setnonblocking(int sockfd)
-//{
-//	int ret = 0;
-//	if (fcntl(sockfd, F_SETFD, fcntl(sockfd, F_GETFD, 0) | O_NONBLOCK) ==
-//	    -1) {
-//		ret = -1;
-//	}
-//
-//	printf("setnonblocking returned %d\n", ret);
-//	return ret;
-//}
-
-/** Returns true on success, or false if there was an error */
 bool set_blocking(int fd, bool blocking)
 {
    if (fd < 0) return false;
@@ -82,6 +72,28 @@ bool set_blocking(int fd, bool blocking)
 #endif
 }
 
+static void set_relaysockaddr(struct sockaddr_in *addr)
+{
+	bzero((char *)addr, sizeof(struct sockaddr_in));
+	addr->sin_family = AF_INET;
+	addr->sin_addr.s_addr = INADDR_ANY;
+	addr->sin_port = htons(g_relay_to_port);
+}
+
+
+void connect_to_relay_target()
+{
+	struct sockaddr_in relay_addr;
+	g_relay_sock_fd = socket(AF_INET, SOCK_STREAM, 0);
+	set_relaysockaddr(&relay_addr);
+
+	if (connect(g_relay_sock_fd, (struct sockaddr *)&relay_addr, sizeof(relay_addr)) < 0) {
+		perror("connect() to relay target");
+		exit(1);
+	}
+	set_blocking(g_relay_sock_fd, false);
+}
+
 /*
  * epoll echo server
  */
@@ -92,9 +104,10 @@ void server_run()
 	int epfd;
 	int nfds;
 	int listen_sock;
-	int conn_sock;
 	socklen_t socklen;
-	char buf[BUF_SIZE];
+	char read_buf[BUF_SIZE];
+	//char write_buf[BUF_SIZE];
+
 	struct sockaddr_in srv_addr;
 	struct sockaddr_in cli_addr;
 	struct epoll_event events[MAX_EVENTS];
@@ -111,38 +124,69 @@ void server_run()
 	epfd = epoll_create(1);
 
 	epoll_ctl_add(epfd, listen_sock, EPOLLIN | EPOLLOUT | EPOLLET);
+	if( g_relay && g_relay_sock_fd !=0 ) {
+		epoll_ctl_add(epfd, g_relay_sock_fd, EPOLLIN | EPOLLOUT | EPOLLET);
+	}
 
 	socklen = sizeof(cli_addr);
 	for (;;) {
+		//printf("[+] before epoll_wait\n");
 		nfds = epoll_wait(epfd, events, MAX_EVENTS, -1);
-		for (i = 0; i < nfds; i++) {
+		//printf("[+] after epoll_wait\n");
+		for ( i = 0 ; i < nfds; i++ ) {
+			//printf("[+] processing %d of <%d\n",i,nfds);
 			if (events[i].data.fd == listen_sock) {
 				/* handle new connection */
-				conn_sock =
+				g_conn_sock_fd =
 				    accept(listen_sock,
 					   (struct sockaddr *)&cli_addr,
 					   &socklen);
 
 				inet_ntop(AF_INET, (char *)&(cli_addr.sin_addr),
-					  buf, sizeof(cli_addr));
-				printf("[+] connected with %s:%d\n", buf,
+					  read_buf, sizeof(cli_addr));
+				printf("[+] connected with %s:%d\n", read_buf,
 				       ntohs(cli_addr.sin_port));
-				set_blocking(conn_sock, false);
-				epoll_ctl_add(epfd, conn_sock,
+				set_blocking(g_conn_sock_fd, false);
+				epoll_ctl_add(epfd, g_conn_sock_fd,
 					      EPOLLPRI | EPOLLIN | EPOLLET | EPOLLRDHUP |
 					      EPOLLHUP);
 			} else if (events[i].events & EPOLLIN) {
 				/* handle EPOLLIN event */
+				int read_from_fd = events[i].data.fd;
 				for (;;) {
-					bzero(buf, sizeof(buf));
-					n = read(events[i].data.fd, buf,
-						 sizeof(buf));
-				if (n <= 0 /* || errno == EAGAIN */ ) {
+					bzero(read_buf, sizeof(read_buf));
+					//printf("[+] before read fd %d\n", read_from_fd);
+					int remaining = read(read_from_fd, read_buf, sizeof(read_buf));
+					//printf("[+] read returned : %d [%.*s]\n", remaining, remaining, read_buf);
+
+					if ( remaining <= 0 /* || errno == EAGAIN */ ) {
 						break;
 					} else {
-						printf("[+] data: %s\n", buf);
-						write(events[i].data.fd, buf,
-						      strlen(buf));
+						int write_to_fd = 0;
+						// if in relay mode, write to the 'other' socket
+						if( g_relay ) {
+							if( events[i].data.fd ==  g_relay_sock_fd ) {
+								write_to_fd = g_conn_sock_fd;
+								printf("[+] response: [%s] %lu %d\n", read_buf, strlen(read_buf), remaining);
+							} else {
+								write_to_fd = g_relay_sock_fd;
+								printf("[+] relaying: [%s] %lu %d\n", read_buf, strlen(read_buf), remaining);
+							}
+						} else {
+							printf("[+] echoing: [%s] %lu %d\n", read_buf, strlen(read_buf), remaining );
+							write_to_fd = read_from_fd;
+						}
+						char * p = read_buf;
+						while( remaining > 0 ) {
+							//printf("[+] before write [%.*s] fd %d (remaining = %d)\n", remaining,  p, write_to_fd, remaining);
+							n = write(write_to_fd, p, remaining );
+							//printf("[+] after write fd %d (wrote %d)\n", write_to_fd, n);
+							if( n > 0 ) {
+								p += n;
+								remaining -= n;
+							}
+						}
+	
 					}
 				}
 			} else {
@@ -187,6 +231,7 @@ int main(int argc, char *argv[])
 	printf("server listening on port %hu : relay mode = %d\n", g_listen_port, g_relay);
 	if( g_relay ) {
 		printf("relay to %s:%hu\n",g_relay_to_host, g_relay_to_port);
+		connect_to_relay_target();
 	}
 	server_run();
 	return 0;

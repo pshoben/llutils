@@ -107,6 +107,8 @@ void connect_to_relay_target()
 
 	if (connect(g_relay_sock_fd, (struct sockaddr *)&relay_addr, sizeof(relay_addr)) < 0) {
 		perror("connect() to relay target");
+		// if fails to connect out to relay target, kill the client connection :
+		close(g_conn_sock_fd);
 		exit(1);
 	}
 	set_blocking(g_relay_sock_fd, false);
@@ -193,6 +195,11 @@ struct timespec ts_end;
 				epoll_ctl_add(epfd, g_conn_sock_fd,
 					      EPOLLPRI | EPOLLIN | EPOLLET | EPOLLRDHUP |
 					      EPOLLHUP);
+				// when client connects in, make the connection out to relay target and add it to epoll_wait list:
+				connect_to_relay_target();
+				if( g_relay && g_relay_sock_fd !=0 ) {
+					epoll_ctl_add(epfd, g_relay_sock_fd, EPOLLIN | EPOLLOUT | EPOLLET);
+				}
 			} else if (events[i].events & EPOLLIN) {
 				/* handle EPOLLIN event */
 				int read_from_fd = events[i].data.fd;

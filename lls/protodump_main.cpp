@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
 	}
 	printf( "protodump listening on port %hu for relay to %s:%hu\n",
 		protodump::g_listen_port,protodump::g_relay_to_host,protodump::g_relay_to_port );
-	protodump::connect_to_relay_target();
+	//protodump::connect_to_relay_target();
 	protodump::server_run();
 	return 0;
 }

@@ -5,8 +5,8 @@ project(llutils VERSION 0.1)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-set(CMAKE_C_FLAGS_RELEASE "-g -O3 -DNDEBUG -fno-omit-frame-pointer -Wall -Wextra -Wpedantic")
-set(CMAKE_CXX_FLAGS_RELEASE "-g -O3 -DNDEBUG -fno-omit-frame-pointer -Wall -Wextra -Wpedantic")
+set(CMAKE_C_FLAGS_RELEASE "-g -O3 -DNDEBUG -fno-omit-frame-pointer -Wall -Wextra -Wpedantic --save-temps")
+set(CMAKE_CXX_FLAGS_RELEASE "-g -O3 -DNDEBUG -fno-omit-frame-pointer -Wall -Wextra -Wpedantic --save-temps ")
 
 #add_subdirectory(third_party/googletest)
 

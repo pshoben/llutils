@@ -1,7 +1,6 @@
-/*
- * ref: https://github.com/onestraw/epoll-example/blob/master/epoll.c 
- */
-#include <sys/types.h>
+//#include <asm/msr.h>
+#include <sys/types.h> // conflict msr
+#include <limits.h> // conflict msr
 #include <sys/socket.h>
 #include <netdb.h>
 #include <string.h>
@@ -13,11 +12,17 @@
 #include <stdlib.h>
 #include <arpa/inet.h>
 #include <stdbool.h>
-#include <limits.h>
 #include <locale.h>
 #include <config4cpp/Configuration.h>
 #include <iostream>
-
+#include <sys/time.h>
+#include <time.h>
+//#include </root/kernel/linux-5.7.1/include/linux/getcpu.h>
+//#ifdef _WIN32
+//#include <intrin.h>
+//#else
+//#include <x86intrin.h>
+//#endif
 using namespace config4cpp;
 
 #define DEFAULT_HOST    "127.0.0.1"
@@ -29,6 +34,7 @@ using namespace config4cpp;
 #define BUF_SIZE        16
 #define MAX_LINE        256
 
+static bool g_verbose = false;
 static bool g_relay = false;  // if true, relay mode else echo mode
 static uint16_t g_listen_port = DEFAULT_LISTEN_PORT;
 static uint16_t g_relay_to_port = DEFAULT_RELAY_PORT;
@@ -38,6 +44,20 @@ char g_config_filename[PATH_MAX+1]="";
 
 static int g_conn_sock_fd = 0;
 static int g_relay_sock_fd = 0 ;
+
+#ifndef __always_inline
+# define __always_inline	inline __attribute__((always_inline))
+#endif
+
+inline uint32_t rdtsc32() {
+  uint32_t low, high;
+  __asm__ volatile (
+   "rdtsc" /*  "lfence\n\trdtsc\n\tlfence" */
+   : "=a"(low), "=d"(high)
+   : "a"(0)
+   : "%ecx");
+  return low;
+}
 
 /*
  * register events of fd to epfd
@@ -105,6 +125,16 @@ void connect_to_relay_target()
  */
 void server_run()
 {
+//#define USE_CLOCK
+#ifdef USE_CLOCK
+struct timespec ts_start;
+struct timespec ts_bfw; // before first write
+struct timespec ts_end;
+#else
+	uint32_t tsc_start; // timestamp after epoll_wait returns
+	uint32_t tsc_bfw; // timestamp before first write
+	uint32_t tsc_end; // timestamp after finished write all bytes on relay target
+#endif
 	int i;
 	int n;
 	int epfd;
@@ -135,9 +165,24 @@ void server_run()
 	}
 
 	socklen = sizeof(cli_addr);
+	bool wrote_data=false;
+
+
 	for (;;) {
 		//printf("[+] before epoll_wait\n");
 		nfds = epoll_wait(epfd, events, MAX_EVENTS, -1);
+#ifdef USE_CLOCK
+		clock_gettime(CLOCK_MONOTONIC, &ts_start);
+#else
+		tsc_start =rdtsc32(); // get hardware timestamp
+#endif
+// get clock precision/overhead
+#ifdef USE_CLOCK
+						clock_gettime( CLOCK_MONOTONIC, &ts_bfw );
+#else
+						tsc_bfw =rdtsc32(); // get hardware timestamp
+#endif
+		wrote_data=false;
 		//printf("[+] after epoll_wait\n");
 		for ( i = 0 ; i < nfds; i++ ) {
 			//printf("[+] processing %d of <%d\n",i,nfds);
@@ -173,16 +218,25 @@ void server_run()
 						if( g_relay ) {
 							if( events[i].data.fd ==  g_relay_sock_fd ) {
 								write_to_fd = g_conn_sock_fd;
-								printf("[+] response: [%s] %lu %d\n", read_buf, strlen(read_buf), remaining);
+								if( g_verbose )
+									printf("[+] response: [%s] %lu %d\n", read_buf, strlen(read_buf), remaining);
 							} else {
 								write_to_fd = g_relay_sock_fd;
-								printf("[+] relaying: [%s] %lu %d\n", read_buf, strlen(read_buf), remaining);
+								if( g_verbose )
+									printf("[+] relaying: [%s] %lu %d\n", read_buf, strlen(read_buf), remaining);
 							}
 						} else {
+							//if( g_verbose )
 							printf("[+] echoing: [%s] %lu %d\n", read_buf, strlen(read_buf), remaining );
 							write_to_fd = read_from_fd;
 						}
 						char * p = read_buf;
+						wrote_data=true;
+//#ifdef USE_CLOCK
+//						clock_gettime( CLOCK_MONOTONIC, &ts_bfw );
+//#else
+//						tsc_bfw =rdtsc32(); // get hardware timestamp
+//#endif
 						while( remaining > 0 ) {
 							//printf("[+] before write [%.*s] fd %d (remaining = %d)\n", remaining,  p, write_to_fd, remaining);
 							n = write(write_to_fd, p, remaining );
@@ -194,6 +248,25 @@ void server_run()
 						}
 	
 					}
+				}
+#ifdef USE_CLOCK
+				clock_gettime( CLOCK_MONOTONIC, &ts_end );
+#else
+				tsc_end =rdtsc32();
+#endif
+				if( g_relay && wrote_data ) {
+#ifdef USE_CLOCK
+					printf("[relay] start: [%ld] bfw: [%ld] diff-start-bfw: [%ld] end: [%ld] diff-bfw-end: [%ld]\n", 
+							ts_start.tv_nsec, 
+							ts_bfw.tv_nsec,
+						 	ts_bfw.tv_nsec-ts_start.tv_nsec,
+							ts_end.tv_nsec,
+						 	ts_end.tv_nsec-ts_start.tv_nsec);
+#else
+					printf("[relay] start: [%u] bfw: [%u] diff-start-bfw [%u] end: [%u] diff-bfw-end [%u]\n",
+							tsc_start, tsc_bfw, tsc_bfw-tsc_start, tsc_end, tsc_end-tsc_bfw );
+#endif
+
 				}
 			} else {
 				printf("[+] unexpected\n");

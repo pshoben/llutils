@@ -22,8 +22,9 @@ include_directories(/root/llutils/third_party/config4cpp/include)
 
 include_directories(include)
 
-add_subdirectory (test)
-add_subdirectory (benchmark)
-add_subdirectory (harness)
+#add_subdirectory (test)
+#add_subdirectory (benchmark)
+#add_subdirectory (harness)
+
 add_subdirectory (lls)
 

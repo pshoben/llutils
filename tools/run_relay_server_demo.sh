@@ -1,4 +1,4 @@
-killall echo_server relay_server socket_client
+killall echo_server relay_server protodump socket_client
 sleep 5
 
 echo "starting echo server on port 7575"
@@ -20,5 +20,5 @@ sleep 1
 echo "running  socket client in interactive mode:"
 $LLUTILS_HOME/build/lls/socket_client -p 6565 -i
 
-killall echo_server relay_server socket_client
+killall echo_server relay_server protodump socket_client
 

@@ -27,7 +27,7 @@ bool g_interactive = false;
 
 unsigned short g_port= DEFAULT_PORT;
 char g_host[HOST_NAME_MAX]=DEFAULT_HOST;
-char g_send_string[MAX_LINE]="test send";
+char g_send_string[MAX_LINE-1]="test send";
 int g_send_repeats = -1 ; // default -1 = send forever
 struct timespec g_send_wait;
 	
@@ -120,6 +120,7 @@ int main(int argc, char *argv[])
 			g_port = atoi(optarg);
 			break;
 		case 's':
+			memset(g_send_string, 0, sizeof(g_send_string));
 			strncpy(g_send_string,optarg,sizeof(g_send_string)-1);
 			break;
 		case 'r':

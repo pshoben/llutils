@@ -109,7 +109,6 @@ void connect_to_relay_target()
 		perror("connect() to relay target");
 		// if fails to connect out to relay target, kill the client connection :
 		close(g_conn_sock_fd);
-		exit(1);
 	}
 	set_blocking(g_relay_sock_fd, false);
 }
@@ -270,12 +269,24 @@ struct timespec ts_end;
 			} else {
 				printf("[+] unexpected\n");
 			}
-			/* check if the connection is closing */
+			/* if either connection closes, also close the other */
 			if (events[i].events & (EPOLLRDHUP | EPOLLHUP)) {
 				printf("[+] connection closed\n");
-				epoll_ctl(epfd, EPOLL_CTL_DEL,
-					  events[i].data.fd, NULL);
-				close(events[i].data.fd);
+				if( g_conn_sock_fd != 0 ) {
+					epoll_ctl(epfd, EPOLL_CTL_DEL,
+					g_conn_sock_fd, NULL);
+					//close(events[i].data.fd);
+					close( g_conn_sock_fd );
+					g_conn_sock_fd = 0;
+				}
+				if( g_relay_sock_fd != 0 ) {
+					epoll_ctl(epfd, EPOLL_CTL_DEL,
+					g_relay_sock_fd, NULL);
+					//close(events[i].data.fd);
+					close( g_relay_sock_fd );
+					g_relay_sock_fd = 0;
+				}
+
 				continue;
 			}
 		}

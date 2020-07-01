@@ -94,6 +94,11 @@ void client_run()
 					break;
 				}
 			}
+			if( n<0 && errno != EAGAIN ) {
+				// lost connection
+				perror("write");
+				exit(1);
+			}
 			nanosleep( &g_send_wait, 0 );
 			sent_count++;
 		}

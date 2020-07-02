@@ -11,7 +11,7 @@ add_executable (relay_server relay_server.cpp)
 add_dependencies(relay_server config4cpp)
 target_link_libraries(relay_server /root/llutils/third_party/config4cpp/lib/libconfig4cpp.a)
 
-add_executable (protodump protodump.cpp protodump_main.cpp)
-add_dependencies(protodump config4cpp)
-target_link_libraries(protodump /root/llutils/third_party/config4cpp/lib/libconfig4cpp.a)
+#add_executable (protodump protodump.cpp protodump_main.cpp)
+#add_dependencies(protodump config4cpp)
+#target_link_libraries(protodump /root/llutils/third_party/config4cpp/lib/libconfig4cpp.a)
 

@@ -8,7 +8,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 set(CMAKE_C_FLAGS_RELEASE "-g -O3 -DNDEBUG -fno-omit-frame-pointer -Wall -Wextra -Wpedantic --save-temps")
 set(CMAKE_CXX_FLAGS_RELEASE "-g -O3 -DNDEBUG -fno-omit-frame-pointer -Wall -Wextra -Wpedantic --save-temps ")
 
-#add_subdirectory(third_party/googletest)
+add_subdirectory(third_party/googletest)
 
 #add_subdirectory(third_party/benchmark)
 #add_subdirectory(third_party/config4cpp)
@@ -27,4 +27,5 @@ include_directories(include)
 #add_subdirectory (harness)
 
 add_subdirectory (lls)
+add_subdirectory (devtools)
 

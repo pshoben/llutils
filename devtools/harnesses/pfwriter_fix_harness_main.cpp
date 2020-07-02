@@ -21,10 +21,13 @@ int main()
 	pf->type_name = "test_type_name";
 	pf->type_desc = "test_type desc";
 	
-	PfWriter pfw;
+	PfWriter pfw(out);
 
 	pfw.init();
 	pfw.write(pf);
+
+	std::cout << std::endl;
+
 	return 0;
 }
 

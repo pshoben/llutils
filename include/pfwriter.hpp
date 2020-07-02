@@ -21,7 +21,7 @@ namespace llutils::devtools {
 	 */ 
 	class PfWriter {
 	public:	
-		//PfWriter(ostream & stream);
+		PfWriter(ostream & stream);
 		//PfWriter();
 		//~PfWriter();
 		void init();
@@ -38,7 +38,7 @@ namespace llutils::devtools {
 		/** formats an object previously created by a Preformatter and writes it to the stream */
 		void write( unique_ptr<Preformatted> & message ) ;
 
-		//ostream & output_stream;
+		ostream & output_stream;
 	private:
 		unique_ptr<PfWriterImpl,PfWriterImplDeleter> pImpl;
 	};

@@ -36,7 +36,7 @@ namespace llutils::devtools {
 		/** formats an object previously created by a Preformatter and writes it to the stream */
 		void write( unique_ptr<Preformatted> & message ) ;
 	private:
-		string_view to_string(  unique_ptr<Preformatted> & message );
+		//string_view to_string(  unique_ptr<Preformatted> & pf );
 
 		//ostream & output_stream;
 		std::string format_type;

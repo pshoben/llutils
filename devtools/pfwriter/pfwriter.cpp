@@ -4,10 +4,10 @@
 
 namespace llutils::devtools {
 
-//	PfWriter::PfWriter(ostream & stream)
-//		: output_stream(stream)
-//		, pImpl(std::make_unique<PfWriterImpl>(this))
-//	{}
+	PfWriter::PfWriter(ostream & stream)
+		: output_stream(stream) 
+		, pImpl(new PfWriterImpl()) // custom deleter precludes make_unique
+	{}
 	//PfWriter::PfWriter()=default;
 	//PfWriter::~PfWriter()=default;
 

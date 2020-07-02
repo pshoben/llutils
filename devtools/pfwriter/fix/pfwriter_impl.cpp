@@ -23,14 +23,22 @@ namespace llutils::devtools {
 		this->format_type = format_type;
 	}
 	
-	void PfWriterImpl::write( std::unique_ptr<Preformatted> & message ) 
+	void PfWriterImpl::write( std::unique_ptr<Preformatted> & pf ) 
 	{
-	//	pwrapper->output_stream << to_string( message ) << std::endl;
+		ostream & out = pwrapper->output_stream;
+		out << pf->raw_bytes << "," 
+			<< pf->type_id << ","
+			<< pf->type_name << ","
+			<< pf->type_desc << "\n";
 	}
 
-	string_view PfWriterImpl::to_string( unique_ptr<Preformatted> & message ) {
-		return "";
-	}
+//	string_view PfWriterImpl::to_string( unique_ptr<Preformatted> & pf ) {
+//		ostream &  out = pwrapper->output_stream;
+//		out << pf->raw_bytes << "," 
+//			<< pf->type_id << ","
+//			<< pf->type_name << ","
+//			<< pf->type_desc << "\n";
+//	}
         
 	void PfWriterImplDeleter::operator()(PfWriterImpl *p) { delete p ; } 
 }

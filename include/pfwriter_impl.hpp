@@ -9,7 +9,7 @@
 #include <preformatted.hpp>
 #include <pfwriter.hpp>
 
-using std::unique_ptr;
+//using std::unique_ptr;
 using std::string;
 using std::ostream;
 using std::string;
@@ -23,8 +23,6 @@ namespace llutils::devtools {
 	 */ 
 	class PfWriterImpl {
 	public:
-		//PfWriterImpl();
-		//~PfWriterImpl(); //=default;
 		void init(PfWriter * w);
 
 		/** \returns a list of supported format options e.g. csv, xml, json, etc. 
@@ -37,12 +35,10 @@ namespace llutils::devtools {
 		void set_format( string format_type ) noexcept(false) ;
 
 		/** formats an object previously created by a Preformatter and writes it to the stream */
-		void write( unique_ptr<Preformatted> & pf ) ;
+		void write( std::unique_ptr<Preformatted> & pf ) ;
 		void write( PreformattedSection & pfs ) ;
 	private:
 		string quote_string( const string & s );
-
-		//ostream & output_stream;
 		string format_type;
 		PfWriter * pwrapper;
 	};

@@ -22,8 +22,6 @@ namespace llutils::devtools {
 	class PfWriter {
 	public:	
 		PfWriter(ostream & stream);
-		//PfWriter();
-		//~PfWriter();
 		void init();
 
 		/** \returns a list of supported format options e.g. csv, xml, json, etc. 

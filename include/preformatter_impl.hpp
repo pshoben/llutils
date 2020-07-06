@@ -1,25 +1,22 @@
-#ifndef LLUTILS_PREFORMATTER_HPP
-#define LLUTILS_PREFORMATTER_HPP
+#ifndef LLUTILS_PREFORMATTER_IMPL_HPP
+#define LLUTILS_PREFORMATTER_IMPL_HPP
 
 #include <memory>
 #include <string>
 #include <vector>
-#include <preformatted.hpp>
+#include <preformatter.hpp>
 
 using std::string;
 using std::vector;
-using std::unique_ptr;
 
 namespace llutils::devtools {
 
-	class PreformatterImpl;
-	struct PreformatterImplDeleter { void operator()(PreformatterImpl *p);};
-	/* \class Preformatter
+	/* \class PreformatterImpl
 	 * \brief a structure for describing message contents */
-	class Preformatter {
+	class PreformatterImpl {
 	public:
-		Preformatter();
-		void init();
+		void init(Preformatter * w);
+
 		/** \returns a list of supported protocol names 
 		 */
 		vector<string> get_supported_protocol_names() ;
@@ -36,9 +33,11 @@ namespace llutils::devtools {
 				   string protocol_version ) noexcept(false) ;
 
 		/** \returns a pre-formatted object from a raw message */
-		unique_ptr<Preformatted> preformat( const char * raw_bytes, size_t len ) ;
+		std::unique_ptr<Preformatted> preformat( const char * raw_bytes, size_t len ) ;
 	private:
-		unique_ptr<PreformatterImpl, PreformatterImplDeleter> pImpl;
+		string protocol_name;
+		string protocol_version;
+		Preformatter * pwrapper;
 	};
 }
 

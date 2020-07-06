@@ -3,10 +3,11 @@
 
 #include <ostream>
 #include <memory>
-#include <string_view>
+#include <string>
 #include <vector>
 #include <preformatted.hpp>
 
+using std::string;
 using std::unique_ptr;
 using std::ostream;
 
@@ -17,7 +18,6 @@ namespace llutils::devtools {
 
 	/** \class PfWriter
 	 *  \brief formats then writes a preformatted structure to a previously opened stream (e.g. file or stdout) 
-	 *  this class does not provide methods for closing the stream or destroying the Preformatted object  
 	 */ 
 	class PfWriter {
 	public:	
@@ -28,12 +28,12 @@ namespace llutils::devtools {
 
 		/** \returns a list of supported format options e.g. csv, xml, json, etc. 
 		 */
-		std::vector<string_view> get_supported_formats() ;
+		std::vector<string> get_supported_formats() ;
 
 		/** select the output format e.g. csv, xml, json, ods
 		 *  @throw if selected format is not supported (i.e. not in the list returned by get_supported_formats)  
 		 */
-		void set_format( std::string_view format_type ) noexcept(false) ;
+		void set_format( string format_type ) noexcept(false) ;
 
 		/** formats an object previously created by a Preformatter and writes it to the stream */
 		void write( unique_ptr<Preformatted> & message ) ;

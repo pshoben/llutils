@@ -8,19 +8,17 @@ namespace llutils::devtools {
 		: output_stream(stream) 
 		, pImpl(new PfWriterImpl()) // custom deleter precludes make_unique
 	{}
-	//PfWriter::PfWriter()=default;
-	//PfWriter::~PfWriter()=default;
 
 	void PfWriter::init() {
 		pImpl->init(this);
 	}
 
-	std::vector<string_view> PfWriter::get_supported_formats() 
+	std::vector<string> PfWriter::get_supported_formats() 
 	{
 		return pImpl->get_supported_formats();
 	}
 	
-	void PfWriter::set_format( std::string_view format_type )
+	void PfWriter::set_format( std::string format_type )
 	{
 		pImpl->set_format( format_type );
 	}

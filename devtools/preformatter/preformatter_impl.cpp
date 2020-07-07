@@ -1,4 +1,5 @@
 #include <preformatter_impl.hpp>
+#include <preformatter_fix.hpp>
 #include <iostream>
 #include <vector>
 #include <memory>
@@ -14,7 +15,7 @@ namespace llutils::devtools {
 
 	vector<string> PreformatterImpl::get_supported_protocol_names() 
 	{
-		vector<string> v{};
+		vector<string> v{"FIX"};
 		return v;
 	}
 	vector<string> PreformatterImpl::get_supported_protocol_versions( string protocol_name ) 
@@ -32,7 +33,9 @@ namespace llutils::devtools {
 
 	std::unique_ptr<Preformatted> PreformatterImpl::preformat( const char * raw_bytes, size_t len ) 
 	{
-		return std::make_unique<Preformatted>(Preformatted());
+		PreformatterFix fix;
+		std::unique_ptr<Preformatted> pf = fix.preformat(raw_bytes, len );
+		return std::move(pf);	
 	}	
 
 	void PreformatterImplDeleter::operator()(PreformatterImpl *p) { delete p ; } 

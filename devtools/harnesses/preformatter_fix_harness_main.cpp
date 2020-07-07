@@ -40,16 +40,20 @@ int main()
 
 	pf->sections.push_back(create_section(  1, 8, "BeginString", "FIX4.2", "" )) ;
 	pf->sections.push_back(create_section(  1, 9, "BodyLength", "999", "" )) ;
-	pf->sections.push_back(create_section(  1, 56, "MsgType", "D", "" )) ;
+	pf->sections.push_back(create_section(  1, 35, "MsgType", "D", "" )) ;
 	pf->sections.push_back(create_section(  1, 49, "SenderCompID", "SenderSubID", "" )) ;
 	pf->sections.push_back(create_section(  1, 50, "SenderSubID", "SenderSubID", "" )) ;
 	pf->sections.push_back(create_section(  1, 56, "TargetCompID", "TargetCompID", "" )) ;
 	pf->sections.push_back(create_section(  1, 57, "TargetSubID", "TargetSubID", "" )) ;
 
+	string fixstr = "8=FIX\0019=100\00135=D\00149=SenderCompID\00156=TargetCompID\001";
+	std::unique_ptr<Preformatted> pf2 = pfm.preformat( fixstr.c_str(), fixstr.size());
+
 	PfWriter pfw{out};
 
 	pfw.init();
 	pfw.write(pf);
+	pfw.write(pf2);
 
 	std::cout << std::endl;
 

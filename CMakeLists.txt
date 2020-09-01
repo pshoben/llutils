@@ -10,8 +10,8 @@ set(CMAKE_CXX_FLAGS_RELEASE "-g -O3 -DNDEBUG -fno-omit-frame-pointer -Wall -Wext
 
 add_subdirectory(third_party/googletest)
 
-#add_subdirectory(third_party/benchmark)
-#add_subdirectory(third_party/config4cpp)
+# delete me add_subdirectory(third_party/benchmark)
+# delete me add_subdirectory(third_party/config4cpp)
 
 add_custom_target(
    config4cpp
@@ -22,9 +22,9 @@ include_directories(/root/llutils/third_party/config4cpp/include)
 
 include_directories(include)
 
-#add_subdirectory (test)
-#add_subdirectory (benchmark)
-#add_subdirectory (harness)
+add_subdirectory (test)
+add_subdirectory (benchmark)
+add_subdirectory (harness)
 
 add_subdirectory (lls)
 add_subdirectory (devtools/protodump)

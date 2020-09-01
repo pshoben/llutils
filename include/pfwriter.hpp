@@ -11,7 +11,8 @@ using std::string;
 using std::unique_ptr;
 using std::ostream;
 
-namespace llutils::devtools {
+namespace llutils {
+namespace devtools {
 
 	class PfWriterImpl;
 	struct PfWriterImplDeleter { void operator()(PfWriterImpl *p);};
@@ -40,5 +41,5 @@ namespace llutils::devtools {
 	private:
 		unique_ptr<PfWriterImpl,PfWriterImplDeleter> pImpl;
 	};
-}
+}}
 #endif

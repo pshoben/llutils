@@ -11,6 +11,7 @@ using std::endl;
 
 using namespace llutils;
 
+
 std::ostream& operator<<(std::ostream& os, uint128_t x){
     if(x<10) return  os << (char)(x+'0');
     return os << x/10 << (char)(x%10+'0');
@@ -20,6 +21,7 @@ std::ostream& operator<<(std::ostream& os, int128_t x){
     if(x<10) return  os << (char)(x+'0');
     return os << x/10 << (char)(x%10+'0');
 }
+
 
 void print_convert_uint128(const char * in, int version)
 {
@@ -65,7 +67,7 @@ void print_convert_uint128(const char * in, int version)
 	if( !match  || print_matches ) {
 		printf("in print_convert_uint128 : version %d\n",version);
 		cout << " expected = [" << orig << "] out = [" << y << "] match = " << (!strcmp(s.c_str(),in)?"TRUE":"FALSE") << endl;
-	}
+	} 
 }
 void print_convert_uint128_versions(const char * in)
 {
@@ -96,6 +98,7 @@ void uint128_to_cstr(uint128_t x, char * dest, bool strip_leading_zeroes)
 	}
 	//printf("uint128_to_cstr: sts  = %s in = %s p = %s\n",sts.str().c_str(),in,p);
 	strcpy( dest, p );
+        
 }
 
 template <typename T>

@@ -24,11 +24,22 @@ void test_unsigned_short() {
  		sprintf(in,"%04u",low);
 		llutils_expect_value(LLUtils<unsigned short>::unsigned_cstr_to_num(in,strlen(in)),in);
 	}
+
 	for( short i = 0 ; i <= 10 ; i++ ) {
 		low = low * rand() % USHRT_MAX; // overflows
  		sprintf(in,"%u",low);
 		llutils_expect_value(LLUtils<unsigned short>::unsigned_cstr_to_num(in,strlen(in)),in);
 	}
+
+	// version with additional size template parameter
+
+	for( short i = 0 ; i <= 10 ; i++ ) {
+		low = low * rand() % USHRT_MAX; // overflows
+ 		sprintf(in,"%u",low);
+		size_t num_digits = strlen(in);
+		llutils_expect_value( LLUtils< unsigned short >::unsigned_cstr_to_num(in,strlen(in)),in);
+	}
+
 }
 
 

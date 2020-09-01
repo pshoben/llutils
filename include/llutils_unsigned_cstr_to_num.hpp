@@ -1,7 +1,7 @@
 #ifndef llutils_unsigned_cstr_to_num_hpp
 #define llutils_unsigned_cstr_to_num_hpp
 
-#include <stdlib.h>
+#include <cstdlib>
 #include <type_traits>
 #include <utility>
 #include <limits>
@@ -29,7 +29,7 @@ namespace llutils {
 // preferred implementation
 #define unsigned_cstr_to_num( buffer, len ) unsigned_cstr_to_num_v5( buffer, len )
 
-template <typename T>
+template <typename T, int S = 0 > /* size  0 = unused */
 class LLUtils
 {
 public:
@@ -37,7 +37,10 @@ public:
 	template <typename... Args>
 	static T unsigned_cstr_to_num_fwd(Args&& ... args)
 	{
-  		return unsigned_cstr_to_num_v5(std::forward<Args>(args)...);
+  		//return unsigned_cstr_to_num_v5(std::forward<Args>(args)...);
+
+		// forward to v7 (version with 2x template parameters)
+  		return unsigned_cstr_to_num_v7(std::forward<Args>(args)...);
 	}
 
 	static T unsigned_cstr_to_num_v1( const char *buffer, size_t len __attribute__((unused)))
@@ -85,6 +88,7 @@ public:
 		}
 		return result;
 	} 
+
 	static T unsigned_cstr_to_num_v6( const char *buffer, size_t len )
 	{
 		static_assert(std::is_unsigned<T>::value,"");
@@ -95,9 +99,68 @@ public:
 		return result;
 	} 
 
+	static T unsigned_cstr_to_num_v7_fixed_len( const char *buffer ) 
+	{
+		T result = 0;
+		for( std::size_t len = S ; len>0 ; len-- ) {
+			result += powten[len] * (*buffer++ - '0');
+		}
+		return result;
+	} 
+
+	static T unsigned_cstr_to_num_v7( const char *buffer, size_t len )
+	{
+		switch( len ) {
+		case 1:
+			return LLUtils<T, 1>::unsigned_cstr_to_num_v7_fixed_len( buffer );
+		case 2:
+			return LLUtils<T, 2>::unsigned_cstr_to_num_v7_fixed_len( buffer );
+		case 3:
+			return LLUtils<T, 3>::unsigned_cstr_to_num_v7_fixed_len( buffer );
+		case 4:
+			return LLUtils<T, 4>::unsigned_cstr_to_num_v7_fixed_len( buffer );
+		case 5:
+			return LLUtils<T, 5>::unsigned_cstr_to_num_v7_fixed_len( buffer );
+		case 6:
+			return LLUtils<T, 6>::unsigned_cstr_to_num_v7_fixed_len( buffer );
+		case 7:
+			return LLUtils<T, 7>::unsigned_cstr_to_num_v7_fixed_len( buffer );
+		case 8:
+			return LLUtils<T, 8>::unsigned_cstr_to_num_v7_fixed_len( buffer );
+		case 9:
+			return LLUtils<T, 9>::unsigned_cstr_to_num_v7_fixed_len( buffer );
+		case 10:
+			return LLUtils<T, 10>::unsigned_cstr_to_num_v7_fixed_len( buffer );
+		case 11:
+			return LLUtils<T, 11>::unsigned_cstr_to_num_v7_fixed_len( buffer );
+		case 12:
+			return LLUtils<T, 12>::unsigned_cstr_to_num_v7_fixed_len( buffer );
+		case 13:
+			return LLUtils<T, 13>::unsigned_cstr_to_num_v7_fixed_len( buffer );
+		case 14:
+			return LLUtils<T, 14>::unsigned_cstr_to_num_v7_fixed_len( buffer );
+		case 15:
+			return LLUtils<T, 15>::unsigned_cstr_to_num_v7_fixed_len( buffer );
+		case 16:
+			return LLUtils<T, 16>::unsigned_cstr_to_num_v7_fixed_len( buffer );
+		default:
+			return unsigned_cstr_to_num_v6( buffer, len );
+		}
+	} 
 private:
 	static const T powten[std::numeric_limits<T>::digits10+1];
 };
+/*
+template < typename T, int S >
+T LLUtils<T,S>::unsigned_cstr_to_num_v7_fixed_len( const char *buffer )
+{
+	T result = 0;
+	for( std::size_t len = S ; len>0 ; len-- ) {
+		result += powten[len] * (*buffer++ - '0');
+	}
+	return result;
+} 
+*/
 template<>
 uint128_t LLUtils<uint128_t>::unsigned_cstr_to_num_v4( const char *buffer, size_t len )
 {

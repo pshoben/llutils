@@ -65,7 +65,7 @@ void print_convert_uint128(const char * in, int version)
 	bool print_matches = false;
 	bool match = !strcmp(s.c_str(),in);
 	if( !match  || print_matches ) {
-		printf("in print_convert_uint128 : version %d\n",version);
+		//printf("in print_convert_uint128 : version %d\n",version);
 		cout << " expected = [" << orig << "] out = [" << y << "] match = " << (!strcmp(s.c_str(),in)?"TRUE":"FALSE") << endl;
 	} 
 }
@@ -103,7 +103,7 @@ void uint128_to_cstr(uint128_t x, char * dest, bool strip_leading_zeroes)
 
 template <typename T>
 void llutils_expect_value( T val, const char * str) {
-	//cout << "llutils_expect_value val = " << val << " str = [" << str << "] " << endl;
+	cout << "llutils_expect_value val = " << val << " str = [" << str << "] " << endl;
 	uint128_t bigval = (uint128_t)val;
 	char val_as_str[64];
 	uint128_to_cstr( bigval, val_as_str, true );

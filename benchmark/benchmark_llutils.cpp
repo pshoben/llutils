@@ -17,7 +17,7 @@ using namespace llutils;
 char bench_atoi_samples[NUM_SAMPLES][64];
 size_t bench_atoi_sample_lens[NUM_SAMPLES];
 
-#if 0 // set to 1 for validation/unusable benchmark results & set to 0 to run benchmark without validation of results
+#if 1 // set to 1 for validation/unusable benchmark results & set to 0 to run benchmark without validation of results
 #define LLUTILS_EXPECT_VALUE(a,b) llutils_expect_value(a,b)
 #else
 #define LLUTILS_EXPECT_VALUE(a,b)

@@ -8,6 +8,8 @@
 using namespace llutils;
 
 void test_unsigned_short() {
+	printf("\n\n\n%s::::::::\n",__FUNCTION__);
+
 	char in[64];
 	// 0 value
 	sprintf(in,"0");
@@ -31,19 +33,12 @@ void test_unsigned_short() {
 		llutils_expect_value(LLUtils<unsigned short>::unsigned_cstr_to_num(in,strlen(in)),in);
 	}
 
-	// version with additional size template parameter
-
-	for( short i = 0 ; i <= 10 ; i++ ) {
-		low = low * rand() % USHRT_MAX; // overflows
- 		sprintf(in,"%u",low);
-		size_t num_digits = strlen(in);
-		llutils_expect_value( LLUtils< unsigned short >::unsigned_cstr_to_num(in,strlen(in)),in);
-	}
-
 }
 
 
 void test_unsigned_int() {
+	printf("\n\n\n%s::::::::\n",__FUNCTION__);
+
 	char in[64];
 	// 0 value
 	sprintf(in,"0");
@@ -72,6 +67,7 @@ void test_unsigned_int() {
 
 
 void test_unsigned_long() {
+	printf("\n\n\n%s::::::::\n",__FUNCTION__);
 
 	char in[64];
 
@@ -101,6 +97,7 @@ void test_unsigned_long() {
 }
 
 void test_uint128() {
+	printf("\n\n\n%s::::::::\n",__FUNCTION__);
 
 	char in[64];
 
@@ -149,7 +146,7 @@ int main(void) {
 	test_unsigned_short();
 	test_unsigned_int();
 	test_unsigned_long();
-	test_uint128();
+	//test_uint128();
 	printf("test harness exit\n\n");
 }
 

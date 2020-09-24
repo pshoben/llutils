@@ -41,7 +41,6 @@ public:
   		//return unsigned_cstr_to_num_v5(std::forward<Args>(args)...);
 
 		// forward to v7 (version with 2x template parameters)
-		//printf("in universal forwarding function\n");
   		return unsigned_cstr_to_num_v7(std::forward<Args>(args)...);
 	}
 
@@ -95,8 +94,6 @@ public:
 
 	static T unsigned_cstr_to_num_v6( const char *buffer, size_t len )
 	{
-		//printf("#a1 %s: len= %d\n",__FUNCTION__, len);
-
 		static_assert(std::is_unsigned<T>::value,"");
 		T result = 0;
 		while LLUTILS_LIKELY(len) {
@@ -110,20 +107,15 @@ public:
 	{
 		T result = 0;
 		int len = S;
-		//printf("#3 %s: len= %d\n",__FUNCTION__, len);
 		while( len ) {
-			//printf("#4 %s: %c=%d * powten[%d]%d = %d\n",__FUNCTION__,*buffer,(*buffer - '0'),len,LLUtils<T,0>::powten[len],LLUtils<T,0>::powten[len] * (*buffer - '0'));
 			result += LLUtils<T,0>::powten[len] * (*buffer++ - '0');
 			len--;
 		} 
-		//printf("%s: %c  = %d\n",__FUNCTION__, *buffer,(*buffer - '0'));
-		//result += *buffer - '0';
 		return result;
 	} 
 
 	static T unsigned_cstr_to_num_v7( const char *buffer, size_t len )
 	{
-		//printf("#5 %s:%s:%d buffer = [%s] strlen buffer = [%u] len = [%u]\n",__FUNCTION__, __FILE__, __LINE__, buffer, strlen(buffer),len);
 		switch( len ) {
 		case 0:
 			return (T) 0;
@@ -160,7 +152,6 @@ public:
 		case 16:
 			return LLUtils<T, 16>::unsigned_cstr_to_num_v7_fixed_len( buffer );
 		default:
-			//printf("#1 %s: buffer = [%s] strlen buffer = [%u] len = [%u] calling v6\n",__FUNCTION__, buffer, strlen(buffer),len);
 			return unsigned_cstr_to_num_v6( buffer, len );
 		}
 	} 
@@ -184,7 +175,6 @@ uint128_t LLUtils<uint128_t>::unsigned_cstr_to_num_v6( const char *buffer, size_
 template<>
 uint128_t LLUtils<uint128_t>::unsigned_cstr_to_num_v7( const char *buffer, size_t len )
 {
-	//printf("#2 %s:%s:%d buffer = [%s] strlen buffer = [%u] len = [%u]\n",__FUNCTION__, __FILE__, __LINE__, buffer, strlen(buffer),len);
 	return LLUtils<uint128_t>::unsigned_cstr_to_num_v2(buffer,len);
 } 
 
@@ -241,7 +231,6 @@ const unsigned short LLUtils<unsigned short>::powten[6] = {
 template<>
 unsigned short LLUtils<unsigned short>::unsigned_cstr_to_num_v7( const char *buffer, size_t len )
 {
-	//printf("#3 %s:%s:%d buffer = [%s] strlen buffer = [%u] len = [%u]\n",__FUNCTION__, __FILE__, __LINE__, buffer, strlen(buffer),len);
 	switch( len ) {
 	case 1:
 		return LLUtils<unsigned short, 1>::unsigned_cstr_to_num_v7_fixed_len( buffer );
@@ -262,7 +251,6 @@ unsigned short LLUtils<unsigned short>::unsigned_cstr_to_num_v7( const char *buf
 template<>
 unsigned int LLUtils<unsigned int>::unsigned_cstr_to_num_v7( const char *buffer, size_t len )
 {
-	//printf("#3 %s:%s:%d buffer = [%s] strlen buffer = [%u] len = [%u]\n",__FUNCTION__, __FILE__, __LINE__, buffer, strlen(buffer),len);
 	switch( len ) {
 	case 1:
 		return LLUtils<unsigned int, 1>::unsigned_cstr_to_num_v7_fixed_len( buffer );

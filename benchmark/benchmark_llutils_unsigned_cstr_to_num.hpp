@@ -37,8 +37,6 @@ static void fill_samples(int num_bits,int max_bits) {
 	        //unsigned long low = ((uint128_t)x)%((uint128_t)2<<64);
 		uint128_to_cstr( x, bench_atoi_samples[i], true );
 		bench_atoi_sample_lens[i] = strlen(bench_atoi_samples[i]);
-		//printf("num_bits = %d ; high = %lu ; low = %lu sample[%d] = %s\n",bits,(unsigned long)high,(unsigned long)low,i,bench_atoi_samples[i]);
-		//printf("num_bits = %d ; sample[%d] = %s\n",bits,i,bench_atoi_samples[i]);
 
 	}
 }

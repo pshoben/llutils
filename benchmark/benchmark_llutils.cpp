@@ -29,11 +29,8 @@ static void fill_samples(int num_bits,int max_bits) {
 	for(int i = 0 ; i < NUM_SAMPLES; i++ ) {
 		uint128_t r = (uint128_t)rand() * (uint128_t)rand(); 
 		uint128_t x = (r + (r<<32) + (r<<64) + (r<<96))%(((uint128_t)1) << bits);
-	        //unsigned long high = ((uint128_t)x)/((uint128_t)2<<64);
-	        //unsigned long low = ((uint128_t)x)%((uint128_t)2<<64);
 		uint128_to_cstr( x, bench_atoi_samples[i], true );
 		bench_atoi_sample_lens[i] = strlen(bench_atoi_samples[i]);
-		//printf("num_bits = %d ; high = %lu ; low = %lu sample[%d] = %s\n",bits,(unsigned long)high,(unsigned long)low,i,bench_atoi_samples[i]);
 	}
 }
 /*

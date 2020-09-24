@@ -7,5 +7,5 @@ project(protodump VERSION 0.1)
 
 add_executable (protodump protodump.cpp protodump_main.cpp)
 add_dependencies(protodump config4cpp)
-target_link_libraries(protodump /root/llutils/third_party/config4cpp/lib/libconfig4cpp.a)
+target_link_libraries(protodump /home/root/git/llutils/third_party/config4cpp/lib/libconfig4cpp.a)
 

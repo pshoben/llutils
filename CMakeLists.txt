@@ -16,9 +16,9 @@ add_subdirectory(third_party/googletest)
 add_custom_target(
    config4cpp
    COMMAND make
-   WORKING_DIRECTORY /root/llutils/third_party/config4cpp/
+   WORKING_DIRECTORY /home/root/git/llutils/third_party/config4cpp/
 )
-include_directories(/root/llutils/third_party/config4cpp/include)
+include_directories(/home/root/git/llutils/third_party/config4cpp/include)
 
 include_directories(include)
 

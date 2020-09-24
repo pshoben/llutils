@@ -6,7 +6,7 @@ project(lls VERSION 0.1)
 #set(THREADS_PREFER_PTHREAD_FLAG_ON)
 find_package(Threads)
 
-include_directories(/home/root/git/llutils/harness/)
+include_directories(${PROJECT_SOURCE_DIR}/harness/)
 
 add_executable (echo_server echo_server.c)
 add_executable (socket_client socket_client.c)
@@ -16,9 +16,9 @@ target_link_libraries(socket_client_non_blocking pthread)
 
 add_executable (relay_server relay_server.cpp)
 add_dependencies(relay_server config4cpp)
-target_link_libraries(relay_server /home/root/git/llutils/third_party/config4cpp/lib/libconfig4cpp.a)
+target_link_libraries(relay_server ${PROJECT_SOURCE_DIR}/third_party/config4cpp/lib/libconfig4cpp.a)
 
 #add_executable (protodump protodump.cpp protodump_main.cpp)
 #add_dependencies(protodump config4cpp)
-#target_link_libraries(protodump /home/root/git/llutils/third_party/config4cpp/lib/libconfig4cpp.a)
+#target_link_libraries(protodump ${PROJECT_SOURCE_DIR}/third_party/config4cpp/lib/libconfig4cpp.a)
 

@@ -2,12 +2,15 @@ cmake_minimum_required(VERSION 3.10.0)
 
 project(benchmark_llutils VERSION 0.1)
 
+set(THREADS_PREFER_PTHREAD_FLAG ON)
+find_package(Threads REQUIRED)
+
 add_subdirectory(/home/root/git/llutils/third_party/benchmark REQUIRED)
 include_directories(/home/root/git/llutils/harness/)
 include_directories(/home/root/git/llutils/third_party/benchmark/include)
 
 add_executable (benchmark_llutils benchmark_llutils.cpp)
-target_link_libraries(benchmark_llutils benchmark::benchmark)
+target_link_libraries(benchmark_llutils benchmark::benchmark ${CMAKE_THREAD_LIBS_INIT})
 
 add_executable (benchmark_llutils_unsigned_cstr_to_num_short 
 	benchmark_llutils_unsigned_cstr_to_num_short.cpp

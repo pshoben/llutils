@@ -8,6 +8,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 set(CMAKE_C_FLAGS_RELEASE "-g -O3 -DNDEBUG -fno-omit-frame-pointer -Wall -Wextra -Wpedantic --save-temps")
 set(CMAKE_CXX_FLAGS_RELEASE "-g -O3 -DNDEBUG -fno-omit-frame-pointer -Wall -Wextra -Wpedantic --save-temps ")
 
+set(THREADS_PREFER_PTHREAD_FLAG ON)
+find_package(Threads REQUIRED)
+
 add_subdirectory(third_party/googletest)
 
 # delete me add_subdirectory(third_party/benchmark)

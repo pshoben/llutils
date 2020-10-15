@@ -11,8 +11,8 @@ include_directories(/home/root/git/llutils/harness/)
 add_executable (echo_server echo_server.c)
 add_executable (socket_client socket_client.c)
 
-add_executable (socket_client_non_blocking socket_client_non_blocking.c)
-target_link_libraries(socket_client_non_blocking pthread)
+#add_executable (socket_client_non_blocking socket_client_non_blocking.c)
+#target_link_libraries(socket_client_non_blocking pthread)
 
 add_executable (relay_server relay_server.cpp)
 add_dependencies(relay_server config4cpp)
